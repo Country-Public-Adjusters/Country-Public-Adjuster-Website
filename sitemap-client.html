@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Country Public Adjusters — Website Proposal</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    color: #1a1a2e;
+    background: #fff;
+    line-height: 1.6;
+  }
+
+  /* ── Cover ── */
+  .cover {
+    background: linear-gradient(135deg, #0B1F3A 0%, #040D1A 100%);
+    color: white;
+    padding: 80px 60px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%);
+  }
+  .cover-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #F59E0B;
+    margin-bottom: 16px;
+  }
+  .cover h1 {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .cover-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    max-width: 480px;
+  }
+  .cover-meta {
+    margin-top: 40px;
+    display: flex;
+    gap: 32px;
+  }
+  .cover-meta-item {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+  }
+  .cover-meta-item strong {
+    display: block;
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  /* ── Layout ── */
+  .content { padding: 48px 60px; max-width: 900px; }
+
+  /* ── Section titles ── */
+  .section-title {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #F59E0B;
+    margin-bottom: 8px;
+    margin-top: 48px;
+  }
+  .section-title:first-child { margin-top: 0; }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #0B1F3A;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0B1F3A;
+    margin-bottom: 6px;
+    margin-top: 24px;
+  }
+
+  p { color: #4a5568; margin-bottom: 12px; }
+
+  /* ── Sitemap tree ── */
+  .tree {
+    background: #f8fafc;
+    border: 1px solid #e8edf2;
+    border-left: 4px solid #F59E0B;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 16px 0 24px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 2;
+    color: #2d3748;
+  }
+  .tree .root { font-weight: 700; color: #0B1F3A; font-size: 14px; }
+  .tree .page { color: #2d3748; }
+  .tree .page-group { color: #0B1F3A; font-weight: 600; }
+  .tree .sub { color: #718096; }
+  .tree .tag {
+    display: inline-block;
+    background: #F59E0B;
+    color: #0B1F3A;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    font-family: sans-serif;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+  }
+
+  /* ── Page cards ── */
+  .page-card {
+    border: 1px solid #e8edf2;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    break-inside: avoid;
+  }
+  .page-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .page-url {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: #0B1F3A;
+    background: #f0f4f8;
+    padding: 3px 10px;
+    border-radius: 5px;
+  }
+  .page-purpose {
+    font-size: 12px;
+    font-weight: 600;
+    color: #F59E0B;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .page-card p { color: #4a5568; font-size: 13px; margin-bottom: 10px; }
+
+  .pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .pill {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #EFF6FF;
+    color: #1E40AF;
+    border: 1px solid #BFDBFE;
+  }
+  .pill.gold {
+    background: #FFFBEB;
+    color: #B45309;
+    border-color: #FDE68A;
+  }
+  .pill.green {
+    background: #F0FDF4;
+    color: #166534;
+    border-color: #BBF7D0;
+  }
+
+  /* ── Steps ── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .step {
+    background: #f8fafc;
+    border: 1px solid #e8edf2;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+  }
+  .step-num {
+    font-size: 18px;
+    font-weight: 800;
+    color: #F59E0B;
+    display: block;
+  }
+  .step-label {
+    font-size: 11px;
+    color: #4a5568;
+    font-weight: 500;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ── Feature table ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+  th {
+    background: #0B1F3A;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  th:first-child { border-radius: 6px 0 0 0; }
+  th:last-child { border-radius: 0 6px 0 0; }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #4a5568;
+    vertical-align: top;
+  }
+  td:first-child { font-weight: 600; color: #1a1a2e; }
+  tr:nth-child(even) td { background: #fafafa; }
+
+  /* ── Stats bar ── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .stat-box {
+    background: linear-gradient(135deg, #0B1F3A, #163054);
+    color: white;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 26px;
+    font-weight: 800;
+    color: #F59E0B;
+    display: block;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ── Footer ── */
+  .doc-footer {
+    margin-top: 48px;
+    padding: 24px 60px;
+    background: #f8fafc;
+    border-top: 1px solid #e8edf2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .doc-footer p { font-size: 12px; color: #718096; margin: 0; }
+  .doc-footer strong { color: #0B1F3A; }
+
+  /* ── Print ── */
+  @media print {
+    .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .stat-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page-card { break-inside: avoid; }
+    body { font-size: 12px; }
+    .content { padding: 32px 48px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="cover-label">Website Proposal Document</div>
+  <h1>Country Public Adjusters<br/>Website Sitemap & Structure</h1>
+  <p class="cover-sub">A complete overview of the website architecture, page content, and built-in functionalities.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><strong>Client</strong>Country Public Adjusters</div>
+    <div class="cover-meta-item"><strong>Prepared by</strong>Wolfburgh</div>
+    <div class="cover-meta-item"><strong>Total Pages</strong>29</div>
+    <div class="cover-meta-item"><strong>Regions Covered</strong>Nashville, TN &amp; South Florida</div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- At a glance -->
+  <div class="section-title">At a Glance</div>
+  <h2>Project Overview</h2>
+  <p>The Country Public Adjusters website is built as a premium lead generation platform — designed to convert storm-damaged property owners into booked inspections. Every page, section, and feature is purpose-built around that goal.</p>
+
+  <div class="stats-bar">
+    <div class="stat-box"><span class="stat-num">29</span><span class="stat-label">Total Pages</span></div>
+    <div class="stat-box"><span class="stat-num">8</span><span class="stat-label">Damage Type Pages</span></div>
+    <div class="stat-box"><span class="stat-num">10</span><span class="stat-label">Local SEO Pages</span></div>
+    <div class="stat-box"><span class="stat-num">8</span><span class="stat-label">Intake Form Steps</span></div>
+  </div>
+
+  <!-- Sitemap -->
+  <div class="section-title">Site Architecture</div>
+  <h2>Sitemap</h2>
+
+  <div class="tree">
+    <div class="root">countrypublicadjusters.com</div>
+    <div>│</div>
+    <div class="page">├── / &nbsp;&nbsp;<span class="tag">Homepage</span></div>
+    <div class="page">├── /about</div>
+    <div class="page">├── /contact</div>
+    <div class="page">├── /faq</div>
+    <div class="page">├── /results</div>
+    <div class="page">├── /intake &nbsp;&nbsp;<span class="tag">Lead Form</span></div>
+    <div>│</div>
+    <div class="page-group">├── /damage/ &nbsp;&nbsp;<span class="tag">8 Pages</span></div>
+    <div class="sub">│ &nbsp;&nbsp;&nbsp;├── /damage/hail</div>
+    <div class="sub">│ &nbsp;&nbsp;&nbsp;├── /damage/wind</div>
+    <div class="sub">│ &nbsp;&nbsp;&nbsp;├── /damage/water</div>
+    <div class="sub">│ &nbsp;&nbsp;&nbsp;├── /damage/roof</div>
+    <div class="sub">│ &nbsp;&nbsp;&nbsp;├── /damage/storm</div>
+    <div class="sub">│ &nbsp;&nbsp;&nbsp;├── /damage/hurricane</div>
+    <div class="sub">│ &nbsp;&nbsp;&nbsp;├── /damage/commercial</div>
+    <div class="sub">│ &nbsp;&nbsp;&nbsp;└── /damage/residential</div>
+    <div>│</div>
+    <div class="page-group">├── /nashville/ &nbsp;&nbsp;<span class="tag">5 Pages</span></div>
+    <div class="sub">│ &nbsp;&nbsp;&nbsp;├── /nashville/brentwood</div>
+    <div class="sub">│ &nbsp;&nbsp;&nbsp;├── /nashville/franklin</div>
+    <div class="sub">│ &nbsp;&nbsp;&nbsp;├── /nashville/murfreesboro</div>
+    <div class="sub">│ &nbsp;&nbsp;&nbsp;└── /nashville/hendersonville</div>
+    <div>│</div>
+    <div class="page-group">└── /south-florida/ &nbsp;&nbsp;<span class="tag">5 Pages</span></div>
+    <div class="sub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── /south-florida/miami-dade</div>
+    <div class="sub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── /south-florida/broward</div>
+    <div class="sub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── /south-florida/palm-beach</div>
+    <div class="sub">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── /south-florida/fort-lauderdale</div>
+  </div>
+
+  <!-- Pages -->
+  <div class="section-title">Page-by-Page Breakdown</div>
+  <h2>Page Content & Structure</h2>
+
+  <!-- Homepage -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <span class="page-url">/ &nbsp;Homepage</span>
+      <span class="page-purpose">Primary Lead Generation</span>
+    </div>
+    <p>The main entry point for the site. Structured to take a first-time visitor from awareness to action in a single scroll — ending at a full-page CTA to book a free inspection.</p>
+    <p><strong>12 content sections:</strong> Hero · Metrics · Reality Check (vs. without PA) · How It Works · Intake Preview · Case Results · Client Reviews · Services · Why Choose Us · Local Coverage · FAQ · Final CTA</p>
+    <div class="pill-list">
+      <span class="pill gold">Animated counters</span>
+      <span class="pill gold">Scrolling review marquee</span>
+      <span class="pill gold">Mouse-tracking hero</span>
+      <span class="pill">Smooth scroll</span>
+      <span class="pill">JSON-LD schema</span>
+      <span class="pill">Analytics events</span>
+    </div>
+  </div>
+
+  <!-- Intake -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <span class="page-url">/intake &nbsp;Smart Claim Intake</span>
+      <span class="page-purpose">Lead Capture & Qualification</span>
+    </div>
+    <p>An 8-step guided form that replaces a basic contact form. Each step qualifies the lead further and scores urgency, so the team knows exactly what to prioritise when following up.</p>
+    <div class="steps">
+      <div class="step"><span class="step-num">01</span><span class="step-label">Property Type</span></div>
+      <div class="step"><span class="step-num">02</span><span class="step-label">Damage Type</span></div>
+      <div class="step"><span class="step-num">03</span><span class="step-label">Location</span></div>
+      <div class="step"><span class="step-num">04</span><span class="step-label">Timing</span></div>
+      <div class="step"><span class="step-num">05</span><span class="step-label">Insurance Stage</span></div>
+      <div class="step"><span class="step-num">06</span><span class="step-label">Claim Details</span></div>
+      <div class="step"><span class="step-num">07</span><span class="step-label">Contact Info</span></div>
+      <div class="step"><span class="step-num">08</span><span class="step-label">Confirmation</span></div>
+    </div>
+    <div class="pill-list">
+      <span class="pill gold">Urgency scoring</span>
+      <span class="pill gold">CRM webhook delivery</span>
+      <span class="pill gold">UTM attribution</span>
+      <span class="pill">After-hours detection</span>
+      <span class="pill">Form validation</span>
+      <span class="pill">Animated step transitions</span>
+    </div>
+  </div>
+
+  <!-- Damage pages -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <span class="page-url">/damage/[type] &nbsp;×8</span>
+      <span class="page-purpose">SEO Traffic — Damage Specific</span>
+    </div>
+    <p>Eight individually optimised pages for each damage type. Each page is written to rank for searches like "hail damage insurance claim Nashville" and convert that traffic into inspection requests.</p>
+    <p><strong>Content per page:</strong> Damage-specific hero · What it looks like · What insurers undervalue · Local context · FAQ accordion · CTA</p>
+    <div class="pill-list">
+      <span class="pill">Unique meta per page</span>
+      <span class="pill">FAQ schema markup</span>
+      <span class="pill">Breadcrumb schema</span>
+      <span class="pill green">SEO optimised</span>
+    </div>
+  </div>
+
+  <!-- Local pages -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <span class="page-url">/nashville/ &amp; /south-florida/ &nbsp;×10</span>
+      <span class="page-purpose">Local SEO — City & Region</span>
+    </div>
+    <p>Ten location pages targeting specific cities and suburbs. Built to rank for "[city] public adjuster" searches — the highest-intent local search queries in this industry.</p>
+    <p><strong>Content per page:</strong> City-specific hero · Local storm context · Services available · Nearby city links · CTA</p>
+    <div class="pill-list">
+      <span class="pill">LocalBusiness schema</span>
+      <span class="pill">Breadcrumb schema</span>
+      <span class="pill green">Google Maps SEO ready</span>
+      <span class="pill green">City-level targeting</span>
+    </div>
+  </div>
+
+  <!-- Supporting pages -->
+  <div class="page-card">
+    <div class="page-card-header">
+      <span class="page-url">/about &nbsp;/contact &nbsp;/faq &nbsp;/results</span>
+      <span class="page-purpose">Supporting Pages</span>
+    </div>
+    <p><strong>About:</strong> Company story, credentials, licensing, and service regions.</p>
+    <p><strong>Contact:</strong> Phone, email, contact form, office hours.</p>
+    <p><strong>FAQ:</strong> 20+ accordion questions with schema markup for Google rich results.</p>
+    <p><strong>Results:</strong> Full grid of real case outcomes — before and after settlement amounts.</p>
+  </div>
+
+  <!-- Sitewide features -->
+  <div class="section-title">Functionality</div>
+  <h2>Sitewide Features</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Navigation</td>
+        <td>Sticky header with dropdown menus. Compresses into a compact pill on scroll. Full-screen mobile menu.</td>
+      </tr>
+      <tr>
+        <td>Mobile CTA Bar</td>
+        <td>Fixed bar at the bottom of the screen on mobile — always-visible Call and Get Inspection buttons.</td>
+      </tr>
+      <tr>
+        <td>AI Chat Widget</td>
+        <td>Chatbase AI chatbot embedded site-wide. Custom gold button — visitors can ask questions and get instant answers 24/7.</td>
+      </tr>
+      <tr>
+        <td>AI Voice Agent</td>
+        <td>Retell AI-powered voice agent handles after-hours calls and intake. Captures lead details via natural conversation and routes them to the team — so no lead is missed outside business hours.</td>
+      </tr>
+      <tr>
+        <td>Smooth Scroll</td>
+        <td>Lenis smooth scrolling gives the site a cinematic, premium feel as users navigate.</td>
+      </tr>
+      <tr>
+        <td>Custom Cursor</td>
+        <td>Premium dot-and-ring cursor system on desktop. Reacts to interactive elements with a gold highlight.</td>
+      </tr>
+      <tr>
+        <td>Analytics Ready</td>
+        <td>Google Tag Manager integration. Tracks CTA clicks, phone clicks, form steps, scroll depth, and more.</td>
+      </tr>
+      <tr>
+        <td>SEO Infrastructure</td>
+        <td>Auto-generated sitemap.xml, robots.txt, Open Graph tags, canonical URLs, and JSON-LD schemas on every page.</td>
+      </tr>
+      <tr>
+        <td>Performance</td>
+        <td>All 29 pages pre-built as static HTML at deploy time. Near-instant load speeds globally.</td>
+      </tr>
+      <tr>
+        <td>Accessibility</td>
+        <td>Skip-to-content link, keyboard focus styles, reduced-motion support for users with motion sensitivities.</td>
+      </tr>
+      <tr>
+        <td>Security</td>
+        <td>Security headers on all responses: X-Frame-Options, Content-Type-Options, Referrer-Policy.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Tech stack -->
+  <div class="section-title">Technology</div>
+  <h2>Tech Stack</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>Technology</th>
+        <th>Why</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Framework</td>
+        <td>Next.js 15</td>
+        <td>Industry-leading React framework. Fast, SEO-friendly, built for scale.</td>
+      </tr>
+      <tr>
+        <td>Language</td>
+        <td>TypeScript</td>
+        <td>Type-safe code. Fewer bugs, easier to maintain long-term.</td>
+      </tr>
+      <tr>
+        <td>Styling</td>
+        <td>Tailwind CSS</td>
+        <td>Consistent design system. Fast to build, easy to update.</td>
+      </tr>
+      <tr>
+        <td>Animation</td>
+        <td>Framer Motion + GSAP</td>
+        <td>Premium motion quality — the same tools used by top-tier agency sites.</td>
+      </tr>
+      <tr>
+        <td>Forms</td>
+        <td>React Hook Form + Zod</td>
+        <td>Robust validation. Every field is checked before data is submitted.</td>
+      </tr>
+      <tr>
+        <td>AI Chat</td>
+        <td>Chatbase</td>
+        <td>No-code AI chatbot. Train it on your content and it answers leads 24/7.</td>
+      </tr>
+      <tr>
+        <td>AI Voice Agent</td>
+        <td>Retell AI</td>
+        <td>Conversational voice agent for after-hours lead capture. Speaks naturally, qualifies the caller, and delivers a structured lead to the team.</td>
+      </tr>
+      <tr>
+        <td>Analytics</td>
+        <td>Google Tag Manager</td>
+        <td>One tag controls all tracking. Connect GA4, Meta Pixel, and more without code changes.</td>
+      </tr>
+      <tr>
+        <td>Deployment</td>
+        <td>Vercel</td>
+        <td>Zero-config hosting optimised for Next.js. Global CDN, automatic SSL.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- Footer -->
+<div class="doc-footer">
+  <p>Prepared by <strong>Wolfburgh</strong> for Country Public Adjusters</p>
+  <p>countrypublicadjusters.com &nbsp;·&nbsp; Nashville, TN &amp; South Florida</p>
+</div>
+
+</body>
+</html>

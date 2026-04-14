@@ -34,8 +34,8 @@ export default function FAQAccordion({
               'rounded-2xl border transition-all duration-300',
               theme === 'dark'
                 ? isOpen
-                  ? 'border-gold-500/30 bg-white/[0.06]'
-                  : 'border-white/[0.06] bg-white/[0.03] hover:bg-white/[0.05] hover:border-white/10'
+                  ? 'border-gold-500/30 bg-slate-100'
+                  : 'border-slate-200 bg-slate-100 hover:bg-slate-100 hover:border-slate-200'
                 : isOpen
                 ? 'border-navy-900/20 bg-navy-50/80'
                 : 'border-navy-900/10 bg-white hover:bg-navy-50/50 hover:border-navy-900/15'
@@ -65,7 +65,7 @@ export default function FAQAccordion({
                   isOpen
                     ? 'border-gold-500 bg-gold-500/20 text-gold-400'
                     : theme === 'dark'
-                    ? 'border-white/20 text-white/40'
+                    ? 'border-slate-300 text-slate-400'
                     : 'border-navy-900/20 text-navy-600/60'
                 )}
               >

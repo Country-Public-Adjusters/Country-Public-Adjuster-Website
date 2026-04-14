@@ -84,7 +84,7 @@ export default function CustomCursor() {
         animate={{
           opacity: visible ? 1 : 0,
           scale: hovering ? 0 : 1,
-          backgroundColor: hovering ? '#F59E0B' : 'rgba(255,255,255,0.92)',
+          backgroundColor: hovering ? '#F59E0B' : 'rgba(15,23,42,0.08)',
         }}
         transition={{ duration: 0.12, ease: 'easeOut' }}
       />
@@ -112,7 +112,7 @@ export default function CustomCursor() {
           scale: hovering ? 1.45 : 1,
           borderColor: hovering
             ? 'rgba(245,158,11,0.55)'
-            : 'rgba(255,255,255,0.18)',
+            : 'rgba(15,23,42,0.08)',
           backgroundColor: hovering
             ? 'rgba(245,158,11,0.07)'
             : 'transparent',

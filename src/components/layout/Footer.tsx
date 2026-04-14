@@ -43,12 +43,12 @@ const FOOTER_LINKS = {
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-950 border-t border-white/[0.05]">
+    <footer className="bg-navy-950 border-t border-slate-200">
       {/* ── Emergency CTA strip ── */}
-      <div className="border-b border-white/[0.05]">
+      <div className="border-b border-slate-200">
         <div className="container-site py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <p className="text-white font-semibold text-lg">Storm damage? Don't wait.</p>
+            <p className="text-slate-900 font-semibold text-lg">Storm damage? Don't wait.</p>
             <p className="text-slate-400 text-sm mt-0.5">
               Every day delayed can reduce your claim value. Get a free inspection today.
             </p>
@@ -85,7 +85,7 @@ export default function Footer() {
                 <span className="text-navy-950 font-black text-lg">C</span>
               </div>
               <div>
-                <div className="text-sm font-bold text-white">Country Public Adjusters</div>
+                <div className="text-sm font-bold text-slate-900">Country Public Adjusters</div>
                 <div className="text-xs text-gold-500 font-semibold tracking-wider uppercase">
                   Your Insurance Advocate
                 </div>
@@ -199,22 +199,22 @@ export default function Footer() {
       </div>
 
       {/* ── Bottom bar ── */}
-      <div className="border-t border-white/[0.05]">
+      <div className="border-t border-slate-200">
         <div className="container-site py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/30 text-center sm:text-left">
+          <p className="text-xs text-slate-400 text-center sm:text-left">
             © {new Date().getFullYear()} Country Public Adjusters. All rights reserved.
             Licensed in Tennessee &amp; Florida.
           </p>
           <div className="flex items-center gap-6">
             <Link
               href="/privacy"
-              className="text-xs text-white/30 hover:text-slate-500 transition-colors duration-200"
+              className="text-xs text-slate-400 hover:text-slate-500 transition-colors duration-200"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-xs text-white/30 hover:text-slate-500 transition-colors duration-200"
+              className="text-xs text-slate-400 hover:text-slate-500 transition-colors duration-200"
             >
               Terms of Service
             </Link>

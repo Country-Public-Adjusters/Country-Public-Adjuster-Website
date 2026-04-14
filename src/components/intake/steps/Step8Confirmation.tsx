@@ -37,12 +37,12 @@ export default function Step8Confirmation({ }: StepProps) {
         <CheckCircle size={36} className="text-green-400" />
       </motion.div>
 
-      <h2 className="text-2xl lg:text-3xl font-bold text-white mb-3">
+      <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-3">
         Your request has been received.
       </h2>
 
       {afterHours ? (
-        <p className="text-white/55 mb-8 max-w-md mx-auto leading-relaxed">
+        <p className="text-slate-500 mb-8 max-w-md mx-auto leading-relaxed">
           It's after hours right now. Your claim details have been captured and queued for
           priority review. A licensed adjuster will contact you first thing tomorrow morning.
           <span className="block mt-2 font-semibold text-gold-400">
@@ -50,7 +50,7 @@ export default function Step8Confirmation({ }: StepProps) {
           </span>
         </p>
       ) : (
-        <p className="text-white/55 mb-8 max-w-md mx-auto leading-relaxed">
+        <p className="text-slate-500 mb-8 max-w-md mx-auto leading-relaxed">
           A licensed public adjuster will review your details and contact you shortly —
           usually within the hour during business hours. We come prepared and ready to help.
         </p>
@@ -63,11 +63,11 @@ export default function Step8Confirmation({ }: StepProps) {
           { icon: Phone, text: 'A licensed adjuster will call you', sub: 'Prepared with your information' },
           { icon: CheckCircle, text: 'Free inspection scheduled', sub: 'At a time that works for you' },
         ].map((step, i) => (
-          <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.04]">
+          <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-slate-100">
             <step.icon size={16} className="text-gold-500 mt-0.5 flex-shrink-0" />
             <div>
-              <div className="text-sm font-semibold text-white">{step.text}</div>
-              <div className="text-xs text-white/40">{step.sub}</div>
+              <div className="text-sm font-semibold text-slate-900">{step.text}</div>
+              <div className="text-xs text-slate-400">{step.sub}</div>
             </div>
           </div>
         ))}
@@ -98,7 +98,7 @@ export default function Step8Confirmation({ }: StepProps) {
         </button>
       </div>
 
-      <p className="text-xs text-white/30 mt-6">
+      <p className="text-xs text-slate-400 mt-6">
         Have a case number or urgent situation? Call us directly — we always answer.
       </p>
     </motion.div>

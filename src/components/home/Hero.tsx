@@ -120,7 +120,7 @@ export default function Hero() {
         aria-hidden="true"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
+            'linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)',
           backgroundSize: '64px 64px',
           maskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%)',
         }}
@@ -142,7 +142,7 @@ export default function Hero() {
                   ? 'rgba(245,158,11,0.55)'
                   : i % 4 === 1
                   ? 'rgba(245,158,11,0.2)'
-                  : 'rgba(255,255,255,0.12)',
+                  : 'rgba(0,0,0,0.08)',
               opacity: Math.random() * 0.5 + 0.15,
             }}
           />
@@ -191,7 +191,7 @@ export default function Hero() {
           {/* Main headline */}
           <motion.h1
             variants={itemVariants}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-black text-white
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-black text-slate-900
                        tracking-tight leading-[0.93] mb-7"
           >
             Your insurance company{' '}
@@ -210,7 +210,7 @@ export default function Hero() {
           {/* Sub-headline */}
           <motion.p
             variants={itemVariants}
-            className="text-lg sm:text-xl text-white/55 leading-relaxed max-w-[38rem] mx-auto mb-11"
+            className="text-lg sm:text-xl text-slate-500 leading-relaxed max-w-[38rem] mx-auto mb-11"
           >
             Storm damage to your property? We handle your entire insurance claim from
             inspection to final settlement — so you get paid what you actually deserve.
@@ -248,8 +248,8 @@ export default function Hero() {
               <div
                 key={i}
                 className="flex items-center gap-2 px-4 py-2 rounded-full
-                           bg-white/[0.04] border border-white/[0.07]
-                           text-sm text-white/55 font-medium backdrop-blur-sm"
+                           bg-slate-100 border border-slate-200
+                           text-sm text-slate-500 font-medium backdrop-blur-sm"
               >
                 {chip.icon && (
                   <chip.icon size={13} className="text-gold-500 flex-shrink-0" />
@@ -258,11 +258,11 @@ export default function Hero() {
               </div>
             ))}
             <div className="flex items-center gap-1.5 px-4 py-2 rounded-full
-                            bg-white/[0.04] border border-white/[0.07] backdrop-blur-sm">
+                            bg-slate-100 border border-slate-200 backdrop-blur-sm">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} size={11} className="fill-gold-500 text-gold-500" />
               ))}
-              <span className="text-sm text-white/55 font-medium ml-1.5">5-star rated</span>
+              <span className="text-sm text-slate-500 font-medium ml-1.5">5-star rated</span>
             </div>
           </motion.div>
         </motion.div>
@@ -279,10 +279,10 @@ export default function Hero() {
           ].map((stat, i) => (
             <div
               key={i}
-              className="rounded-2xl px-5 py-4 text-center border border-white/[0.07]
+              className="rounded-2xl px-5 py-4 text-center border border-slate-200
                          backdrop-blur-md"
               style={{
-                background: 'rgba(255,255,255,0.035)',
+                background: 'rgba(0,0,0,0.02)',
               }}
             >
               <div
@@ -296,7 +296,7 @@ export default function Hero() {
                 {stat.value}
               </div>
               <div className="text-sm font-semibold text-slate-700 mt-0.5">{stat.label}</div>
-              <div className="text-xs text-white/35 mt-0.5">{stat.note}</div>
+              <div className="text-xs text-slate-400 mt-0.5">{stat.note}</div>
             </div>
           ))}
         </motion.div>
@@ -310,14 +310,14 @@ export default function Hero() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         aria-hidden="true"
       >
-        <span className="text-2xs text-white/25 font-medium tracking-[0.2em] uppercase">
+        <span className="text-2xs text-slate-300 font-medium tracking-[0.2em] uppercase">
           Scroll
         </span>
         <motion.div
           animate={{ y: [0, 7, 0] }}
           transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <ChevronDown size={17} className="text-white/18" />
+          <ChevronDown size={17} className="text-slate-300" />
         </motion.div>
       </motion.div>
 

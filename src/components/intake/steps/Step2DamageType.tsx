@@ -36,7 +36,7 @@ export default function Step2DamageType({ onNext }: StepProps) {
 
   return (
     <div className="card-dark p-6 lg:p-8">
-      <h2 className="text-2xl font-bold text-white mb-2">
+      <h2 className="text-2xl font-bold text-slate-900 mb-2">
         What type of damage occurred?
       </h2>
       <p className="text-sm text-slate-400 mb-7">
@@ -56,7 +56,7 @@ export default function Step2DamageType({ onNext }: StepProps) {
                 'transition-all duration-250',
                 isSelected
                   ? 'border-gold-500 bg-gold-500/10'
-                  : 'border-white/[0.08] bg-white/[0.03] hover:border-white/15 hover:bg-white/[0.05]'
+                  : 'border-slate-200 bg-slate-100 hover:border-white/15 hover:bg-slate-100'
               )}
             >
               <div
@@ -64,18 +64,18 @@ export default function Step2DamageType({ onNext }: StepProps) {
                   'w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-250',
                   isSelected
                     ? 'bg-gold-500/20 border border-gold-500/40'
-                    : 'bg-white/[0.06] border border-white/[0.08]'
+                    : 'bg-slate-100 border border-slate-200'
                 )}
               >
                 <type.icon
                   size={17}
-                  className={isSelected ? 'text-gold-400' : 'text-white/45'}
+                  className={isSelected ? 'text-gold-400' : 'text-slate-400'}
                 />
               </div>
               <span
                 className={cn(
                   'text-xs font-semibold leading-tight',
-                  isSelected ? 'text-slate-900' : 'text-white/55'
+                  isSelected ? 'text-slate-900' : 'text-slate-500'
                 )}
               >
                 {type.label}

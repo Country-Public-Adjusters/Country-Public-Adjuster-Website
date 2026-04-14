@@ -29,13 +29,13 @@ export default function IntakeProgress({
         <span className="text-xs font-bold tracking-widest uppercase text-gold-500">
           Step {currentStep} of {totalSteps}
         </span>
-        <span className="text-xs text-white/35 font-medium">
+        <span className="text-xs text-slate-400 font-medium">
           {steps[currentStep - 1]?.label}
         </span>
       </div>
 
       {/* Progress bar */}
-      <div className="h-1.5 bg-white/[0.06] rounded-full overflow-hidden mb-4">
+      <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden mb-4">
         <motion.div
           className="h-full rounded-full"
           style={{ backgroundImage: 'linear-gradient(90deg, #D97706 0%, #F59E0B 100%)' }}
@@ -60,12 +60,12 @@ export default function IntakeProgress({
                     ? '#F59E0B'
                     : isActive
                     ? 'rgba(245,158,11,0.2)'
-                    : 'rgba(255,255,255,0.06)',
+                    : 'rgba(0,0,0,0.04)',
                   borderColor: isCompleted
                     ? '#F59E0B'
                     : isActive
                     ? 'rgba(245,158,11,0.6)'
-                    : 'rgba(255,255,255,0.1)',
+                    : 'rgba(15,23,42,0.08)',
                 }}
                 transition={{ duration: 0.3 }}
                 className="w-6 h-6 rounded-full border-2 flex items-center justify-center"
@@ -82,7 +82,7 @@ export default function IntakeProgress({
                     ? 'text-gold-400'
                     : isCompleted
                     ? 'text-slate-400'
-                    : 'text-white/25'
+                    : 'text-slate-300'
                 }`}
               >
                 {step.shortLabel}

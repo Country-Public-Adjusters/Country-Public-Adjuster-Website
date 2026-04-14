@@ -15,7 +15,7 @@ export default function Step6ClaimDetails({ onNext }: StepProps) {
 
   return (
     <div className="card-dark p-6 lg:p-8">
-      <h2 className="text-2xl font-bold text-white mb-2">
+      <h2 className="text-2xl font-bold text-slate-900 mb-2">
         A little more about the damage
       </h2>
       <p className="text-sm text-slate-400 mb-6">
@@ -24,7 +24,7 @@ export default function Step6ClaimDetails({ onNext }: StepProps) {
 
       {/* Description */}
       <div className="mb-5">
-        <label className="block text-xs font-semibold text-white/40 mb-2 uppercase tracking-wide">
+        <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">
           Describe the damage in your own words
         </label>
         <textarea
@@ -37,7 +37,7 @@ export default function Step6ClaimDetails({ onNext }: StepProps) {
 
       {/* Claim number */}
       <div className="mb-5">
-        <label className="block text-xs font-semibold text-white/40 mb-2 uppercase tracking-wide">
+        <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">
           Claim number (if already filed)
         </label>
         <input
@@ -54,13 +54,13 @@ export default function Step6ClaimDetails({ onNext }: StepProps) {
             type="checkbox"
             checked={hasPhotos}
             onChange={(e) => setValue('hasPhotos', e.target.checked)}
-            className="w-4 h-4 rounded border-white/20 bg-white/5 accent-gold-500"
+            className="w-4 h-4 rounded border-slate-300 bg-white/5 accent-gold-500"
           />
           <span className="text-sm text-slate-600 font-medium">
             I have photos or documentation of the damage
           </span>
         </label>
-        <p className="text-xs text-white/35 mt-2 ml-7">
+        <p className="text-xs text-slate-400 mt-2 ml-7">
           Don't worry if you don't — our inspection team documents everything.
         </p>
       </div>
@@ -73,7 +73,7 @@ export default function Step6ClaimDetails({ onNext }: StepProps) {
         Almost done — contact info
       </button>
 
-      <p className="text-xs text-white/30 text-center mt-3">
+      <p className="text-xs text-slate-400 text-center mt-3">
         All information is kept strictly confidential.
       </p>
     </div>

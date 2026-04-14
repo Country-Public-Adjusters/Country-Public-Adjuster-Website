@@ -58,7 +58,7 @@ function Dropdown({ items, isOpen }: DropdownProps) {
           transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
           className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56
                      rounded-2xl bg-navy-900/95 backdrop-blur-xl
-                     border border-white/[0.08] shadow-nav overflow-hidden z-50"
+                     border border-slate-200 shadow-nav overflow-hidden z-50"
         >
           <div className="p-2">
             {items.map((item) => (
@@ -66,7 +66,7 @@ function Dropdown({ items, isOpen }: DropdownProps) {
                 key={item.href}
                 href={item.href}
                 className="block px-4 py-2.5 rounded-xl text-sm text-slate-600 font-medium
-                           hover:text-white hover:bg-white/[0.06] transition-all duration-150"
+                           hover:text-slate-700 hover:bg-slate-100 transition-all duration-150"
               >
                 {item.label}
               </Link>
@@ -119,11 +119,11 @@ export default function Header() {
   return (
     <>
       {/* ── Top credibility bar ── */}
-      <div className="hidden sm:block bg-navy-950 border-b border-white/[0.04] py-2 text-center text-2xs font-medium tracking-wide text-slate-400">
+      <div className="hidden sm:block bg-navy-950 border-b border-slate-200 py-2 text-center text-2xs font-medium tracking-wide text-slate-400">
         <span className="mr-4">35+ Years Combined Experience</span>
-        <span className="text-white/20 mr-4">|</span>
+        <span className="text-slate-300 mr-4">|</span>
         <span className="mr-4">No Upfront Cost</span>
-        <span className="text-white/20 mr-4">|</span>
+        <span className="text-slate-300 mr-4">|</span>
         <span>Nashville, TN &amp; South Florida</span>
       </div>
 
@@ -144,14 +144,14 @@ export default function Header() {
             className={cn(
               'flex items-center justify-between rounded-2xl px-4 sm:px-6 transition-all duration-500',
               scrolled
-                ? 'bg-navy-950/90 backdrop-blur-xl border border-white/[0.07] shadow-nav py-3'
+                ? 'bg-navy-950/90 backdrop-blur-xl border border-slate-200 shadow-nav py-3'
                 : 'bg-transparent py-2'
             )}
           >
             {/* Logo */}
             <Link href="/" className="flex items-center group">
               <div>
-                <div className="text-base font-bold text-white tracking-tight leading-tight">
+                <div className="text-base font-bold text-slate-900 tracking-tight leading-tight">
                   Country Public Adjusters
                 </div>
                 <div className="text-xs text-gold-500 font-semibold tracking-wider uppercase">
@@ -172,7 +172,7 @@ export default function Header() {
                   >
                     <button
                       className="flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-medium
-                                 text-slate-600 hover:text-white hover:bg-white/[0.06]
+                                 text-slate-600 hover:text-slate-700 hover:bg-slate-100
                                  transition-all duration-200"
                     >
                       {link.label}
@@ -194,7 +194,7 @@ export default function Header() {
                     key={link.label}
                     href={link.href}
                     className="px-4 py-2 rounded-xl text-sm font-medium
-                               text-slate-600 hover:text-white hover:bg-white/[0.06]
+                               text-slate-600 hover:text-slate-700 hover:bg-slate-100
                                transition-all duration-200"
                   >
                     {link.label}
@@ -226,8 +226,8 @@ export default function Header() {
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-xl text-slate-600 hover:text-white
-                         hover:bg-white/[0.06] transition-all duration-200"
+              className="lg:hidden p-2 rounded-xl text-slate-600 hover:text-slate-700
+                         hover:bg-slate-100 transition-all duration-200"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
             >
@@ -261,7 +261,7 @@ export default function Header() {
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
                     className="block px-4 py-3 rounded-xl text-lg font-semibold text-slate-700
-                               hover:text-white hover:bg-white/[0.06] transition-all duration-200"
+                               hover:text-slate-700 hover:bg-slate-100 transition-all duration-200"
                     style={{ animationDelay: `${i * 50}ms` }}
                   >
                     {link.label}
@@ -274,7 +274,7 @@ export default function Header() {
                           href={child.href}
                           onClick={() => setMobileOpen(false)}
                           className="block px-4 py-2.5 rounded-xl text-sm text-slate-400
-                                     hover:text-slate-700 hover:bg-white/[0.04] transition-all duration-150"
+                                     hover:text-slate-700 hover:bg-slate-100 transition-all duration-150"
                         >
                           {child.label}
                         </Link>
@@ -285,7 +285,7 @@ export default function Header() {
               ))}
 
               {/* Mobile CTAs */}
-              <div className="pt-6 space-y-3 border-t border-white/[0.06] mt-4">
+              <div className="pt-6 space-y-3 border-t border-slate-200 mt-4">
                 <a
                   href={`tel:${PHONE}`}
                   onClick={() => {
@@ -293,7 +293,7 @@ export default function Header() {
                     setMobileOpen(false)
                   }}
                   className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl
-                             bg-white/[0.05] border border-white/10 text-white font-semibold"
+                             bg-slate-100 border border-slate-200 text-slate-900 font-semibold"
                 >
                   <Phone size={18} />
                   <span>{PHONE_DISPLAY}</span>

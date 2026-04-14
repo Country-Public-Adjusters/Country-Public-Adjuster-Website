@@ -101,7 +101,7 @@ const TRACK = [...REVIEWS, ...REVIEWS]
 function ReviewCard({ review }: { review: typeof REVIEWS[0] }) {
   return (
     <div
-      className="flex-shrink-0 w-[340px] md:w-[380px] p-6 rounded-2xl border border-white/[0.07]
+      className="flex-shrink-0 w-[340px] md:w-[380px] p-6 rounded-2xl border border-slate-200
                  bg-navy-800/50 backdrop-blur-sm mx-2.5 relative group overflow-hidden"
     >
       {/* Subtle hover glow */}
@@ -125,19 +125,19 @@ function ReviewCard({ review }: { review: typeof REVIEWS[0] }) {
       </div>
 
       {/* Text */}
-      <p className="text-sm text-white/65 leading-relaxed mb-5 relative">
+      <p className="text-sm text-slate-600 leading-relaxed mb-5 relative">
         "{review.text}"
       </p>
 
       {/* Attribution */}
       <div className="flex items-end justify-between relative">
         <div>
-          <div className="text-sm font-bold text-white">{review.name}</div>
-          <div className="text-xs text-white/35 mt-0.5">{review.location}</div>
+          <div className="text-sm font-bold text-slate-900">{review.name}</div>
+          <div className="text-xs text-slate-400 mt-0.5">{review.location}</div>
           <div className="text-xs text-gold-500/60 font-semibold mt-0.5">{review.service}</div>
         </div>
-        <div className="flex items-center gap-1 text-2xs text-white/20 font-medium">
-          <Star size={9} className="fill-white/20 text-white/20" />
+        <div className="flex items-center gap-1 text-2xs text-slate-300 font-medium">
+          <Star size={9} className="fill-slate-400 text-slate-300" />
           Google
         </div>
       </div>
@@ -233,7 +233,7 @@ export default function Testimonials() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ delay: 0.5 }}
-        className="text-center mt-10 text-xs text-white/25 font-medium relative z-10"
+        className="text-center mt-10 text-xs text-slate-300 font-medium relative z-10"
       >
         ⭐ 5-star rated · Verified reviews from Google &amp; direct clients
       </motion.div>

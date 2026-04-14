@@ -30,7 +30,7 @@ export default function Step3Location({ onNext }: StepProps) {
 
   return (
     <div className="card-dark p-6 lg:p-8">
-      <h2 className="text-2xl font-bold text-white mb-2">
+      <h2 className="text-2xl font-bold text-slate-900 mb-2">
         Where is the property located?
       </h2>
       <p className="text-sm text-slate-400 mb-6">
@@ -54,17 +54,17 @@ export default function Step3Location({ onNext }: StepProps) {
                 'w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0',
                 region === opt.value
                   ? 'bg-gold-500/20 border border-gold-500/40'
-                  : 'bg-white/[0.06] border border-white/[0.08]'
+                  : 'bg-slate-100 border border-slate-200'
               )}
             >
               <MapPin
                 size={16}
-                className={region === opt.value ? 'text-gold-400' : 'text-white/40'}
+                className={region === opt.value ? 'text-gold-400' : 'text-slate-400'}
               />
             </div>
             <div>
-              <div className="text-sm font-semibold text-white">{opt.label}</div>
-              <div className="text-xs text-white/40 mt-0.5">{opt.sub}</div>
+              <div className="text-sm font-semibold text-slate-900">{opt.label}</div>
+              <div className="text-xs text-slate-400 mt-0.5">{opt.sub}</div>
             </div>
           </button>
         ))}
@@ -72,8 +72,8 @@ export default function Step3Location({ onNext }: StepProps) {
 
       {/* Address fields */}
       {region && (
-        <div className="space-y-3 pt-4 border-t border-white/[0.06]">
-          <p className="text-xs text-white/40 font-medium mb-3">
+        <div className="space-y-3 pt-4 border-t border-slate-200">
+          <p className="text-xs text-slate-400 font-medium mb-3">
             Property address (optional — helps us prepare your inspection)
           </p>
           <input

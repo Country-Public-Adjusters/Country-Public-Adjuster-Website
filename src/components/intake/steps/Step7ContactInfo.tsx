@@ -37,7 +37,7 @@ export default function Step7ContactInfo({ isLast }: StepProps) {
 
   return (
     <div className="card-dark p-6 lg:p-8">
-      <h2 className="text-2xl font-bold text-white mb-2">
+      <h2 className="text-2xl font-bold text-slate-900 mb-2">
         How should we reach you?
       </h2>
       <p className="text-sm text-slate-400 mb-6">
@@ -96,7 +96,7 @@ export default function Step7ContactInfo({ isLast }: StepProps) {
 
       {/* Preferred contact method */}
       <div className="mb-4">
-        <label className="block text-xs font-semibold text-white/40 mb-2 uppercase tracking-wide">
+        <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">
           Preferred contact method
         </label>
         <div className="flex flex-wrap gap-2">
@@ -109,7 +109,7 @@ export default function Step7ContactInfo({ isLast }: StepProps) {
                 'px-3 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200',
                 preferredContact === method.value
                   ? 'border-gold-500 bg-gold-500/15 text-gold-300'
-                  : 'border-white/10 bg-white/[0.04] text-white/45 hover:border-white/20'
+                  : 'border-slate-200 bg-slate-100 text-slate-400 hover:border-slate-300'
               )}
             >
               {method.label}
@@ -120,7 +120,7 @@ export default function Step7ContactInfo({ isLast }: StepProps) {
 
       {/* Best time */}
       <div className="mb-6">
-        <label className="block text-xs font-semibold text-white/40 mb-2 uppercase tracking-wide">
+        <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">
           Best time to reach you
         </label>
         <select
@@ -136,14 +136,14 @@ export default function Step7ContactInfo({ isLast }: StepProps) {
       </div>
 
       {/* Consent */}
-      <div className="mb-6 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+      <div className="mb-6 p-4 rounded-2xl bg-slate-100 border border-slate-200">
         <label className="flex items-start gap-3 cursor-pointer">
           <input
             {...register('consent')}
             type="checkbox"
-            className="w-4 h-4 rounded border-white/20 bg-white/5 accent-gold-500 mt-0.5 flex-shrink-0"
+            className="w-4 h-4 rounded border-slate-300 bg-white/5 accent-gold-500 mt-0.5 flex-shrink-0"
           />
-          <span className="text-xs text-white/45 leading-relaxed">
+          <span className="text-xs text-slate-400 leading-relaxed">
             I agree to be contacted by Country Public Adjusters regarding my property damage claim.
             I understand this is not a commitment, my inspection is free, and there is no upfront cost.
             I've read and agree to the{' '}
@@ -172,7 +172,7 @@ export default function Step7ContactInfo({ isLast }: StepProps) {
       </button>
 
       {/* Trust reassurance */}
-      <div className="flex items-center justify-center gap-2 mt-4 text-xs text-white/30">
+      <div className="flex items-center justify-center gap-2 mt-4 text-xs text-slate-400">
         <Shield size={12} className="text-green-400/50" />
         <span>No upfront cost · No commitment · Licensed professionals</span>
       </div>

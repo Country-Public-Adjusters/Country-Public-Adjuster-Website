@@ -79,16 +79,16 @@ export default function SouthFloridaPage() {
         <div className="container-site">
           <div className="max-w-3xl">
             <FadeInView>
-              <div className="flex items-center gap-2 text-xs text-white/35 mb-6">
+              <div className="flex items-center gap-2 text-xs text-slate-400 mb-6">
                 <MapPin size={13} className="text-gold-500/60" />
                 <span>Miami-Dade · Broward · Palm Beach Counties</span>
               </div>
               <span className="badge-gold mb-5">South Florida Public Adjuster</span>
-              <h1 className="text-5xl lg:text-6xl font-black text-white tracking-tight mb-5 leading-[0.95]">
+              <h1 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-5 leading-[0.95]">
                 South Florida's hurricane{' '}
                 <span className="text-gradient-gold">claim specialist</span>
               </h1>
-              <p className="text-lg text-white/55 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-lg text-slate-500 leading-relaxed mb-8 max-w-2xl">
                 Country Public Adjusters serve Miami-Dade, Broward, and Palm Beach counties.
                 We handle hurricane damage, wind damage, water damage, and property insurance
                 claims on contingency — free inspection, zero upfront cost.
@@ -137,7 +137,7 @@ export default function SouthFloridaPage() {
 
             <FadeInView delay={0.2}>
               <div className="card-dark p-6">
-                <h3 className="font-bold text-white text-lg mb-4">South Florida service area</h3>
+                <h3 className="font-bold text-slate-900 text-lg mb-4">South Florida service area</h3>
                 <p className="text-sm text-slate-400 mb-5">We serve all three tri-county markets:</p>
                 <div className="flex flex-wrap gap-2">
                   {FL_CITIES.map((city) => (
@@ -145,8 +145,8 @@ export default function SouthFloridaPage() {
                       key={city.name}
                       href={city.href}
                       className="px-3 py-1.5 rounded-full text-xs font-medium
-                                 bg-white/[0.05] border border-white/[0.06] text-white/55
-                                 hover:text-slate-700 hover:bg-white/[0.08] transition-all duration-200"
+                                 bg-slate-100 border border-slate-200 text-slate-500
+                                 hover:text-slate-700 hover:bg-slate-100 transition-all duration-200"
                     >
                       {city.name}
                     </Link>

@@ -13,7 +13,7 @@ export default function MobileCTABar() {
         href={`tel:${PHONE}`}
         onClick={() => Analytics.phoneClick('mobile-cta-bar')}
         className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl
-                   bg-white/[0.06] border border-white/10 text-white font-semibold text-sm
+                   bg-slate-100 border border-slate-200 text-slate-900 font-semibold text-sm
                    active:bg-white/10 transition-all duration-150"
       >
         <Phone size={17} />

@@ -29,7 +29,7 @@ export default function Step1PropertyType({ onNext }: StepProps) {
 
   return (
     <div className="card-dark p-6 lg:p-8">
-      <h2 className="text-2xl font-bold text-white mb-2">
+      <h2 className="text-2xl font-bold text-slate-900 mb-2">
         What type of property was damaged?
       </h2>
       <p className="text-sm text-slate-400 mb-7">
@@ -52,7 +52,7 @@ export default function Step1PropertyType({ onNext }: StepProps) {
                 'w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300',
                 selected === type.value
                   ? 'bg-gold-500/25 border border-gold-500/50'
-                  : 'bg-white/[0.06] border border-white/[0.08]'
+                  : 'bg-slate-100 border border-slate-200'
               )}
             >
               <type.icon
@@ -61,8 +61,8 @@ export default function Step1PropertyType({ onNext }: StepProps) {
               />
             </div>
             <div>
-              <div className="text-sm font-semibold text-white">{type.label}</div>
-              <div className="text-xs text-white/40 mt-0.5">{type.desc}</div>
+              <div className="text-sm font-semibold text-slate-900">{type.label}</div>
+              <div className="text-xs text-slate-400 mt-0.5">{type.desc}</div>
             </div>
           </button>
         ))}

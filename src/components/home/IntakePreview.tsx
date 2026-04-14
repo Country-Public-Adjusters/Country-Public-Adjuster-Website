@@ -62,18 +62,18 @@ export default function IntakePreview() {
           >
             {/* Intake form mockup */}
             <div
-              className="rounded-3xl border border-white/[0.08] p-5 lg:p-6 backdrop-blur-sm shadow-card-dark"
+              className="rounded-3xl border border-slate-200 p-5 lg:p-6 backdrop-blur-sm shadow-card-dark"
               style={{
                 background: 'linear-gradient(135deg, rgba(15,40,71,0.8) 0%, rgba(11,31,58,0.9) 100%)',
               }}
             >
               {/* Mock header */}
-              <div className="flex items-center justify-between mb-5 pb-4 border-b border-white/[0.07]">
+              <div className="flex items-center justify-between mb-5 pb-4 border-b border-slate-200">
                 <div>
                   <div className="text-xs font-bold tracking-widest uppercase text-gold-500 mb-0.5">
                     Claim Intake
                   </div>
-                  <div className="text-white font-semibold text-sm">
+                  <div className="text-slate-900 font-semibold text-sm">
                     Free Inspection Request
                   </div>
                 </div>
@@ -101,12 +101,12 @@ export default function IntakePreview() {
                           ? '#F59E0B'
                           : step.active
                           ? 'rgba(245,158,11,0.4)'
-                          : 'rgba(255,255,255,0.08)',
+                          : 'rgba(0,0,0,0.05)',
                       }}
                     />
                   ))}
                 </div>
-                <div className="flex justify-between text-2xs text-white/30">
+                <div className="flex justify-between text-2xs text-slate-400">
                   {STEPS_PREVIEW.map((step, i) => (
                     <span
                       key={i}
@@ -120,7 +120,7 @@ export default function IntakePreview() {
 
               {/* Mock current step */}
               <div className="mb-6">
-                <div className="text-white font-semibold text-sm mb-3">
+                <div className="text-slate-900 font-semibold text-sm mb-3">
                   Where is the property located?
                 </div>
                 <div className="space-y-2">
@@ -131,8 +131,8 @@ export default function IntakePreview() {
                         flex items-center gap-3 px-4 py-3 rounded-xl border text-sm
                         cursor-pointer transition-all duration-200
                         ${i === 0
-                          ? 'border-gold-500 bg-gold-500/10 text-white font-medium'
-                          : 'border-white/[0.08] bg-white/[0.03] text-slate-400 hover:border-white/15'
+                          ? 'border-gold-500 bg-gold-500/10 text-slate-900 font-medium'
+                          : 'border-slate-200 bg-slate-100 text-slate-400 hover:border-white/15'
                         }
                       `}
                     >
@@ -140,7 +140,7 @@ export default function IntakePreview() {
                         className={`w-4 h-4 rounded-full border-2 flex-shrink-0 transition-all ${
                           i === 0
                             ? 'border-gold-500 bg-gold-500'
-                            : 'border-white/20'
+                            : 'border-slate-300'
                         }`}
                       >
                         {i === 0 && (
@@ -167,11 +167,11 @@ export default function IntakePreview() {
 
               {/* Trust line */}
               <div className="flex items-center justify-center gap-4 mt-4">
-                <span className="flex items-center gap-1.5 text-2xs text-white/35 font-medium">
+                <span className="flex items-center gap-1.5 text-2xs text-slate-400 font-medium">
                   <Shield size={11} className="text-green-400/60" />
                   No upfront cost
                 </span>
-                <span className="flex items-center gap-1.5 text-2xs text-white/35 font-medium">
+                <span className="flex items-center gap-1.5 text-2xs text-slate-400 font-medium">
                   <CheckCircle size={11} className="text-green-400/60" />
                   No commitment
                 </span>
@@ -188,7 +188,7 @@ export default function IntakePreview() {
             >
               <Bot size={18} className="text-gold-400 flex-shrink-0" />
               <div>
-                <div className="font-semibold text-white text-xs">After hours?</div>
+                <div className="font-semibold text-slate-900 text-xs">After hours?</div>
                 <div className="text-slate-400 text-2xs">AI captures your claim now</div>
               </div>
             </motion.div>
@@ -242,7 +242,7 @@ export default function IntakePreview() {
                     <feature.icon size={16} className="text-gold-400" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-white mb-1">{feature.title}</div>
+                    <div className="text-sm font-bold text-slate-900 mb-1">{feature.title}</div>
                     <div className="text-sm text-slate-400 leading-relaxed">{feature.body}</div>
                   </div>
                 </motion.div>

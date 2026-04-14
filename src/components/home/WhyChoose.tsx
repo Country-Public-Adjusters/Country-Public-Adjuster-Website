@@ -117,9 +117,9 @@ export default function WhyChoose() {
                 delay: 0.12 + i * 0.07,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="group relative p-5 rounded-2xl border border-white/[0.05]
-                         bg-white/[0.015] overflow-hidden
-                         hover:border-white/[0.09] hover:bg-white/[0.035]
+              className="group relative p-5 rounded-2xl border border-slate-200
+                         bg-slate-100 overflow-hidden
+                         hover:border-slate-200 hover:bg-slate-100
                          hover:-translate-y-0.5
                          transition-all duration-450"
             >
@@ -156,11 +156,11 @@ export default function WhyChoose() {
                 />
               </div>
 
-              <h3 className="text-sm font-bold text-white/90 mb-2
-                             group-hover:text-white transition-colors duration-300">
+              <h3 className="text-sm font-bold text-slate-800 mb-2
+                             group-hover:text-slate-700 transition-colors duration-300">
                 {item.title}
               </h3>
-              <p className="text-xs text-white/40 leading-relaxed">{item.body}</p>
+              <p className="text-xs text-slate-400 leading-relaxed">{item.body}</p>
             </motion.div>
           ))}
         </div>

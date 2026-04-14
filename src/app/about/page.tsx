@@ -48,13 +48,13 @@ export default function AboutPage() {
         <div className="container-site text-center">
           <FadeInView>
             <span className="section-label mb-4 block">About Country</span>
-            <h1 className="text-5xl lg:text-6xl font-black text-white tracking-tight mb-5">
+            <h1 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-5">
               Your insurance company{' '}
               <br className="hidden sm:block" />
               has adjusters.{' '}
               <span className="text-gradient-gold">Now you do too.</span>
             </h1>
-            <p className="text-lg text-white/55 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
               Country Public Adjusters is a team of licensed insurance claims professionals
               who work exclusively for property owners — never for insurance companies.
               We handle your entire claim so you get paid what you actually deserve.
@@ -144,8 +144,8 @@ export default function AboutPage() {
                   >
                     <v.icon size={18} className="text-gold-400" />
                   </div>
-                  <h3 className="font-bold text-white mb-2">{v.title}</h3>
-                  <p className="text-sm text-white/55 leading-relaxed">{v.body}</p>
+                  <h3 className="font-bold text-slate-900 mb-2">{v.title}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed">{v.body}</p>
                 </div>
               </FadeInView>
             ))}

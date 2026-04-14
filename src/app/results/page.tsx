@@ -99,11 +99,11 @@ export default function ResultsPage() {
         <div className="container-site text-center">
           <FadeInView>
             <span className="section-label mb-4 block">Real Results</span>
-            <h1 className="text-5xl lg:text-6xl font-black text-white tracking-tight mb-5">
+            <h1 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-5">
               What we've recovered{' '}
               <span className="text-gradient-gold">for property owners</span>
             </h1>
-            <p className="text-lg text-white/55 max-w-xl mx-auto">
+            <p className="text-lg text-slate-500 max-w-xl mx-auto">
               These are real claim outcomes from Nashville and South Florida.
               Numbers represent actual settlements vs. the insurer's initial position.
               All handled on contingency — no upfront cost.
@@ -124,17 +124,17 @@ export default function ResultsPage() {
                       {/* Tags */}
                       <div className="flex flex-wrap gap-2 mb-4">
                         <span className="badge-navy">{c.tag}</span>
-                        <span className="badge bg-white/[0.05] border border-white/[0.06] text-slate-400">
+                        <span className="badge bg-slate-100 border border-slate-200 text-slate-400">
                           <MapPin size={11} />
                           {c.location}
                         </span>
-                        <span className="badge bg-white/[0.05] border border-white/[0.06] text-slate-400">
+                        <span className="badge bg-slate-100 border border-slate-200 text-slate-400">
                           {c.propertyType}
                         </span>
                       </div>
 
-                      <h2 className="text-lg font-bold text-white mb-3">{c.title}</h2>
-                      <p className="text-sm text-white/55 leading-relaxed mb-4">{c.narrative}</p>
+                      <h2 className="text-lg font-bold text-slate-900 mb-3">{c.title}</h2>
+                      <p className="text-sm text-slate-500 leading-relaxed mb-4">{c.narrative}</p>
 
                       <div
                         className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold"
@@ -152,14 +152,14 @@ export default function ResultsPage() {
                     {/* Numbers */}
                     <div className="flex lg:flex-col items-center lg:items-end gap-4 lg:gap-2 flex-shrink-0">
                       <div className="text-center">
-                        <div className="text-xs text-white/35 uppercase tracking-wide mb-0.5">Insurer offer</div>
+                        <div className="text-xs text-slate-400 uppercase tracking-wide mb-0.5">Insurer offer</div>
                         <div className="text-2xl font-black text-red-400/80">
                           ${c.insurerOffer.toLocaleString()}
                         </div>
                       </div>
                       <ArrowRight size={18} className="text-gold-500/50 rotate-90 lg:rotate-0" />
                       <div className="text-center">
-                        <div className="text-xs text-white/35 uppercase tracking-wide mb-0.5">Final settlement</div>
+                        <div className="text-xs text-slate-400 uppercase tracking-wide mb-0.5">Final settlement</div>
                         <div
                           className="text-2xl font-black"
                           style={{
@@ -180,7 +180,7 @@ export default function ResultsPage() {
           </div>
 
           <FadeInView className="text-center mt-12">
-            <p className="text-sm text-white/35 mb-6">
+            <p className="text-sm text-slate-400 mb-6">
               All results represent actual claim outcomes. Individual results vary by claim complexity, damage extent, and insurer.
             </p>
             <Link href="/intake" className="btn-primary-lg inline-flex">

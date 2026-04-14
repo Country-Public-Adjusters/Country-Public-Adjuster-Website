@@ -31,7 +31,7 @@ export default function Step5InsuranceStage({ onNext }: StepProps) {
 
   return (
     <div className="card-dark p-6 lg:p-8">
-      <h2 className="text-2xl font-bold text-white mb-2">
+      <h2 className="text-2xl font-bold text-slate-900 mb-2">
         Where are you in the claim process?
       </h2>
       <p className="text-sm text-slate-400 mb-6">
@@ -54,25 +54,25 @@ export default function Step5InsuranceStage({ onNext }: StepProps) {
                 'w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0',
                 selected === stage.value
                   ? 'bg-gold-500/20 border border-gold-500/40'
-                  : 'bg-white/[0.06] border border-white/[0.08]'
+                  : 'bg-slate-100 border border-slate-200'
               )}
             >
               <stage.icon
                 size={16}
-                className={selected === stage.value ? 'text-gold-400' : 'text-white/40'}
+                className={selected === stage.value ? 'text-gold-400' : 'text-slate-400'}
               />
             </div>
             <div>
-              <div className="text-sm font-semibold text-white">{stage.label}</div>
-              <div className="text-xs text-white/40 mt-0.5">{stage.sub}</div>
+              <div className="text-sm font-semibold text-slate-900">{stage.label}</div>
+              <div className="text-xs text-slate-400 mt-0.5">{stage.sub}</div>
             </div>
           </button>
         ))}
       </div>
 
       {/* Optional insurer name */}
-      <div className="pt-4 border-t border-white/[0.06]">
-        <label className="block text-xs font-semibold text-white/40 mb-2 uppercase tracking-wide">
+      <div className="pt-4 border-t border-slate-200">
+        <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">
           Insurance company name (optional)
         </label>
         <input

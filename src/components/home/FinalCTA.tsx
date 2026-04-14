@@ -54,7 +54,7 @@ export default function FinalCTA() {
         aria-hidden="true"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+            'linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px)',
           backgroundSize: '64px 64px',
           maskImage: 'radial-gradient(ellipse 70% 70% at 50% 100%, black 30%, transparent 100%)',
         }}
@@ -96,7 +96,7 @@ export default function FinalCTA() {
             initial={{ opacity: 0, y: 32, filter: 'blur(6px)' }}
             animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
             transition={{ duration: 0.95, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-5xl lg:text-[3.75rem] font-black text-white
+            className="text-4xl sm:text-5xl lg:text-[3.75rem] font-black text-slate-900
                        tracking-tight leading-[1.0] mb-7"
           >
             Storm damage shouldn't cost you{' '}
@@ -151,7 +151,7 @@ export default function FinalCTA() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.55, duration: 0.6 }}
-            className="flex items-center justify-center gap-2 text-sm text-white/30"
+            className="flex items-center justify-center gap-2 text-sm text-slate-400"
           >
             <Bot size={15} className="text-gold-500/45" />
             <span>
@@ -183,8 +183,8 @@ export default function FinalCTA() {
               <div
                 key={i}
                 className="flex items-center gap-2 px-4 py-2 rounded-full
-                           bg-white/[0.03] border border-white/[0.06]
-                           text-xs text-white/40 font-medium"
+                           bg-slate-100 border border-slate-200
+                           text-xs text-slate-400 font-medium"
               >
                 <chip.icon size={11} className="text-gold-500/55" />
                 {chip.text}

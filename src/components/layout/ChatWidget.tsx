@@ -79,7 +79,7 @@ export default function ChatWidget() {
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-2 px-4 py-2 rounded-full
                          bg-navy-950/95 backdrop-blur-md border border-gold-500/30
-                         text-sm font-semibold text-white shadow-lg pointer-events-none"
+                         text-sm font-semibold text-slate-900 shadow-lg pointer-events-none"
             >
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
               Chat with us — we're online

@@ -32,7 +32,7 @@ export default function Step4Timing({ onNext }: StepProps) {
 
   return (
     <div className="card-dark p-6 lg:p-8">
-      <h2 className="text-2xl font-bold text-white mb-2">
+      <h2 className="text-2xl font-bold text-slate-900 mb-2">
         When did the damage occur?
       </h2>
       <p className="text-sm text-slate-400 mb-6">
@@ -45,7 +45,7 @@ export default function Step4Timing({ onNext }: StepProps) {
           Approximate damage date
         </label>
         <div className="relative">
-          <Calendar size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none" />
+          <Calendar size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
           <input
             {...register('damageDate')}
             type="date"
@@ -56,15 +56,15 @@ export default function Step4Timing({ onNext }: StepProps) {
           <input
             {...register('dateCertain')}
             type="checkbox"
-            className="w-4 h-4 rounded border-white/20 bg-white/5 accent-gold-500"
+            className="w-4 h-4 rounded border-slate-300 bg-white/5 accent-gold-500"
           />
-          <span className="text-xs text-white/45">I don't know the exact date</span>
+          <span className="text-xs text-slate-400">I don't know the exact date</span>
         </label>
       </div>
 
       {/* Urgency */}
       <div>
-        <label className="block text-sm font-semibold text-white mb-3">
+        <label className="block text-sm font-semibold text-slate-900 mb-3">
           Is there an active, ongoing issue with the property?
         </label>
         <div className="space-y-2.5">
@@ -84,8 +84,8 @@ export default function Step4Timing({ onNext }: StepProps) {
                   opt.urgent
                     ? isUrgent === true
                       ? 'bg-red-500/20 border border-red-500/40'
-                      : 'bg-white/[0.06] border border-white/[0.08]'
-                    : 'bg-white/[0.06] border border-white/[0.08]'
+                      : 'bg-slate-100 border border-slate-200'
+                    : 'bg-slate-100 border border-slate-200'
                 )}
               >
                 <AlertTriangle
@@ -93,13 +93,13 @@ export default function Step4Timing({ onNext }: StepProps) {
                   className={
                     isUrgent === opt.value
                       ? opt.urgent ? 'text-red-400' : 'text-gold-400'
-                      : 'text-white/35'
+                      : 'text-slate-400'
                   }
                 />
               </div>
               <div>
-                <div className="text-sm font-semibold text-white">{opt.label}</div>
-                <div className="text-xs text-white/40 mt-0.5">{opt.sub}</div>
+                <div className="text-sm font-semibold text-slate-900">{opt.label}</div>
+                <div className="text-xs text-slate-400 mt-0.5">{opt.sub}</div>
               </div>
             </button>
           ))}

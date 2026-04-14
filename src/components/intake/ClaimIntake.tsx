@@ -238,7 +238,7 @@ export default function ClaimIntake() {
           <button
             type="button"
             onClick={goPrev}
-            className="inline-flex items-center gap-2 text-sm text-white/40
+            className="inline-flex items-center gap-2 text-sm text-slate-400
                        hover:text-slate-600 transition-colors duration-200"
           >
             <ArrowLeft size={14} />

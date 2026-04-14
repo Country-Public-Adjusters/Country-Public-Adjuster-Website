@@ -147,7 +147,7 @@ export default function HowItWorks() {
                 )}
 
                 <div
-                  className="relative p-6 lg:p-8 h-full rounded-3xl border border-white/[0.06]
+                  className="relative p-6 lg:p-8 h-full rounded-3xl border border-slate-200
                              bg-navy-800/50 backdrop-blur-sm
                              group-hover:border-gold-500/25 group-hover:-translate-y-1
                              group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.3),0_0_40px_rgba(245,158,11,0.04)]
@@ -192,13 +192,13 @@ export default function HowItWorks() {
                   <div className="text-xs font-bold tracking-widest uppercase text-gold-500/60 mb-1.5">
                     Step {step.number}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-1.5">{step.title}</h3>
-                  <p className="text-sm font-semibold text-white/55 mb-3 leading-snug">{step.headline}</p>
-                  <p className="text-sm text-white/40 leading-relaxed mb-5">{step.body}</p>
+                  <h3 className="text-xl font-bold text-slate-900 mb-1.5">{step.title}</h3>
+                  <p className="text-sm font-semibold text-slate-500 mb-3 leading-snug">{step.headline}</p>
+                  <p className="text-sm text-slate-400 leading-relaxed mb-5">{step.body}</p>
 
                   <div
                     className="text-xs font-semibold text-gold-500/65 pt-4
-                               border-t border-white/[0.05]"
+                               border-t border-slate-200"
                   >
                     {step.detail}
                   </div>

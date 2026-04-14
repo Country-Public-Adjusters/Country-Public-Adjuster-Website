@@ -30,11 +30,11 @@ export default function IntakePage() {
           <span className="badge-gold mb-4">
             Free Inspection · No Commitment
           </span>
-          <h1 className="text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+          <h1 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mb-4">
             Start your free{' '}
             <span className="text-gradient-gold">claim review</span>
           </h1>
-          <p className="text-white/55 text-lg leading-relaxed max-w-md mx-auto">
+          <p className="text-slate-500 text-lg leading-relaxed max-w-md mx-auto">
             Takes under 3 minutes. A licensed public adjuster reviews your details
             and contacts you prepared to help.
           </p>
@@ -45,7 +45,7 @@ export default function IntakePage() {
               <div
                 key={i}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-full
-                           bg-white/[0.04] border border-white/[0.06] text-xs text-white/45 font-medium"
+                           bg-slate-100 border border-slate-200 text-xs text-slate-400 font-medium"
               >
                 <chip.icon size={11} className="text-gold-500/70" />
                 {chip.text}

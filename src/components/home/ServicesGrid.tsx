@@ -155,7 +155,7 @@ export default function ServicesGrid() {
             >
               <Link
                 href={service.href}
-                className="group block p-5 rounded-2xl border border-white/[0.05]
+                className="group block p-5 rounded-2xl border border-slate-200
                            transition-all duration-400 hover:-translate-y-1.5
                            hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative overflow-hidden"
                 style={{
@@ -171,7 +171,7 @@ export default function ServicesGrid() {
 
                 {/* Icon */}
                 <div
-                  className="w-10 h-10 rounded-xl bg-white/[0.05] border border-white/[0.07]
+                  className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200
                              flex items-center justify-center mb-4
                              group-hover:scale-110 group-hover:border-white/15
                              transition-all duration-350"
@@ -180,12 +180,12 @@ export default function ServicesGrid() {
                 </div>
 
                 <h3
-                  className="text-sm font-bold text-white/90 mb-2
-                             group-hover:text-white transition-colors duration-300"
+                  className="text-sm font-bold text-slate-800 mb-2
+                             group-hover:text-slate-700 transition-colors duration-300"
                 >
                   {service.title}
                 </h3>
-                <p className="text-xs text-white/40 leading-relaxed">{service.desc}</p>
+                <p className="text-xs text-slate-400 leading-relaxed">{service.desc}</p>
 
                 <div
                   className="flex items-center gap-1 mt-4 text-xs font-semibold

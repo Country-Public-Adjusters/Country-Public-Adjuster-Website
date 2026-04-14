@@ -118,7 +118,7 @@ export default function CaseResults() {
               <div className="flex items-start justify-between gap-4 mb-5">
                 <div>
                   <span className="badge-navy mb-2">{c.tag}</span>
-                  <div className="flex items-center gap-2 text-xs text-white/40 mt-1">
+                  <div className="flex items-center gap-2 text-xs text-slate-400 mt-1">
                     <MapPin size={11} />
                     <span>{c.location}</span>
                   </div>
@@ -138,9 +138,9 @@ export default function CaseResults() {
               </div>
 
               {/* Before / After numbers */}
-              <div className="flex items-center gap-4 mb-5 p-4 rounded-2xl bg-white/[0.03]">
+              <div className="flex items-center gap-4 mb-5 p-4 rounded-2xl bg-slate-100">
                 <div className="flex-1 text-center">
-                  <div className="text-xs text-white/35 font-medium mb-1 uppercase tracking-wide">
+                  <div className="text-xs text-slate-400 font-medium mb-1 uppercase tracking-wide">
                     Insurer's Offer
                   </div>
                   <div className="text-2xl font-black text-red-400/80">{c.initial}</div>
@@ -152,7 +152,7 @@ export default function CaseResults() {
                   />
                 </div>
                 <div className="flex-1 text-center">
-                  <div className="text-xs text-white/35 font-medium mb-1 uppercase tracking-wide">
+                  <div className="text-xs text-slate-400 font-medium mb-1 uppercase tracking-wide">
                     Final Settlement
                   </div>
                   <div
@@ -189,7 +189,7 @@ export default function CaseResults() {
             See All Case Results
             <ArrowRight size={17} />
           </Link>
-          <p className="text-xs text-white/30 mt-3">
+          <p className="text-xs text-slate-400 mt-3">
             All results represent actual claim outcomes. Individual results vary by claim complexity.
           </p>
         </motion.div>

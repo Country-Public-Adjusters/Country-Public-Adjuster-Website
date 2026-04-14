@@ -34,7 +34,7 @@ export default function RealitySection() {
         className="absolute inset-0 opacity-[0.012] pointer-events-none"
         style={{
           backgroundImage:
-            'radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)',
+            'radial-gradient(circle, rgba(15,23,42,0.9) 1px, transparent 1px)',
           backgroundSize: '44px 44px',
         }}
         aria-hidden="true"
@@ -92,7 +92,7 @@ export default function RealitySection() {
                   <div className="text-xs font-bold tracking-widest uppercase text-red-400/70 mb-0.5">
                     Going it alone
                   </div>
-                  <div className="text-white font-bold text-lg leading-tight">
+                  <div className="text-slate-900 font-bold text-lg leading-tight">
                     Without a Public Adjuster
                   </div>
                 </div>
@@ -159,7 +159,7 @@ export default function RealitySection() {
                   <div className="text-xs font-bold tracking-widest uppercase text-gold-500/70 mb-0.5">
                     With your advocate
                   </div>
-                  <div className="text-white font-bold text-lg leading-tight">
+                  <div className="text-slate-900 font-bold text-lg leading-tight">
                     With Country Public Adjusters
                   </div>
                 </div>
@@ -201,7 +201,7 @@ export default function RealitySection() {
             Start My Free Inspection
             <ArrowRight size={18} />
           </Link>
-          <p className="text-sm text-white/30 mt-4">
+          <p className="text-sm text-slate-400 mt-4">
             No cost. No commitment. Just clarity on what your claim is worth.
           </p>
         </FadeInView>

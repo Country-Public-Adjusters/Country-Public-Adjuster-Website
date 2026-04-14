@@ -61,13 +61,13 @@ function RegionCard({ title, subtitle, cities, context, href, delay, isInView }:
           <MapPin size={16} className="text-gold-400" />
         </div>
         <div>
-          <h3 className="font-bold text-white text-lg">{title}</h3>
-          <p className="text-xs text-white/45 mt-0.5">{subtitle}</p>
+          <h3 className="font-bold text-slate-900 text-lg">{title}</h3>
+          <p className="text-xs text-slate-400 mt-0.5">{subtitle}</p>
         </div>
       </div>
 
       {/* Context */}
-      <p className="text-sm text-white/55 leading-relaxed mb-6">{context}</p>
+      <p className="text-sm text-slate-500 leading-relaxed mb-6">{context}</p>
 
       {/* City chips */}
       <div className="flex flex-wrap gap-2 mb-6">
@@ -79,7 +79,7 @@ function RegionCard({ title, subtitle, cities, context, href, delay, isInView }:
               px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200
               ${city.primary
                 ? 'bg-gold-500/20 border border-gold-500/40 text-gold-300 hover:bg-gold-500/30'
-                : 'bg-white/[0.05] border border-white/[0.06] text-white/55 hover:text-slate-700 hover:bg-white/[0.08]'
+                : 'bg-slate-100 border border-slate-200 text-slate-500 hover:text-slate-700 hover:bg-slate-100'
               }
             `}
           >

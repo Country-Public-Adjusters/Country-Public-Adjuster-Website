@@ -20,7 +20,7 @@ export default function NotFound() {
         >
           404
         </div>
-        <h1 className="text-3xl font-bold text-white mb-4">Page not found</h1>
+        <h1 className="text-3xl font-bold text-slate-900 mb-4">Page not found</h1>
         <p className="text-slate-400 mb-8">
           The page you're looking for doesn't exist. If you're dealing with storm damage,
           don't wait — start your free inspection now.

@@ -71,8 +71,8 @@ export default function MetricsBand() {
                 delay: i * 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="group relative text-center px-6 py-8 rounded-2xl border border-white/[0.05]
-                         bg-white/[0.02] hover:bg-white/[0.04] hover:border-gold-500/20
+              className="group relative text-center px-6 py-8 rounded-2xl border border-slate-200
+                         bg-slate-100 hover:bg-slate-100 hover:border-gold-500/20
                          transition-all duration-500"
             >
               {/* Gold inner glow on hover */}
@@ -97,10 +97,10 @@ export default function MetricsBand() {
                 <CountUp end={metric.value} duration={2.2} />
                 {metric.suffix || ''}
               </div>
-              <div className="text-sm font-bold text-white/90 mb-1 relative">
+              <div className="text-sm font-bold text-slate-800 mb-1 relative">
                 {metric.label}
               </div>
-              <div className="text-xs text-white/35 relative">{metric.description}</div>
+              <div className="text-xs text-slate-400 relative">{metric.description}</div>
             </motion.div>
           ))}
         </div>

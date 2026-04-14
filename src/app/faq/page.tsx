@@ -147,11 +147,11 @@ export default function FAQPage() {
         <div className="container-site text-center">
           <FadeInView>
             <span className="section-label mb-4 block">FAQ</span>
-            <h1 className="text-5xl lg:text-6xl font-black text-white tracking-tight mb-5">
+            <h1 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-5">
               Questions{' '}
               <span className="text-gradient-gold">honestly answered</span>
             </h1>
-            <p className="text-lg text-white/55 max-w-xl mx-auto">
+            <p className="text-lg text-slate-500 max-w-xl mx-auto">
               Everything you need to know before you call — clear, direct answers
               about how this works, what it costs, and what your rights are.
             </p>

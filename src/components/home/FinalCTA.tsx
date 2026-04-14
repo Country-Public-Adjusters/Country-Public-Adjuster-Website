@@ -23,7 +23,7 @@ export default function FinalCTA() {
       className="relative overflow-hidden"
       style={{
         background:
-          'linear-gradient(180deg, #060F1E 0%, #040D1A 100%)',
+          'linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%)',
       }}
     >
       {/* Layered ambient glows */}
@@ -115,7 +115,7 @@ export default function FinalCTA() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="text-lg text-white/50 leading-relaxed mb-11 max-w-xl mx-auto"
+            className="text-lg text-slate-400 leading-relaxed mb-11 max-w-xl mx-auto"
           >
             You paid for insurance. Now it's time to use it — with someone who knows how
             to make them pay what your damage actually warrants.

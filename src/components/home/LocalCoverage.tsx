@@ -79,7 +79,7 @@ function RegionCard({ title, subtitle, cities, context, href, delay, isInView }:
               px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200
               ${city.primary
                 ? 'bg-gold-500/20 border border-gold-500/40 text-gold-300 hover:bg-gold-500/30'
-                : 'bg-white/[0.05] border border-white/[0.06] text-white/55 hover:text-white/80 hover:bg-white/[0.08]'
+                : 'bg-white/[0.05] border border-white/[0.06] text-white/55 hover:text-slate-700 hover:bg-white/[0.08]'
               }
             `}
           >

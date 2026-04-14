@@ -73,7 +73,7 @@ export default function SouthFloridaPage() {
         className="relative section-padding min-h-[55vh] flex items-center"
         style={{
           background:
-            'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.1) 0%, transparent 60%), linear-gradient(180deg, #060F1E 0%, #0B1F3A 100%)',
+            'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.1) 0%, transparent 60%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
         }}
       >
         <div className="container-site">
@@ -117,7 +117,7 @@ export default function SouthFloridaPage() {
               <h2 className="section-heading-dark mb-5">
                 Hurricane country requires a specialist
               </h2>
-              <div className="space-y-4 text-white/60 leading-relaxed">
+              <div className="space-y-4 text-slate-500 leading-relaxed">
                 <p>
                   South Florida faces some of the most complex property insurance claims in the
                   United States. Hurricane events trigger multi-billion dollar claim volumes,
@@ -129,7 +129,7 @@ export default function SouthFloridaPage() {
                   in South Florida and understands the specific tactics used by Florida\'s largest
                   residential and commercial insurers after catastrophe events.
                 </p>
-                <p className="font-semibold text-white/80">
+                <p className="font-semibold text-slate-700">
                   We know what full recovery looks like — and we don\'t stop until you get there.
                 </p>
               </div>
@@ -138,7 +138,7 @@ export default function SouthFloridaPage() {
             <FadeInView delay={0.2}>
               <div className="card-dark p-6">
                 <h3 className="font-bold text-white text-lg mb-4">South Florida service area</h3>
-                <p className="text-sm text-white/50 mb-5">We serve all three tri-county markets:</p>
+                <p className="text-sm text-slate-400 mb-5">We serve all three tri-county markets:</p>
                 <div className="flex flex-wrap gap-2">
                   {FL_CITIES.map((city) => (
                     <Link
@@ -146,7 +146,7 @@ export default function SouthFloridaPage() {
                       href={city.href}
                       className="px-3 py-1.5 rounded-full text-xs font-medium
                                  bg-white/[0.05] border border-white/[0.06] text-white/55
-                                 hover:text-white/80 hover:bg-white/[0.08] transition-all duration-200"
+                                 hover:text-slate-700 hover:bg-white/[0.08] transition-all duration-200"
                     >
                       {city.name}
                     </Link>

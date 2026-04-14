@@ -81,7 +81,7 @@ export default function IntakeProgress({
                   isActive
                     ? 'text-gold-400'
                     : isCompleted
-                    ? 'text-white/50'
+                    ? 'text-slate-400'
                     : 'text-white/25'
                 }`}
               >

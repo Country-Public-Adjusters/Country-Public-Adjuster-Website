@@ -18,7 +18,7 @@ export default function Step6ClaimDetails({ onNext }: StepProps) {
       <h2 className="text-2xl font-bold text-white mb-2">
         A little more about the damage
       </h2>
-      <p className="text-sm text-white/50 mb-6">
+      <p className="text-sm text-slate-400 mb-6">
         Optional — but more context helps us prepare a better review.
       </p>
 
@@ -56,7 +56,7 @@ export default function Step6ClaimDetails({ onNext }: StepProps) {
             onChange={(e) => setValue('hasPhotos', e.target.checked)}
             className="w-4 h-4 rounded border-white/20 bg-white/5 accent-gold-500"
           />
-          <span className="text-sm text-white/70 font-medium">
+          <span className="text-sm text-slate-600 font-medium">
             I have photos or documentation of the damage
           </span>
         </label>

@@ -42,7 +42,7 @@ export default function AboutPage() {
         className="relative section-padding min-h-[50vh] flex items-center"
         style={{
           background:
-            'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.1) 0%, transparent 60%), linear-gradient(180deg, #060F1E 0%, #0B1F3A 100%)',
+            'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.1) 0%, transparent 60%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
         }}
       >
         <div className="container-site text-center">
@@ -72,7 +72,7 @@ export default function AboutPage() {
               <h2 className="section-heading-dark mb-5">
                 Built from the inside out
               </h2>
-              <div className="space-y-4 text-white/60 text-base leading-relaxed">
+              <div className="space-y-4 text-slate-500 text-base leading-relaxed">
                 <p>
                   Country Public Adjusters was founded by claims professionals who spent
                   years working in the insurance industry — and who saw firsthand how
@@ -88,7 +88,7 @@ export default function AboutPage() {
                   high storm activity, complex building environments, and insurers
                   who count on policyholders not knowing their rights.
                 </p>
-                <p className="text-white/80 font-semibold">
+                <p className="text-slate-700 font-semibold">
                   We've negotiated thousands of claims and recovered millions in settlements
                   that would otherwise have gone unpaid.
                 </p>
@@ -114,7 +114,7 @@ export default function AboutPage() {
                     >
                       {stat.num}
                     </div>
-                    <div className="text-xs text-white/50 font-medium">{stat.label}</div>
+                    <div className="text-xs text-slate-400 font-medium">{stat.label}</div>
                   </div>
                 ))}
               </div>

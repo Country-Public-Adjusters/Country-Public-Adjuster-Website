@@ -40,7 +40,7 @@ export default function Step7ContactInfo({ isLast }: StepProps) {
       <h2 className="text-2xl font-bold text-white mb-2">
         How should we reach you?
       </h2>
-      <p className="text-sm text-white/50 mb-6">
+      <p className="text-sm text-slate-400 mb-6">
         A licensed public adjuster will call you — prepared and ready to help.
       </p>
 

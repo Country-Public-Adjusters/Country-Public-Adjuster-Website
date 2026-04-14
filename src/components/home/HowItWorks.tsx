@@ -57,7 +57,7 @@ export default function HowItWorks() {
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(ellipse 70% 60% at 50% 85%, rgba(30,65,117,0.3) 0%, transparent 70%)',
+            'radial-gradient(ellipse 70% 60% at 50% 85%, rgba(203,213,225,0.3) 0%, transparent 70%)',
         }}
       />
 

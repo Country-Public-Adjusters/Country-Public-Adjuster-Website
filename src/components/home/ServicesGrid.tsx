@@ -24,7 +24,7 @@ const SERVICES = [
     title: 'Wind Damage Claims',
     desc: 'Siding, roofing, windows, structural — wind damage is often massively undervalued.',
     href: '/damage/wind',
-    gradientFrom: 'rgba(30,65,117,0.25)',
+    gradientFrom: 'rgba(203,213,225,0.25)',
     gradientTo: 'rgba(11,31,58,0.15)',
     hoverBorder: 'rgba(59,130,246,0.2)',
     iconColor: 'text-navy-300',
@@ -64,7 +64,7 @@ const SERVICES = [
     title: 'Commercial Property',
     desc: 'Business interruption, structural damage, multi-unit — commercial claims need a specialist.',
     href: '/damage/commercial',
-    gradientFrom: 'rgba(30,65,117,0.2)',
+    gradientFrom: 'rgba(203,213,225,0.2)',
     gradientTo: 'rgba(22,48,84,0.1)',
     hoverBorder: 'rgba(59,130,246,0.18)',
     iconColor: 'text-navy-300',
@@ -106,7 +106,7 @@ export default function ServicesGrid() {
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(ellipse 55% 45% at 50% 50%, rgba(30,65,117,0.12) 0%, transparent 70%)',
+            'radial-gradient(ellipse 55% 45% at 50% 50%, rgba(203,213,225,0.12) 0%, transparent 70%)',
         }}
       />
 

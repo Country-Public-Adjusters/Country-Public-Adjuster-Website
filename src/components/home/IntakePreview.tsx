@@ -47,7 +47,7 @@ export default function IntakePreview() {
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(ellipse 60% 60% at 0% 50%, rgba(245,158,11,0.05) 0%, transparent 60%), radial-gradient(ellipse 50% 60% at 100% 50%, rgba(30,65,117,0.3) 0%, transparent 60%)',
+            'radial-gradient(ellipse 60% 60% at 0% 50%, rgba(245,158,11,0.05) 0%, transparent 60%), radial-gradient(ellipse 50% 60% at 100% 50%, rgba(203,213,225,0.3) 0%, transparent 60%)',
         }}
       />
 
@@ -132,7 +132,7 @@ export default function IntakePreview() {
                         cursor-pointer transition-all duration-200
                         ${i === 0
                           ? 'border-gold-500 bg-gold-500/10 text-white font-medium'
-                          : 'border-white/[0.08] bg-white/[0.03] text-white/50 hover:border-white/15'
+                          : 'border-white/[0.08] bg-white/[0.03] text-slate-400 hover:border-white/15'
                         }
                       `}
                     >
@@ -189,7 +189,7 @@ export default function IntakePreview() {
               <Bot size={18} className="text-gold-400 flex-shrink-0" />
               <div>
                 <div className="font-semibold text-white text-xs">After hours?</div>
-                <div className="text-white/50 text-2xs">AI captures your claim now</div>
+                <div className="text-slate-400 text-2xs">AI captures your claim now</div>
               </div>
             </motion.div>
           </motion.div>
@@ -243,7 +243,7 @@ export default function IntakePreview() {
                   </div>
                   <div>
                     <div className="text-sm font-bold text-white mb-1">{feature.title}</div>
-                    <div className="text-sm text-white/50 leading-relaxed">{feature.body}</div>
+                    <div className="text-sm text-slate-400 leading-relaxed">{feature.body}</div>
                   </div>
                 </motion.div>
               ))}

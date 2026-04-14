@@ -32,7 +32,7 @@ export default function Step1PropertyType({ onNext }: StepProps) {
       <h2 className="text-2xl font-bold text-white mb-2">
         What type of property was damaged?
       </h2>
-      <p className="text-sm text-white/50 mb-7">
+      <p className="text-sm text-slate-400 mb-7">
         This helps us route your claim to the right specialist.
       </p>
 
@@ -57,7 +57,7 @@ export default function Step1PropertyType({ onNext }: StepProps) {
             >
               <type.icon
                 size={18}
-                className={selected === type.value ? 'text-gold-400' : 'text-white/50'}
+                className={selected === type.value ? 'text-gold-400' : 'text-slate-400'}
               />
             </div>
             <div>

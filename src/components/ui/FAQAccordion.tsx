@@ -52,7 +52,7 @@ export default function FAQAccordion({
               <span
                 className={cn(
                   'font-semibold text-base leading-snug',
-                  theme === 'dark' ? 'text-white' : 'text-navy-900'
+                  theme === 'dark' ? 'text-slate-900' : 'text-navy-900'
                 )}
               >
                 {item.question}
@@ -85,7 +85,7 @@ export default function FAQAccordion({
                   <div
                     className={cn(
                       'px-6 pb-5 text-sm leading-relaxed',
-                      theme === 'dark' ? 'text-white/60' : 'text-navy-700'
+                      theme === 'dark' ? 'text-slate-500' : 'text-navy-700'
                     )}
                   >
                     {item.answer}

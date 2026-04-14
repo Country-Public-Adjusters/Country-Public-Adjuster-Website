@@ -35,13 +35,13 @@ export default function Step4Timing({ onNext }: StepProps) {
       <h2 className="text-2xl font-bold text-white mb-2">
         When did the damage occur?
       </h2>
-      <p className="text-sm text-white/50 mb-6">
+      <p className="text-sm text-slate-400 mb-6">
         Timing matters — some claims have filing deadlines.
       </p>
 
       {/* Date input */}
       <div className="mb-6">
-        <label className="block text-xs font-semibold text-white/50 mb-2 uppercase tracking-wide">
+        <label className="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">
           Approximate damage date
         </label>
         <div className="relative">

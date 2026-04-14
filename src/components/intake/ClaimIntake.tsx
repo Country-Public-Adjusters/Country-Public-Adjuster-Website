@@ -239,7 +239,7 @@ export default function ClaimIntake() {
             type="button"
             onClick={goPrev}
             className="inline-flex items-center gap-2 text-sm text-white/40
-                       hover:text-white/70 transition-colors duration-200"
+                       hover:text-slate-600 transition-colors duration-200"
           >
             <ArrowLeft size={14} />
             Back

@@ -67,8 +67,8 @@ export default function Hero() {
       currentY += (mouseY - currentY) * 0.05
       gradient.style.background = `
         radial-gradient(ellipse 55% 65% at ${currentX}% ${currentY}%, rgba(245,158,11,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 80% 55% at 25% 38%, rgba(30,65,117,0.38) 0%, transparent 65%),
-        radial-gradient(ellipse 55% 75% at 75% 65%, rgba(30,65,117,0.22) 0%, transparent 60%)
+        radial-gradient(ellipse 80% 55% at 25% 38%, rgba(203,213,225,0.38) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 75% at 75% 65%, rgba(203,213,225,0.22) 0%, transparent 60%)
       `
       rafId = requestAnimationFrame(tick)
     }
@@ -104,7 +104,7 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-6 pb-28 md:pb-36"
       style={{
         backgroundImage:
-          'radial-gradient(ellipse 90% 70% at 50% -5%, rgba(245,158,11,0.11) 0%, transparent 58%), radial-gradient(ellipse 65% 45% at 82% 52%, rgba(30,65,117,0.28) 0%, transparent 60%), linear-gradient(180deg, #050E1B 0%, #0B1F3A 55%, #060F1E 100%)',
+          'radial-gradient(ellipse 90% 70% at 50% -5%, rgba(245,158,11,0.11) 0%, transparent 58%), radial-gradient(ellipse 65% 45% at 82% 52%, rgba(203,213,225,0.28) 0%, transparent 60%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 55%, #FFFFFF 100%)',
       }}
     >
       {/* Ambient gradient layer — follows mouse */}
@@ -295,7 +295,7 @@ export default function Hero() {
               >
                 {stat.value}
               </div>
-              <div className="text-sm font-semibold text-white/80 mt-0.5">{stat.label}</div>
+              <div className="text-sm font-semibold text-slate-700 mt-0.5">{stat.label}</div>
               <div className="text-xs text-white/35 mt-0.5">{stat.note}</div>
             </div>
           ))}
@@ -335,7 +335,7 @@ export default function Hero() {
         >
           <path
             d="M0,55 C280,100 760,20 1440,65 L1440,100 L0,100 Z"
-            fill="#040D1A"
+            fill="#FFFFFF"
           />
         </svg>
       </div>

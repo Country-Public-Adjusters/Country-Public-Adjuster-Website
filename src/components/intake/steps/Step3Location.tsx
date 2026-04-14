@@ -33,7 +33,7 @@ export default function Step3Location({ onNext }: StepProps) {
       <h2 className="text-2xl font-bold text-white mb-2">
         Where is the property located?
       </h2>
-      <p className="text-sm text-white/50 mb-6">
+      <p className="text-sm text-slate-400 mb-6">
         This helps us assign the right local adjuster.
       </p>
 

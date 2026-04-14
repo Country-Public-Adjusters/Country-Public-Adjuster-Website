@@ -34,7 +34,7 @@ export default function Step5InsuranceStage({ onNext }: StepProps) {
       <h2 className="text-2xl font-bold text-white mb-2">
         Where are you in the claim process?
       </h2>
-      <p className="text-sm text-white/50 mb-6">
+      <p className="text-sm text-slate-400 mb-6">
         We help at every stage — before, during, and after filing.
       </p>
 

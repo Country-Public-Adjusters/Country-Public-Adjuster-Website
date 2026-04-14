@@ -49,7 +49,7 @@ export default function Footer() {
         <div className="container-site py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <p className="text-white font-semibold text-lg">Storm damage? Don't wait.</p>
-            <p className="text-white/50 text-sm mt-0.5">
+            <p className="text-slate-400 text-sm mt-0.5">
               Every day delayed can reduce your claim value. Get a free inspection today.
             </p>
           </div>
@@ -92,7 +92,7 @@ export default function Footer() {
               </div>
             </Link>
 
-            <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-xs">
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">
               Licensed public adjusters fighting for the full insurance settlement you deserve.
               No upfront cost. Contingency-only. 35+ years combined experience.
             </p>
@@ -100,19 +100,19 @@ export default function Footer() {
             <div className="space-y-3">
               <a
                 href={`tel:${PHONE}`}
-                className="flex items-center gap-3 text-sm text-white/60 hover:text-gold-400 transition-colors duration-200"
+                className="flex items-center gap-3 text-sm text-slate-500 hover:text-gold-400 transition-colors duration-200"
               >
                 <Phone size={15} className="text-gold-500 flex-shrink-0" />
                 <span>{PHONE_DISPLAY}</span>
               </a>
               <a
                 href={`mailto:${EMAIL}`}
-                className="flex items-center gap-3 text-sm text-white/60 hover:text-gold-400 transition-colors duration-200"
+                className="flex items-center gap-3 text-sm text-slate-500 hover:text-gold-400 transition-colors duration-200"
               >
                 <Mail size={15} className="text-gold-500 flex-shrink-0" />
                 <span>{EMAIL}</span>
               </a>
-              <div className="flex items-start gap-3 text-sm text-white/50">
+              <div className="flex items-start gap-3 text-sm text-slate-400">
                 <MapPin size={15} className="text-gold-500 flex-shrink-0 mt-0.5" />
                 <span>Nashville, TN &amp; South Florida</span>
               </div>
@@ -129,7 +129,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/50 hover:text-white/80 transition-colors duration-200
+                    className="text-sm text-slate-400 hover:text-slate-700 transition-colors duration-200
                                flex items-center gap-1 group"
                   >
                     <span>{link.label}</span>
@@ -149,7 +149,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/50 hover:text-white/80 transition-colors duration-200"
+                    className="text-sm text-slate-400 hover:text-slate-700 transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -168,7 +168,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/50 hover:text-white/80 transition-colors duration-200"
+                    className="text-sm text-slate-400 hover:text-slate-700 transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -187,7 +187,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/50 hover:text-white/80 transition-colors duration-200"
+                    className="text-sm text-slate-400 hover:text-slate-700 transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -208,13 +208,13 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <Link
               href="/privacy"
-              className="text-xs text-white/30 hover:text-white/60 transition-colors duration-200"
+              className="text-xs text-white/30 hover:text-slate-500 transition-colors duration-200"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-xs text-white/30 hover:text-white/60 transition-colors duration-200"
+              className="text-xs text-white/30 hover:text-slate-500 transition-colors duration-200"
             >
               Terms of Service
             </Link>

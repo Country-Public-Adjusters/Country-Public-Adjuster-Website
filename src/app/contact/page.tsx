@@ -16,7 +16,7 @@ export default function ContactPage() {
       className="relative section-padding min-h-screen"
       style={{
         background:
-          'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.08) 0%, transparent 60%), linear-gradient(180deg, #060F1E 0%, #0B1F3A 100%)',
+          'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.08) 0%, transparent 60%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
       }}
     >
       <div className="container-site max-w-5xl">
@@ -60,7 +60,7 @@ export default function ContactPage() {
             <div className="card-dark p-7">
               <div
                 className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
-                style={{ background: 'rgba(30,65,117,0.4)', border: '1px solid rgba(30,65,117,0.6)' }}
+                style={{ background: 'rgba(203,213,225,0.4)', border: '1px solid rgba(203,213,225,0.6)' }}
               >
                 <Phone size={22} className="text-navy-300" />
               </div>
@@ -79,7 +79,7 @@ export default function ContactPage() {
             <div className="card-dark p-7">
               <div
                 className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
-                style={{ background: 'rgba(30,65,117,0.3)', border: '1px solid rgba(30,65,117,0.5)' }}
+                style={{ background: 'rgba(203,213,225,0.3)', border: '1px solid rgba(203,213,225,0.5)' }}
               >
                 <Mail size={22} className="text-navy-300" />
               </div>

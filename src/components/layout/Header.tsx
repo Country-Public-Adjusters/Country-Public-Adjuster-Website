@@ -65,7 +65,7 @@ function Dropdown({ items, isOpen }: DropdownProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-4 py-2.5 rounded-xl text-sm text-white/70 font-medium
+                className="block px-4 py-2.5 rounded-xl text-sm text-slate-600 font-medium
                            hover:text-white hover:bg-white/[0.06] transition-all duration-150"
               >
                 {item.label}
@@ -119,7 +119,7 @@ export default function Header() {
   return (
     <>
       {/* ── Top credibility bar ── */}
-      <div className="hidden sm:block bg-navy-950 border-b border-white/[0.04] py-2 text-center text-2xs font-medium tracking-wide text-white/50">
+      <div className="hidden sm:block bg-navy-950 border-b border-white/[0.04] py-2 text-center text-2xs font-medium tracking-wide text-slate-400">
         <span className="mr-4">35+ Years Combined Experience</span>
         <span className="text-white/20 mr-4">|</span>
         <span className="mr-4">No Upfront Cost</span>
@@ -172,7 +172,7 @@ export default function Header() {
                   >
                     <button
                       className="flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-medium
-                                 text-white/70 hover:text-white hover:bg-white/[0.06]
+                                 text-slate-600 hover:text-white hover:bg-white/[0.06]
                                  transition-all duration-200"
                     >
                       {link.label}
@@ -194,7 +194,7 @@ export default function Header() {
                     key={link.label}
                     href={link.href}
                     className="px-4 py-2 rounded-xl text-sm font-medium
-                               text-white/70 hover:text-white hover:bg-white/[0.06]
+                               text-slate-600 hover:text-white hover:bg-white/[0.06]
                                transition-all duration-200"
                   >
                     {link.label}
@@ -208,7 +208,7 @@ export default function Header() {
               <a
                 href={`tel:${PHONE}`}
                 onClick={() => Analytics.phoneClick('header')}
-                className="flex items-center gap-2 text-sm font-semibold text-white/60
+                className="flex items-center gap-2 text-sm font-semibold text-slate-500
                            hover:text-gold-400 transition-all duration-300 group"
               >
                 <Phone size={14} className="group-hover:scale-110 transition-transform duration-300" />
@@ -226,7 +226,7 @@ export default function Header() {
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-xl text-white/70 hover:text-white
+              className="lg:hidden p-2 rounded-xl text-slate-600 hover:text-white
                          hover:bg-white/[0.06] transition-all duration-200"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
@@ -260,7 +260,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block px-4 py-3 rounded-xl text-lg font-semibold text-white/80
+                    className="block px-4 py-3 rounded-xl text-lg font-semibold text-slate-700
                                hover:text-white hover:bg-white/[0.06] transition-all duration-200"
                     style={{ animationDelay: `${i * 50}ms` }}
                   >
@@ -273,8 +273,8 @@ export default function Header() {
                           key={child.href}
                           href={child.href}
                           onClick={() => setMobileOpen(false)}
-                          className="block px-4 py-2.5 rounded-xl text-sm text-white/50
-                                     hover:text-white/80 hover:bg-white/[0.04] transition-all duration-150"
+                          className="block px-4 py-2.5 rounded-xl text-sm text-slate-400
+                                     hover:text-slate-700 hover:bg-white/[0.04] transition-all duration-150"
                         >
                           {child.label}
                         </Link>

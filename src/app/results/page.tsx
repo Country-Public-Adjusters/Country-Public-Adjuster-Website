@@ -93,7 +93,7 @@ export default function ResultsPage() {
       <section
         className="relative section-padding"
         style={{
-          background: 'linear-gradient(180deg, #060F1E 0%, #0B1F3A 100%)',
+          background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
         }}
       >
         <div className="container-site text-center">
@@ -124,11 +124,11 @@ export default function ResultsPage() {
                       {/* Tags */}
                       <div className="flex flex-wrap gap-2 mb-4">
                         <span className="badge-navy">{c.tag}</span>
-                        <span className="badge bg-white/[0.05] border border-white/[0.06] text-white/50">
+                        <span className="badge bg-white/[0.05] border border-white/[0.06] text-slate-400">
                           <MapPin size={11} />
                           {c.location}
                         </span>
-                        <span className="badge bg-white/[0.05] border border-white/[0.06] text-white/50">
+                        <span className="badge bg-white/[0.05] border border-white/[0.06] text-slate-400">
                           {c.propertyType}
                         </span>
                       </div>

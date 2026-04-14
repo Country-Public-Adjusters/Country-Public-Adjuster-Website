@@ -6,15 +6,15 @@
 /* ─── CUSTOM PROPERTIES / DESIGN TOKENS ─────────────────────────────────────── */
 :root {
   /* Brand colors */
-  --color-navy-950: #040D1A;
-  --color-navy-900: #0B1F3A;
-  --color-navy-800: #0F2847;
-  --color-navy-700: #163054;
-  --color-navy-600: #1E4175;
+  --color-navy-950: #FFFFFF;
+  --color-navy-900: #F8FAFC;
+  --color-navy-800: #F1F5F9;
+  --color-navy-700: #CBD5E1;
+  --color-navy-600: #94A3B8;
   --color-gold-500: #F59E0B;
   --color-gold-400: #FBBF24;
   --color-gold-300: #FCD34D;
-  --color-cream-50: #FEFDF8;
+  --color-cream-50: #FFFBEB;
 
   /* Motion */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -276,7 +276,7 @@
   }
 
   .section-sub-dark {
-    @apply text-lg text-white/60 leading-relaxed max-w-2xl;
+    @apply text-lg text-slate-500 leading-relaxed max-w-2xl;
   }
 
   .section-sub-light {

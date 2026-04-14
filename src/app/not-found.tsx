@@ -6,7 +6,7 @@ export default function NotFound() {
     <section
       className="min-h-[70vh] flex items-center justify-center section-padding"
       style={{
-        background: 'linear-gradient(180deg, #060F1E 0%, #0B1F3A 100%)',
+        background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
       }}
     >
       <div className="text-center max-w-lg">
@@ -21,7 +21,7 @@ export default function NotFound() {
           404
         </div>
         <h1 className="text-3xl font-bold text-white mb-4">Page not found</h1>
-        <p className="text-white/50 mb-8">
+        <p className="text-slate-400 mb-8">
           The page you're looking for doesn't exist. If you're dealing with storm damage,
           don't wait — start your free inspection now.
         </p>

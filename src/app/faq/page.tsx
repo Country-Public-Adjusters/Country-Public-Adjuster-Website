@@ -141,7 +141,7 @@ export default function FAQPage() {
       <section
         className="relative section-padding"
         style={{
-          background: 'linear-gradient(180deg, #060F1E 0%, #0B1F3A 100%)',
+          background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
         }}
       >
         <div className="container-site text-center">

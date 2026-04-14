@@ -21,7 +21,7 @@ export default function IntakePage() {
       className="min-h-screen section-padding"
       style={{
         background:
-          'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.1) 0%, transparent 60%), linear-gradient(180deg, #060F1E 0%, #0B1F3A 100%)',
+          'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.1) 0%, transparent 60%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
       }}
     >
       <div className="container-site max-w-2xl">

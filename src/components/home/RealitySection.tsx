@@ -106,7 +106,7 @@ export default function RealitySection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-start gap-3 text-sm text-white/50"
+                    className="flex items-start gap-3 text-sm text-slate-400"
                   >
                     <X size={14} className="text-red-400/60 flex-shrink-0 mt-0.5" />
                     {item}
@@ -129,7 +129,7 @@ export default function RealitySection() {
               className="rounded-3xl border border-gold-500/[0.22] p-6 lg:p-8 h-full relative overflow-hidden"
               style={{
                 background:
-                  'linear-gradient(135deg, rgba(30,65,117,0.38) 0%, rgba(11,31,58,0.55) 100%)',
+                  'linear-gradient(135deg, rgba(203,213,225,0.38) 0%, rgba(11,31,58,0.55) 100%)',
               }}
             >
               {/* Gold inner glow */}
@@ -173,7 +173,7 @@ export default function RealitySection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.07 + 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-start gap-3 text-sm text-white/80"
+                    className="flex items-start gap-3 text-sm text-slate-700"
                   >
                     <Check size={14} className="text-gold-500 flex-shrink-0 mt-0.5" />
                     {item}

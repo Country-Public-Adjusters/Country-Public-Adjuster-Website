@@ -126,7 +126,7 @@ export default function MetricsBand() {
           className="w-full block"
           style={{ height: '60px' }}
         >
-          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#040D1A" />
+          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#FFFFFF" />
         </svg>
       </div>
     </section>

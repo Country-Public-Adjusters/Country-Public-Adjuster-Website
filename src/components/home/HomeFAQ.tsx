@@ -73,7 +73,7 @@ export default function HomeFAQ() {
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(ellipse 50% 40% at 50% 50%, rgba(30,65,117,0.15) 0%, transparent 70%)',
+            'radial-gradient(ellipse 50% 40% at 50% 50%, rgba(203,213,225,0.15) 0%, transparent 70%)',
         }}
       />
 

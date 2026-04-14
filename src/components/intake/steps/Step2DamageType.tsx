@@ -39,7 +39,7 @@ export default function Step2DamageType({ onNext }: StepProps) {
       <h2 className="text-2xl font-bold text-white mb-2">
         What type of damage occurred?
       </h2>
-      <p className="text-sm text-white/50 mb-7">
+      <p className="text-sm text-slate-400 mb-7">
         Select all that apply. You can choose more than one.
       </p>
 
@@ -75,7 +75,7 @@ export default function Step2DamageType({ onNext }: StepProps) {
               <span
                 className={cn(
                   'text-xs font-semibold leading-tight',
-                  isSelected ? 'text-white' : 'text-white/55'
+                  isSelected ? 'text-slate-900' : 'text-white/55'
                 )}
               >
                 {type.label}

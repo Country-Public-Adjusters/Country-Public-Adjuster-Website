@@ -72,7 +72,7 @@ export default function WhyChoose() {
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(ellipse 75% 55% at 50% 0%, rgba(30,65,117,0.22) 0%, transparent 65%)',
+            'radial-gradient(ellipse 75% 55% at 50% 0%, rgba(203,213,225,0.22) 0%, transparent 65%)',
         }}
       />
 
@@ -131,7 +131,7 @@ export default function WhyChoose() {
                   background:
                     item.accent === 'gold'
                       ? 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,158,11,0.05) 0%, transparent 70%)'
-                      : 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(30,65,117,0.12) 0%, transparent 70%)',
+                      : 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(203,213,225,0.12) 0%, transparent 70%)',
                 }}
               />
 
@@ -143,11 +143,11 @@ export default function WhyChoose() {
                   background:
                     item.accent === 'gold'
                       ? 'rgba(245,158,11,0.09)'
-                      : 'rgba(30,65,117,0.28)',
+                      : 'rgba(203,213,225,0.28)',
                   borderColor:
                     item.accent === 'gold'
                       ? 'rgba(245,158,11,0.18)'
-                      : 'rgba(30,65,117,0.5)',
+                      : 'rgba(203,213,225,0.5)',
                 }}
               >
                 <item.icon

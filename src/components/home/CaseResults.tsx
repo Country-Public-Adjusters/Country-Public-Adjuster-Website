@@ -65,7 +65,7 @@ export default function CaseResults() {
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(ellipse, rgba(30,65,117,0.25) 0%, transparent 70%)',
+            'radial-gradient(ellipse, rgba(203,213,225,0.25) 0%, transparent 70%)',
         }}
       />
 
@@ -169,7 +169,7 @@ export default function CaseResults() {
               </div>
 
               {/* Narrative */}
-              <p className="text-sm text-white/50 leading-relaxed">{c.narrative}</p>
+              <p className="text-sm text-slate-400 leading-relaxed">{c.narrative}</p>
             </motion.div>
           ))}
         </div>

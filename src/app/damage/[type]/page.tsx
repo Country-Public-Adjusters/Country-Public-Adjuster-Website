@@ -69,7 +69,7 @@ export default async function DamageTypePage({
         className="relative section-padding min-h-[50vh] flex items-center"
         style={{
           background:
-            'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.1) 0%, transparent 60%), linear-gradient(180deg, #060F1E 0%, #0B1F3A 100%)',
+            'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.1) 0%, transparent 60%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
         }}
       >
         <div className="container-site">
@@ -85,7 +85,7 @@ export default async function DamageTypePage({
           <div className="max-w-3xl">
             <FadeInView>
               <span className="badge-gold mb-5">{page.title}</span>
-              <h1 className="text-5xl lg:text-6xl font-black text-white tracking-tight mb-5 leading-[0.95]">
+              <h1 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-5 leading-[0.95]">
                 {page.heroHeadline}
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
@@ -111,7 +111,7 @@ export default async function DamageTypePage({
         <div className="container-site">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-16 max-w-5xl mx-auto">
             <FadeInView>
-              <h2 className="text-2xl font-bold text-white mb-5">
+              <h2 className="text-2xl font-bold text-slate-900 mb-5">
                 What {page.title.toLowerCase()} looks like
               </h2>
               <ul className="space-y-3">
@@ -125,7 +125,7 @@ export default async function DamageTypePage({
             </FadeInView>
 
             <FadeInView delay={0.15}>
-              <h2 className="text-2xl font-bold text-white mb-5">
+              <h2 className="text-2xl font-bold text-slate-900 mb-5">
                 What insurers routinely undervalue
               </h2>
               <ul className="space-y-3">

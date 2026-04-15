@@ -56,7 +56,7 @@ export default async function NashvilleCityPage({
         className="relative section-padding min-h-[50vh] flex items-center"
         style={{
           background:
-            'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.08) 0%, transparent 60%), linear-gradient(180deg, #060F1E 0%, #0B1F3A 100%)',
+            'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.08) 0%, transparent 60%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
         }}
       >
         <div className="container-site">
@@ -75,7 +75,7 @@ export default async function NashvilleCityPage({
                 <span>{page.city}, {page.state}</span>
               </div>
               <span className="badge-gold mb-5">Public Adjuster · {page.city}, TN</span>
-              <h1 className="text-5xl lg:text-6xl font-black text-white tracking-tight mb-5 leading-[0.95]">
+              <h1 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-5 leading-[0.95]">
                 {page.city} public adjuster —{' '}
                 <span className="text-gradient-gold">storm &amp; property damage</span>
               </h1>

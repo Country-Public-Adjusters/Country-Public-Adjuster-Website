@@ -65,7 +65,7 @@ export default function HomeFAQ() {
   return (
     <section
       ref={ref}
-      className="relative bg-white section-padding"
+      className="relative bg-navy-950 section-padding"
     >
       {/* Background */}
       <div

@@ -64,7 +64,7 @@ export default function WhyChoose() {
   return (
     <section
       ref={ref}
-      className="relative bg-slate-50 section-padding"
+      className="relative bg-navy-950 section-padding"
     >
       {/* Top ambient glow */}
       <div
@@ -170,7 +170,7 @@ export default function WhyChoose() {
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none" aria-hidden="true">
         <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg"
              preserveAspectRatio="none" className="w-full block" style={{ height: '55px' }}>
-          <path d="M0,0 C480,70 960,70 1440,0 L1440,70 L0,70 Z" fill="#0F172A" />
+          <path d="M0,0 C480,70 960,70 1440,0 L1440,70 L0,70 Z" fill="#FEFDF8" />
         </svg>
       </div>
     </section>

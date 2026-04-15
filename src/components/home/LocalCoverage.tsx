@@ -113,13 +113,13 @@ export default function LocalCoverage() {
   return (
     <section
       ref={ref}
-      className="relative bg-slate-900 section-padding"
+      className="relative bg-navy-900 section-padding"
     >
       {/* Top curve from cream */}
       <div className="absolute top-0 left-0 right-0 pointer-events-none" aria-hidden="true">
         <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"
              preserveAspectRatio="none" className="w-full block" style={{ height: '50px' }}>
-          <path d="M0,0 C400,60 1040,60 1440,0 L1440,0 L0,0 Z" fill="#FFFFFF" />
+          <path d="M0,0 C400,60 1040,60 1440,0 L1440,0 L0,0 Z" fill="#FEFDF8" />
         </svg>
       </div>
 

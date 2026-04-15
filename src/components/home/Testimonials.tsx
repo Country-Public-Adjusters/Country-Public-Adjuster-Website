@@ -150,7 +150,7 @@ export default function Testimonials() {
   const isInView = useInView(ref, { once: true, amount: 0.15 })
 
   return (
-    <section ref={ref} className="relative bg-slate-900 py-20 md:py-24 overflow-hidden">
+    <section ref={ref} className="relative bg-navy-950 py-20 md:py-24 overflow-hidden">
       {/* Ambient glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -176,7 +176,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 24, filter: 'blur(4px)' }}
             animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
             transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-5xl font-bold text-white leading-[1.05] tracking-tight mb-4"
+            className="section-heading-dark mb-4"
           >
             What property owners say
           </motion.h2>
@@ -184,7 +184,7 @@ export default function Testimonials() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto"
+            className="section-sub-dark mx-auto"
           >
             Real feedback from Nashville and South Florida property owners who worked with us.
           </motion.p>

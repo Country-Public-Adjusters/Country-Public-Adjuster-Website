@@ -66,7 +66,7 @@ export default function CaseResults() {
   return (
     <section
       ref={ref}
-      className="relative bg-slate-900 section-padding overflow-hidden"
+      className="relative bg-navy-950 section-padding overflow-hidden"
     >
       {/* Background glow */}
       <div
@@ -86,7 +86,7 @@ export default function CaseResults() {
             initial={{ opacity: 0, y: 10 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-xs font-bold tracking-[0.15em] uppercase text-gold-500 mb-4 block"
+            className="section-label mb-4 block"
           >
             Real Results
           </motion.span>
@@ -94,7 +94,7 @@ export default function CaseResults() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-5xl font-bold text-white leading-[1.05] tracking-tight mb-5"
+            className="section-heading-dark mb-5"
           >
             What we've recovered for{' '}
             <span className="text-gradient-gold">property owners</span>
@@ -103,7 +103,7 @@ export default function CaseResults() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto"
+            className="section-sub-dark mx-auto"
           >
             These are real claim outcomes. Numbers reflect actual settlements vs. the insurer's
             initial position. All cases handled on contingency — no upfront cost.

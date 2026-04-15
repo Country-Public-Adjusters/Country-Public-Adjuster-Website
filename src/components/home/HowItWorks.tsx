@@ -40,14 +40,14 @@ export default function HowItWorks() {
   return (
     <section
       ref={ref}
-      className="relative bg-slate-50 section-padding overflow-hidden"
+      className="relative bg-navy-900 section-padding overflow-hidden"
       id="how-it-works"
     >
       {/* Top blend from white (RealitySection bottom) */}
       <div className="absolute top-0 left-0 right-0 pointer-events-none" aria-hidden="true">
         <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg"
              preserveAspectRatio="none" className="w-full block" style={{ height: '50px' }}>
-          <path d="M0,60 C400,0 1040,0 1440,60 L1440,0 L0,0 Z" fill="#0F172A" />
+          <path d="M0,60 C400,0 1040,0 1440,60 L1440,0 L0,0 Z" fill="#F8FAFC" />
         </svg>
       </div>
 

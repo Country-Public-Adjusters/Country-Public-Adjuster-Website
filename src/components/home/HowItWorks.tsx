@@ -120,114 +120,104 @@ export default function HowItWorks() {
             />
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5 lg:gap-7">
+          {/* ── Desktop grid (unchanged) ── */}
+          <div className="hidden md:grid md:grid-cols-3 gap-5 lg:gap-7">
             {STEPS.map((step, i) => (
               <motion.div
                 key={step.number}
                 initial={{ opacity: 0, y: 36, filter: 'blur(5px)' }}
                 animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.3 + i * 0.15,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
+                transition={{ duration: 0.8, delay: 0.3 + i * 0.15, ease: [0.16, 1, 0.3, 1] }}
                 className="relative group"
               >
-                <div
-                  className="relative p-6 lg:p-8 h-full rounded-3xl border border-slate-200
-                             bg-navy-800/50 backdrop-blur-sm
-                             group-hover:border-gold-500/25 group-hover:-translate-y-1
-                             group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.3),0_0_40px_rgba(245,158,11,0.04)]
-                             transition-all duration-500 overflow-hidden"
-                >
-                  {/* Inner gold glow on hover */}
-                  <div
-                    className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100
-                               transition-opacity duration-500 pointer-events-none"
-                    style={{
-                      background:
-                        'radial-gradient(ellipse 70% 50% at 50% 100%, rgba(245,158,11,0.06) 0%, transparent 70%)',
-                    }}
-                  />
-
-                  {/* Step number + icon */}
+                <div className="relative p-6 lg:p-8 h-full rounded-3xl border border-slate-200
+                               bg-navy-800/50 backdrop-blur-sm
+                               group-hover:border-gold-500/25 group-hover:-translate-y-1
+                               group-hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)]
+                               transition-all duration-500 overflow-hidden">
+                  <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100
+                                 transition-opacity duration-500 pointer-events-none"
+                    style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 100%, rgba(245,158,11,0.06) 0%, transparent 70%)' }} />
                   <div className="flex items-center gap-4 mb-7">
-                    <div
-                      className="w-13 h-13 rounded-2xl flex items-center justify-center
-                                 border border-gold-500/25 flex-shrink-0
-                                 group-hover:border-gold-500/45 group-hover:shadow-glow-gold
-                                 transition-all duration-400"
-                      style={{
-                        background:
-                          'linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(245,158,11,0.04) 100%)',
-                      }}
-                    >
+                    <div className="w-13 h-13 rounded-2xl flex items-center justify-center border border-gold-500/25 flex-shrink-0
+                                   group-hover:border-gold-500/45 transition-all duration-400"
+                      style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.1) 0%, rgba(245,158,11,0.04) 100%)' }}>
                       <step.icon size={22} className="text-gold-400" />
                     </div>
-                    <span
-                      className="text-5xl font-black tabular-nums leading-none
-                                 group-hover:opacity-50 transition-opacity duration-400"
-                      style={{
-                        WebkitTextFillColor: 'transparent',
-                        WebkitTextStroke: '1px rgba(245,158,11,0.2)',
-                      }}
-                    >
+                    <span className="text-5xl font-black tabular-nums leading-none group-hover:opacity-50 transition-opacity duration-400"
+                      style={{ WebkitTextFillColor: 'transparent', WebkitTextStroke: '1px rgba(245,158,11,0.2)' }}>
                       {step.number}
                     </span>
                   </div>
-
-                  <div className="text-xs font-bold tracking-widest uppercase text-gold-500/60 mb-1.5">
-                    Step {step.number}
-                  </div>
+                  <div className="text-xs font-bold tracking-widest uppercase text-gold-500/60 mb-1.5">Step {step.number}</div>
                   <h3 className="text-xl font-bold text-slate-900 mb-1.5">{step.title}</h3>
                   <p className="text-sm font-semibold text-slate-500 mb-3 leading-snug">{step.headline}</p>
                   <p className="text-sm text-slate-400 leading-relaxed mb-5">{step.body}</p>
-
-                  <div
-                    className="text-xs font-semibold text-gold-500/65 pt-4
-                               border-t border-slate-200"
-                  >
-                    {step.detail}
-                  </div>
+                  <div className="text-xs font-semibold text-gold-500/65 pt-4 border-t border-slate-200">{step.detail}</div>
                 </div>
-
-                {/* Mobile connector — animated, mirrors desktop behaviour */}
-                {i < STEPS.length - 1 && (
-                  <div className="md:hidden flex flex-col items-center mt-3 mb-1 relative" style={{ height: '52px' }} aria-hidden="true">
-                    {/* Growing line */}
-                    <motion.div
-                      initial={{ scaleY: 0 }}
-                      animate={isInView ? { scaleY: 1 } : {}}
-                      transition={{ duration: 0.9, delay: 0.5 + i * 0.2, ease: [0.16, 1, 0.3, 1] }}
-                      className="w-px origin-top absolute top-0"
-                      style={{
-                        height: '44px',
-                        background: 'linear-gradient(180deg, rgba(245,158,11,0.7) 0%, rgba(245,158,11,0.15) 100%)',
-                      }}
-                    />
-                    {/* Travelling dot */}
-                    <motion.div
-                      initial={{ top: '0%' }}
-                      animate={isInView ? { top: ['0%', '85%', '0%'] } : {}}
-                      transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: 1.2 + i * 0.2 }}
-                      className="absolute w-2 h-2 rounded-full -translate-x-1/2 left-1/2"
-                      style={{
-                        background: 'radial-gradient(circle, #FBBF24 30%, rgba(245,158,11,0.3) 100%)',
-                        boxShadow: '0 0 8px rgba(245,158,11,0.8)',
-                      }}
-                    />
-                    {/* End dot */}
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.4, delay: 1.1 + i * 0.2 }}
-                      className="absolute bottom-0 w-2 h-2 rounded-full -translate-x-1/2 left-1/2"
-                      style={{ background: '#F59E0B', boxShadow: '0 0 6px rgba(245,158,11,0.7)' }}
-                    />
-                  </div>
-                )}
               </motion.div>
             ))}
+          </div>
+
+          {/* ── Mobile timeline (vertical, left-rail) ── */}
+          <div className="md:hidden relative">
+            {/* Full-height animated gold rail */}
+            <motion.div
+              initial={{ scaleY: 0 }}
+              animate={isInView ? { scaleY: 1 } : {}}
+              transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute left-5 top-5 bottom-5 w-px origin-top"
+              style={{ background: 'linear-gradient(180deg, #F59E0B 0%, rgba(245,158,11,0.2) 100%)' }}
+            />
+            {/* Travelling dot on the rail */}
+            <motion.div
+              animate={isInView ? { y: ['0%', '92%', '0%'] } : { y: '0%' }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.8 }}
+              className="absolute left-[17px] top-5 w-2.5 h-2.5 rounded-full z-10"
+              style={{
+                background: 'radial-gradient(circle, #FBBF24 30%, rgba(245,158,11,0.4) 100%)',
+                boxShadow: '0 0 10px rgba(245,158,11,0.9)',
+              }}
+            />
+
+            <div className="space-y-5 pl-14">
+              {STEPS.map((step, i) => (
+                <motion.div
+                  key={step.number}
+                  initial={{ opacity: 0, x: 24 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.65, delay: 0.4 + i * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative"
+                >
+                  {/* Step dot on the rail */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : {}}
+                    transition={{ duration: 0.4, delay: 0.5 + i * 0.2, type: 'spring', stiffness: 300 }}
+                    className="absolute -left-[2.35rem] top-5 w-4 h-4 rounded-full border-2 border-gold-500 bg-white z-10 flex items-center justify-center"
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full bg-gold-500" />
+                  </motion.div>
+
+                  {/* Card */}
+                  <div className="relative p-5 rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                        style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.12) 0%, rgba(245,158,11,0.05) 100%)', border: '1px solid rgba(245,158,11,0.25)' }}>
+                        <step.icon size={18} className="text-gold-500" />
+                      </div>
+                      <div>
+                        <div className="text-[10px] font-bold tracking-widest uppercase text-gold-500/70">Step {step.number}</div>
+                        <h3 className="text-base font-bold text-slate-900 leading-tight">{step.title}</h3>
+                      </div>
+                    </div>
+                    <p className="text-sm font-semibold text-slate-600 mb-2 leading-snug">{step.headline}</p>
+                    <p className="text-sm text-slate-500 leading-relaxed mb-4">{step.body}</p>
+                    <div className="text-xs font-semibold text-gold-500/70 pt-3 border-t border-slate-100">{step.detail}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
 

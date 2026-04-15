@@ -119,11 +119,12 @@ export default function Header() {
   return (
     <>
       {/* ── Top credibility bar ── */}
-      <div className="hidden sm:block bg-navy-950 border-b border-slate-200 py-2 text-center text-2xs font-medium tracking-wide text-slate-400">
+      <div className="hidden sm:block py-2 text-center text-2xs font-bold tracking-wide text-slate-900"
+           style={{ background: 'linear-gradient(90deg, #F59E0B 0%, #FBBF24 50%, #F59E0B 100%)' }}>
         <span className="mr-4">35+ Years Combined Experience</span>
-        <span className="text-slate-300 mr-4">|</span>
-        <span className="mr-4">No Upfront Cost</span>
-        <span className="text-slate-300 mr-4">|</span>
+        <span className="mr-4 opacity-40">|</span>
+        <span className="mr-4">No Upfront Cost · Contingency Only</span>
+        <span className="mr-4 opacity-40">|</span>
         <span>Nashville, TN &amp; South Florida</span>
       </div>
 

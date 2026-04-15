@@ -136,8 +136,25 @@ export default function ChatWidget() {
       {/* Mobile */}
       <div
         id="cpa-chat-btn-mobile"
-        className="fixed bottom-20 right-4 z-[9999] md:hidden"
+        className="fixed bottom-20 right-4 z-[9999] md:hidden flex flex-col items-end gap-2"
       >
+        <AnimatePresence>
+          {!open && (
+            <motion.button
+              onClick={handleToggle}
+              initial={{ opacity: 0, x: 10, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 10, scale: 0.95 }}
+              transition={{ duration: 0.25 }}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold
+                         text-slate-800 shadow-md border border-gold-500/40"
+              style={{ background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)' }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+              Chat with us
+            </motion.button>
+          )}
+        </AnimatePresence>
         <div className="relative">
           {!open && (
             <span

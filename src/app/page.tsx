@@ -1,14 +1,13 @@
 import type { Metadata } from 'next'
 import Hero from '@/components/home/Hero'
-import ProofBand from '@/components/home/ProofBand'
+import MetricsBand from '@/components/home/MetricsBand'
+import RealitySection from '@/components/home/RealitySection'
+import HowItWorks from '@/components/home/HowItWorks'
 import IntakePreview from '@/components/home/IntakePreview'
-import CommercialSection from '@/components/home/CommercialSection'
 import CaseResults from '@/components/home/CaseResults'
-import Testimonials from '@/components/home/Testimonials'
-import CuriositySection from '@/components/home/CuriositySection'
-import AboutSection from '@/components/home/AboutSection'
-import ReferralSection from '@/components/home/ReferralSection'
 import ServicesGrid from '@/components/home/ServicesGrid'
+import WhyChoose from '@/components/home/WhyChoose'
+import Testimonials from '@/components/home/Testimonials'
 import LocalCoverage from '@/components/home/LocalCoverage'
 import HomeFAQ from '@/components/home/HomeFAQ'
 import FinalCTA from '@/components/home/FinalCTA'
@@ -57,43 +56,40 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(HOME_FAQ_SCHEMA) }}
       />
 
-      {/* 1 — Hero */}
+      {/* A — Hero */}
       <Hero />
 
-      {/* 2 — Proof Band (stats bar) */}
-      <ProofBand />
+      {/* B — Metrics band */}
+      <MetricsBand />
 
-      {/* 3 — Intake / Claim Check Form */}
+      {/* C — The Reality (problem/solution comparison) */}
+      <RealitySection />
+
+      {/* D — How It Works */}
+      <HowItWorks />
+
+      {/* E — Smart Intake Preview */}
       <IntakePreview />
 
-      {/* 4 — Commercial Section */}
-      <CommercialSection />
-
-      {/* 5 — Case Results */}
+      {/* F — Case Results */}
       <CaseResults />
 
-      {/* 6 — Testimonials */}
+      {/* G — Testimonials (directly under Real Results) */}
       <Testimonials />
 
-      {/* 7 — Curiosity / Education */}
-      <CuriositySection />
-
-      {/* 8 — About / Founders */}
-      <AboutSection />
-
-      {/* 9 — Referral Program */}
-      <ReferralSection />
-
-      {/* 10 — Services Grid */}
+      {/* H — Services Grid */}
       <ServicesGrid />
 
-      {/* 11 — Local Coverage */}
+      {/* I — Why Choose Country */}
+      <WhyChoose />
+
+      {/* J — Local Coverage */}
       <LocalCoverage />
 
-      {/* 12 — FAQ */}
+      {/* K — FAQ */}
       <HomeFAQ />
 
-      {/* 13 — Final CTA */}
+      {/* L — Final CTA */}
       <FinalCTA />
     </>
   )

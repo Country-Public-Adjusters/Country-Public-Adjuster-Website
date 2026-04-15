@@ -27,14 +27,14 @@ const DIFFERENTIATORS = [
   },
   {
     icon: Clock,
-    title: 'Fast Response',
-    body: 'We respond quickly because timing matters. Delays in documentation after storm damage give insurers grounds to reduce claims.',
+    title: 'Start Early, Win More',
+    body: 'Getting us involved from day 1 can cut the time to maximum payout by over 80%. Timing is everything — early documentation wins claims.',
     accent: 'blue',
   },
   {
     icon: MapPin,
-    title: 'Local Market Knowledge',
-    body: 'Nashville and South Florida have distinct storm patterns, building codes, and insurer behaviors. We know the specific tactics used in each market.',
+    title: 'Local Care. National Power.',
+    body: 'We serve Nashville and South Florida with local expertise — and negotiate against large national insurers and small regional carriers with equal force.',
     accent: 'gold',
   },
   {
@@ -51,8 +51,8 @@ const DIFFERENTIATORS = [
   },
   {
     icon: Bot,
-    title: 'After-Hours AI Intake',
-    body: "Can't wait until business hours? Our AI assistant captures your claim details and routes your inquiry so we can respond first thing.",
+    title: 'Industry-Leading Tech + Human Brilliance',
+    body: "AI-driven processes, industry-leading software, and 35+ years of experience working together. Your claim has a real chance of realizing its true value.",
     accent: 'blue',
   },
 ]

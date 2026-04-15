@@ -117,8 +117,8 @@ export default function FinalCTA() {
             transition={{ delay: 0.3, duration: 0.7 }}
             className="text-lg text-slate-400 leading-relaxed mb-11 max-w-xl mx-auto"
           >
-            You paid for insurance. Now it's time to use it — with someone who knows how
-            to make them pay what your damage actually warrants.
+            We make what can be a tricky, overwhelming process simple. You paid for insurance
+            — let our tireless team fight to make sure it pays you back in full.
           </motion.p>
 
           {/* CTAs */}

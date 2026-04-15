@@ -24,6 +24,7 @@ const WITH = [
   'All deadlines, filings, and communications handled for you',
   'End-to-end claim management — you stay focused on recovery',
   'No upfront cost. We only get paid when you do.',
+  'Hundreds of emails, calls, and hours invested during negotiation — on your behalf.',
 ]
 
 export default function RealitySection() {

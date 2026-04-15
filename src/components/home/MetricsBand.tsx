@@ -29,6 +29,13 @@ const METRICS = [
     label: 'Upfront Cost',
     description: 'Contingency-only. No risk to you.',
   },
+  {
+    value: 900,
+    prefix: '$',
+    suffix: 'K',
+    label: 'Recent Claim Result',
+    description: 'From an $80K offer — one recent case',
+  },
 ]
 
 export default function MetricsBand() {
@@ -60,7 +67,7 @@ export default function MetricsBand() {
           }}
         />
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-6">
           {METRICS.map((metric, i) => (
             <motion.div
               key={metric.label}

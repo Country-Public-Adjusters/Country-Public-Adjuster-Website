@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { gsap } from 'gsap'
@@ -38,11 +38,25 @@ export default function Hero() {
   const gradientRef = useRef<HTMLDivElement>(null)
   const orbRef = useRef<HTMLDivElement>(null)
 
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
   const { scrollY } = useScroll()
-  // Smoother parallax — content drifts up gently
-  const rawY = useTransform(scrollY, [0, 700], [0, 90])
-  const heroY = useSpring(rawY, { stiffness: 80, damping: 20, mass: 0.8 })
-  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0])
+
+  // Desktop: 90px parallax drift. Mobile: no parallax so stat boxes stay visible
+  const rawYDesktop = useTransform(scrollY, [0, 700], [0, 90])
+  const rawYMobile  = useTransform(scrollY, [0, 700], [0, 0])
+  const heroY = useSpring(isMobile ? rawYMobile : rawYDesktop, { stiffness: 80, damping: 20, mass: 0.8 })
+
+  // Desktop fades by 500px. Mobile fades much later so all 3 stat boxes stay visible
+  const heroOpacityDesktop = useTransform(scrollY, [0, 500],  [1, 0])
+  const heroOpacityMobile  = useTransform(scrollY, [0, 1100], [1, 0])
+  const heroOpacity = isMobile ? heroOpacityMobile : heroOpacityDesktop
 
   // Mouse-tracked ambient gradient orb
   useEffect(() => {

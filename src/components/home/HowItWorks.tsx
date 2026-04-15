@@ -133,19 +133,6 @@ export default function HowItWorks() {
                 }}
                 className="relative group"
               >
-                {/* Mobile connector */}
-                {i < STEPS.length - 1 && (
-                  <div className="md:hidden flex justify-center my-5" aria-hidden="true">
-                    <div
-                      className="w-px h-8"
-                      style={{
-                        background:
-                          'linear-gradient(180deg, rgba(245,158,11,0.5) 0%, rgba(245,158,11,0.08) 100%)',
-                      }}
-                    />
-                  </div>
-                )}
-
                 <div
                   className="relative p-6 lg:p-8 h-full rounded-3xl border border-slate-200
                              bg-navy-800/50 backdrop-blur-sm
@@ -203,6 +190,22 @@ export default function HowItWorks() {
                     {step.detail}
                   </div>
                 </div>
+
+                {/* Mobile connector — AFTER card so it sits between steps */}
+                {i < STEPS.length - 1 && (
+                  <div className="md:hidden flex flex-col items-center mt-3 mb-1" aria-hidden="true">
+                    <div
+                      className="w-px h-10"
+                      style={{
+                        background: 'linear-gradient(180deg, rgba(245,158,11,0.6) 0%, rgba(245,158,11,0.1) 100%)',
+                      }}
+                    />
+                    <div
+                      className="w-2 h-2 rounded-full mt-0.5"
+                      style={{ background: '#F59E0B', boxShadow: '0 0 6px rgba(245,158,11,0.7)' }}
+                    />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>

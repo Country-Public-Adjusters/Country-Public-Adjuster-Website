@@ -421,6 +421,57 @@
   }
 }
 
+/* ─── MOBILE PERFORMANCE OPTIMISATIONS ──────────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Disable blur filters on mobile — heavy GPU cost, causes jank */
+  [style*="filter: blur"] {
+    filter: none !important;
+  }
+
+  /* GPU-accelerate key animated containers */
+  section {
+    will-change: auto;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  /* Smooth momentum scrolling on iOS */
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Reduce section padding on mobile for tighter, less scrolly feel */
+  .section-padding {
+    padding-top: clamp(3rem, 8vw, 5rem);
+    padding-bottom: clamp(3rem, 8vw, 5rem);
+  }
+
+  /* Section heading sizes — readable but not oversized */
+  .section-heading-dark,
+  .section-heading-light {
+    font-size: clamp(1.75rem, 7vw, 2.5rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Ensure SVG wave dividers render on mobile */
+  .curve-bottom svg,
+  .curve-top svg {
+    display: block;
+    width: 100%;
+  }
+
+  /* Make cards not hover-translate on mobile (no hover state) */
+  .card-dark-hover:hover,
+  .card-light-hover:hover {
+    transform: none;
+  }
+
+  /* Reduce stagger delay accumulation on mobile grids */
+  .grid > * {
+    animation-delay: 0ms !important;
+  }
+}
+
 /* ─── PAGE TRANSITION ─────────────────────────────────────────────────────────── */
 .page-transition-enter {
   opacity: 0;

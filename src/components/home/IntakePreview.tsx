@@ -39,7 +39,7 @@ export default function IntakePreview() {
   return (
     <section
       ref={ref}
-      className="relative bg-navy-900 section-padding overflow-hidden"
+      className="relative bg-slate-900 section-padding overflow-hidden"
     >
       {/* Background gradient */}
       <div
@@ -188,7 +188,7 @@ export default function IntakePreview() {
             >
               <Bot size={18} className="text-gold-400 flex-shrink-0" />
               <div>
-                <div className="font-semibold text-slate-900 text-xs">After hours?</div>
+                <div className="font-semibold text-slate-200 text-xs">After hours?</div>
                 <div className="text-slate-400 text-2xs">AI captures your claim now</div>
               </div>
             </motion.div>
@@ -207,7 +207,7 @@ export default function IntakePreview() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="section-heading-dark mb-5"
+              className="text-4xl md:text-5xl font-bold text-white leading-[1.05] tracking-tight mb-5"
             >
               Start your claim in{' '}
               <span className="text-gradient-gold">under 3 minutes</span>
@@ -216,7 +216,7 @@ export default function IntakePreview() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ delay: 0.2 }}
-              className="section-sub-dark mb-8"
+              className="text-lg text-slate-300 leading-relaxed mb-8"
             >
               Our guided intake collects exactly what we need to prepare your claim review,
               qualify urgency, and have the right adjuster call you ready to help.
@@ -242,7 +242,7 @@ export default function IntakePreview() {
                     <feature.icon size={16} className="text-gold-400" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold text-slate-900 mb-1">{feature.title}</div>
+                    <div className="text-sm font-bold text-white mb-1">{feature.title}</div>
                     <div className="text-sm text-slate-400 leading-relaxed">{feature.body}</div>
                   </div>
                 </motion.div>

@@ -98,7 +98,7 @@ export default function ServicesGrid() {
   return (
     <section
       ref={ref}
-      className="relative bg-navy-900 section-padding"
+      className="relative bg-white section-padding"
     >
       {/* Faint ambient glow */}
       <div
@@ -180,7 +180,7 @@ export default function ServicesGrid() {
                 </div>
 
                 <h3
-                  className="text-sm font-bold text-slate-800 mb-2
+                  className="text-sm font-bold text-slate-900 mb-2
                              group-hover:text-slate-700 transition-colors duration-300"
                 >
                   {service.title}

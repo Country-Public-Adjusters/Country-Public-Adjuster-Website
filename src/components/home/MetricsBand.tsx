@@ -45,7 +45,7 @@ export default function MetricsBand() {
   return (
     <section
       ref={ref}
-      className="relative bg-navy-950 py-20 md:py-24"
+      className="relative bg-slate-900 py-20 md:py-24"
     >
       {/* Ambient gradient center glow */}
       <div
@@ -104,10 +104,10 @@ export default function MetricsBand() {
                 <CountUp end={metric.value} duration={2.2} />
                 {metric.suffix || ''}
               </div>
-              <div className="text-sm font-bold text-slate-800 mb-1 relative">
+              <div className="text-sm font-bold text-white mb-1 relative">
                 {metric.label}
               </div>
-              <div className="text-xs text-slate-400 relative">{metric.description}</div>
+              <div className="text-xs text-slate-300 relative">{metric.description}</div>
             </motion.div>
           ))}
         </div>

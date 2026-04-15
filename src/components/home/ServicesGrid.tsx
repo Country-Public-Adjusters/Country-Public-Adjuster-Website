@@ -5,7 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import {
   Cloud, Wind, Droplets, Home, Zap, Building, ShieldCheck,
-  FileSearch, ArrowRight
+  FileSearch, ArrowRight, TrendingUp
 } from 'lucide-react'
 
 const SERVICES = [
@@ -162,14 +162,11 @@ export default function ServicesGrid() {
                   background: `linear-gradient(135deg, ${service.gradientFrom} 0%, ${service.gradientTo} 100%)`,
                 }}
               >
-                {/* Hover border overlay */}
                 <div
                   className="absolute inset-0 rounded-2xl border opacity-0
                              group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
                   style={{ borderColor: service.hoverBorder }}
                 />
-
-                {/* Icon */}
                 <div
                   className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200
                              flex items-center justify-center mb-4
@@ -178,30 +175,80 @@ export default function ServicesGrid() {
                 >
                   <service.icon size={19} className={service.iconColor} />
                 </div>
-
-                <h3
-                  className="text-sm font-bold text-slate-800 mb-2
-                             group-hover:text-slate-700 transition-colors duration-300"
-                >
+                <h3 className="text-sm font-bold text-slate-800 mb-2 group-hover:text-slate-700 transition-colors duration-300">
                   {service.title}
                 </h3>
                 <p className="text-xs text-slate-400 leading-relaxed">{service.desc}</p>
-
-                <div
-                  className="flex items-center gap-1 mt-4 text-xs font-semibold
-                             text-gold-500/55 group-hover:text-gold-400
-                             transition-colors duration-300"
-                >
+                <div className="flex items-center gap-1 mt-4 text-xs font-semibold text-gold-500/55 group-hover:text-gold-400 transition-colors duration-300">
                   Learn more
-                  <ArrowRight
-                    size={11}
-                    className="group-hover:translate-x-1.5 transition-transform duration-350"
-                  />
+                  <ArrowRight size={11} className="group-hover:translate-x-1.5 transition-transform duration-350" />
                 </div>
               </Link>
             </motion.div>
           ))}
         </div>
+
+        {/* Commercial / Business Interruption callout */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-4"
+        >
+          <Link
+            href="/damage/commercial"
+            className="group relative flex flex-col sm:flex-row items-start sm:items-center
+                       justify-between gap-5 p-6 lg:p-7 rounded-2xl overflow-hidden
+                       border border-gold-500/30 hover:border-gold-500/60
+                       transition-all duration-400 hover:-translate-y-0.5
+                       hover:shadow-[0_12px_40px_rgba(245,158,11,0.15)]"
+            style={{
+              background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A22 100%)',
+            }}
+          >
+            {/* Left */}
+            <div className="flex items-start gap-4">
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0
+                           group-hover:scale-110 transition-transform duration-350"
+                style={{
+                  background: 'rgba(245,158,11,0.15)',
+                  border: '1px solid rgba(245,158,11,0.3)',
+                }}
+              >
+                <Building size={20} className="text-gold-500" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs font-bold tracking-widest uppercase text-gold-600">
+                    Commercial Property
+                  </span>
+                  <span
+                    className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                    style={{
+                      background: 'rgba(245,158,11,0.15)',
+                      border: '1px solid rgba(245,158,11,0.3)',
+                      color: '#B45309',
+                    }}
+                  >
+                    We handle this too
+                  </span>
+                </div>
+                <p className="text-sm font-semibold text-slate-800 leading-snug max-w-xl">
+                  Business interruption is one of the most underclaimed coverages. Most owners don't realise their policy covers far more than physical damage — lost revenue, payroll, rent, and operating expenses are all claimable.
+                </p>
+              </div>
+            </div>
+
+            {/* Right CTA */}
+            <div className="flex items-center gap-2 text-sm font-bold text-gold-600 flex-shrink-0
+                            group-hover:gap-3 transition-all duration-300">
+              <TrendingUp size={15} />
+              Commercial claims
+              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </div>
+          </Link>
+        </motion.div>
       </div>
     </section>
   )

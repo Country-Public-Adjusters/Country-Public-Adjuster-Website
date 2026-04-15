@@ -38,16 +38,6 @@ const CASES = [
       'HVAC system distributed smoke throughout the entire structure. We documented damage to insulation, ductwork, contents, and odor remediation costs that more than ten-folded the original settlement.',
   },
   {
-    id: 'hail-roof',
-    tag: 'Hail / Roof Damage',
-    location: 'Franklin, TN',
-    initial: '$4,200',
-    final: '$41,000',
-    multiplier: '9.8×',
-    narrative:
-      'Insurance company claimed the hail damage was cosmetic only and denied full replacement. We documented granule loss patterns, bruising, and compromised flashing that met replacement threshold.',
-  },
-  {
     id: 'commercial-storm',
     tag: 'Commercial Property / Storm',
     location: 'Nashville, TN',

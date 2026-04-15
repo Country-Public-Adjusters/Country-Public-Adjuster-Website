@@ -271,7 +271,7 @@ export default function Hero() {
           className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-xl mx-auto"
         >
           {[
-            { value: '$127K', label: 'vs $12K offer', note: 'Hurricane claim' },
+            { value: '$900K', label: 'vs $80K offer', note: 'Commercial claim' },
             { value: '747%', label: 'avg. claim increase', note: 'Source: OPPAGA' },
             { value: '$0', label: 'upfront cost', note: 'Contingency only' },
           ].map((stat, i) => (

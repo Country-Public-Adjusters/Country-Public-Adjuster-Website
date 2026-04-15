@@ -74,6 +74,18 @@ const CASE_STUDIES = [
   },
   {
     id: 6,
+    tag: 'Commercial Property / Storm',
+    location: 'Nashville, TN',
+    propertyType: 'Commercial',
+    insurerOffer: 80000,
+    settlement: 900000,
+    multiplier: '11.25×',
+    title: 'Commercial property — widespread structural damage and business interruption overlooked',
+    narrative: "The insurer's initial offer of $80,000 covered only surface-level repairs to a commercial property hit by severe storms. Our lead negotiator conducted a full structural assessment and identified widespread damage to load-bearing elements, code compliance upgrade requirements triggered by the damage, and significant business interruption losses that the insurer had entirely overlooked. After extensive documentation and negotiation, the final settlement reached $900,000.",
+    result: 'Full structural, compliance, and BI losses recovered',
+  },
+  {
+    id: 8,
     tag: 'Wind / Roof Damage',
     location: 'Broward County, FL',
     propertyType: 'Multi-Unit',

@@ -183,13 +183,17 @@ export default function IntakePreview() {
               initial={{ opacity: 0, scale: 0.9, x: 20 }}
               animate={isInView ? { opacity: 1, scale: 1, x: 0 } : {}}
               transition={{ delay: 0.5, duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
-              className="absolute -bottom-4 -right-2 lg:-right-8 flex items-center gap-2.5
-                         px-4 py-3 rounded-2xl glass shadow-card-dark text-sm"
+              className="absolute -bottom-4 -left-2 lg:-left-8 flex items-center gap-2.5
+                         px-4 py-3 rounded-2xl text-sm shadow-xl"
+              style={{
+                background: 'linear-gradient(135deg, #0F2847 0%, #0B1F3A 100%)',
+                border: '1px solid rgba(245,158,11,0.3)',
+              }}
             >
               <Bot size={18} className="text-gold-400 flex-shrink-0" />
               <div>
-                <div className="font-semibold text-slate-900 text-xs">After hours?</div>
-                <div className="text-slate-400 text-2xs">AI captures your claim now</div>
+                <div className="font-semibold text-white text-xs">After hours?</div>
+                <div className="text-slate-300 text-2xs">AI captures your claim now</div>
               </div>
             </motion.div>
           </motion.div>

@@ -77,19 +77,13 @@ export default function Footer() {
 
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-6 group">
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center shadow-glow-gold"
-                style={{ backgroundImage: 'linear-gradient(135deg, #D97706 0%, #F59E0B 100%)' }}
-              >
-                <span className="text-navy-950 font-black text-lg">C</span>
-              </div>
-              <div>
-                <div className="text-sm font-bold text-slate-900">Country Public Adjusters</div>
-                <div className="text-xs text-gold-500 font-semibold tracking-wider uppercase">
-                  Your Insurance Advocate
-                </div>
-              </div>
+            <Link href="/" className="inline-flex mb-6 group">
+              <img
+                src="/logo.svg"
+                alt="Country Public Adjusters"
+                style={{ height: '52px', width: 'auto' }}
+                className="transition-opacity duration-200 group-hover:opacity-85"
+              />
             </Link>
 
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">

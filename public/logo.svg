@@ -1,0 +1,33 @@
+<svg width="1200" height="320" viewBox="0 0 1200 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Country Public Adjusters logo</title>
+  <desc id="desc">CPA monogram with navy C framing gold P and A, plus wordmark Country Public Adjusters and subtitle Licensed Public Adjusters.</desc>
+  <defs>
+    <style>
+      .navy { fill: #14213D; }
+      .gold { fill: #E7A928; }
+      .word { font-family: Inter, Arial, Helvetica, sans-serif; font-weight: 800; font-size: 56px; letter-spacing: -0.02em; }
+      .sub { font-family: Inter, Arial, Helvetica, sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.18em; }
+    </style>
+  </defs>
+
+  <!-- Monogram icon -->
+  <g transform="translate(36,30)">
+    <!-- C ring -->
+    <path class="navy" fill-rule="evenodd" clip-rule="evenodd" d="M130 0C170.866 0 208.578 13.621 238.784 36.576L213.956 69.237C189.579 50.709 160.266 40 130 40C52.68 40 -10 102.68 -10 180C-10 257.32 52.68 320 130 320C160.266 320 189.579 309.291 213.956 290.763L238.784 323.424C208.578 346.379 170.866 360 130 360C30.589 360 -50 279.411 -50 180C-50 80.589 30.589 0 130 0Z" transform="scale(0.75)"/>
+
+    <!-- P -->
+    <path class="gold" d="M92 72H134C169 72 194 95 194 127C194 160 169 182 134 182H120V234H92V72ZM120 96V158H133C153 158 166 146 166 127C166 109 153 96 133 96H120Z"/>
+
+    <!-- Star in P counter -->
+    <path class="gold" d="M149.5 113L152.744 119.574L160 120.629L154.75 125.746L155.989 132.971L149.5 129.56L143.011 132.971L144.25 125.746L139 120.629L146.256 119.574L149.5 113Z"/>
+
+    <!-- A -->
+    <path class="gold" d="M177 234L220 72H249L293 234H264L255 197H213L204 234H177ZM219 173H249L234 116L219 173Z"/>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(330,118)">
+    <text class="navy word" x="0" y="0">Country Public Adjusters</text>
+    <text class="gold sub" x="2" y="48">LICENSED PUBLIC ADJUSTERS</text>
+  </g>
+</svg>

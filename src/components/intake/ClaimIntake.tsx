@@ -7,13 +7,13 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { ArrowLeft } from 'lucide-react'
 
+import Step1ContactCapture from './steps/Step1ContactCapture'
 import Step1PropertyType from './steps/Step1PropertyType'
 import Step2DamageType from './steps/Step2DamageType'
 import Step3Location from './steps/Step3Location'
 import Step4Timing from './steps/Step4Timing'
 import Step5InsuranceStage from './steps/Step5InsuranceStage'
 import Step6ClaimDetails from './steps/Step6ClaimDetails'
-import Step7ContactInfo from './steps/Step7ContactInfo'
 import Step8Confirmation from './steps/Step8Confirmation'
 import IntakeProgress from './IntakeProgress'
 import { Analytics } from '@/lib/analytics'
@@ -61,24 +61,24 @@ type IntakeFormData = z.infer<typeof intakeSchema>
 // ─── STEPS CONFIG ────────────────────────────────────────────────────────────
 
 const STEPS = [
-  { id: 1, label: 'Property', shortLabel: 'Property' },
-  { id: 2, label: 'Damage', shortLabel: 'Damage' },
-  { id: 3, label: 'Location', shortLabel: 'Location' },
-  { id: 4, label: 'Timing', shortLabel: 'Timing' },
-  { id: 5, label: 'Insurance', shortLabel: 'Insurance' },
-  { id: 6, label: 'Details', shortLabel: 'Details' },
-  { id: 7, label: 'Contact', shortLabel: 'Contact' },
+  { id: 1, label: 'Contact', shortLabel: 'Contact' },
+  { id: 2, label: 'Property', shortLabel: 'Property' },
+  { id: 3, label: 'Damage', shortLabel: 'Damage' },
+  { id: 4, label: 'Location', shortLabel: 'Location' },
+  { id: 5, label: 'Timing', shortLabel: 'Timing' },
+  { id: 6, label: 'Insurance', shortLabel: 'Insurance' },
+  { id: 7, label: 'Details', shortLabel: 'Details' },
   { id: 8, label: 'Done', shortLabel: 'Done' },
 ]
 
 const STEP_COMPONENTS = [
+  Step1ContactCapture,
   Step1PropertyType,
   Step2DamageType,
   Step3Location,
   Step4Timing,
   Step5InsuranceStage,
   Step6ClaimDetails,
-  Step7ContactInfo,
   Step8Confirmation,
 ]
 

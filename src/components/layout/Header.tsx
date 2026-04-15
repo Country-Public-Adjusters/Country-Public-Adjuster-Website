@@ -150,14 +150,13 @@ export default function Header() {
           >
             {/* Logo */}
             <Link href="/" className="flex items-center group">
-              <div>
-                <div className="text-base font-bold text-slate-900 tracking-tight leading-tight">
-                  Country Public Adjusters
-                </div>
-                <div className="text-xs text-gold-500 font-semibold tracking-wider uppercase">
-                  Licensed Public Adjusters
-                </div>
-              </div>
+              <img
+                src="/logo.svg"
+                alt="Country Public Adjusters"
+                height={44}
+                style={{ height: '44px', width: 'auto' }}
+                className="transition-opacity duration-200 group-hover:opacity-85"
+              />
             </Link>
 
             {/* Desktop nav */}

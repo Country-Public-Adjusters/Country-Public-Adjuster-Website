@@ -12,10 +12,10 @@ export default function TextUsTab() {
       href={`sms:${SMS_NUMBER}`}
       onClick={() => Analytics.ctaClick('Text Us', 'text-tab')}
       aria-label="Text us 24/7"
-      className="fixed right-0 top-1/2 -translate-y-1/2 z-[9990] hidden md:flex
+      className="fixed right-0 top-1/2 -translate-y-1/2 z-[10000] hidden md:flex
                  flex-col items-center justify-center gap-1.5
                  px-2 py-4 rounded-l-xl shadow-lg
-                 transition-transform duration-200 hover:-translate-x-0.5 hover:-translate-y-1/2"
+                 transition-all duration-200 hover:pr-3"
       style={{
         backgroundImage: 'linear-gradient(180deg, #F59E0B 0%, #D97706 100%)',
         writingMode: 'vertical-rl',

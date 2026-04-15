@@ -191,17 +191,37 @@ export default function HowItWorks() {
                   </div>
                 </div>
 
-                {/* Mobile connector — AFTER card so it sits between steps */}
+                {/* Mobile connector — animated, mirrors desktop behaviour */}
                 {i < STEPS.length - 1 && (
-                  <div className="md:hidden flex flex-col items-center mt-3 mb-1" aria-hidden="true">
-                    <div
-                      className="w-px h-10"
+                  <div className="md:hidden flex flex-col items-center mt-3 mb-1 relative" style={{ height: '52px' }} aria-hidden="true">
+                    {/* Growing line */}
+                    <motion.div
+                      initial={{ scaleY: 0 }}
+                      animate={isInView ? { scaleY: 1 } : {}}
+                      transition={{ duration: 0.9, delay: 0.5 + i * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                      className="w-px origin-top absolute top-0"
                       style={{
-                        background: 'linear-gradient(180deg, rgba(245,158,11,0.6) 0%, rgba(245,158,11,0.1) 100%)',
+                        height: '44px',
+                        background: 'linear-gradient(180deg, rgba(245,158,11,0.7) 0%, rgba(245,158,11,0.15) 100%)',
                       }}
                     />
-                    <div
-                      className="w-2 h-2 rounded-full mt-0.5"
+                    {/* Travelling dot */}
+                    <motion.div
+                      initial={{ top: '0%' }}
+                      animate={isInView ? { top: ['0%', '85%', '0%'] } : {}}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: 1.2 + i * 0.2 }}
+                      className="absolute w-2 h-2 rounded-full -translate-x-1/2 left-1/2"
+                      style={{
+                        background: 'radial-gradient(circle, #FBBF24 30%, rgba(245,158,11,0.3) 100%)',
+                        boxShadow: '0 0 8px rgba(245,158,11,0.8)',
+                      }}
+                    />
+                    {/* End dot */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ duration: 0.4, delay: 1.1 + i * 0.2 }}
+                      className="absolute bottom-0 w-2 h-2 rounded-full -translate-x-1/2 left-1/2"
                       style={{ background: '#F59E0B', boxShadow: '0 0 6px rgba(245,158,11,0.7)' }}
                     />
                   </div>

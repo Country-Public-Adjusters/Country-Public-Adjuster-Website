@@ -5,7 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import {
   Cloud, Wind, Droplets, Home, Zap, Building, ShieldCheck,
-  FileSearch, ArrowRight, TrendingUp
+  FileSearch, ArrowRight, TrendingUp, Flame
 } from 'lucide-react'
 
 const SERVICES = [
@@ -60,14 +60,14 @@ const SERVICES = [
     iconColor: 'text-purple-400',
   },
   {
-    icon: Building,
-    title: 'Commercial Property',
-    desc: 'Business interruption, structural damage, multi-unit — commercial claims need a specialist.',
-    href: '/damage/commercial',
-    gradientFrom: 'rgba(203,213,225,0.2)',
-    gradientTo: 'rgba(22,48,84,0.1)',
-    hoverBorder: 'rgba(59,130,246,0.18)',
-    iconColor: 'text-navy-300',
+    icon: Flame,
+    title: 'Fire & Smoke Damage',
+    desc: 'Smoke travels further than fire. HVAC distribution, contents, odour remediation — all claimable.',
+    href: '/services',
+    gradientFrom: 'rgba(251,146,60,0.12)',
+    gradientTo: 'rgba(234,88,12,0.04)',
+    hoverBorder: 'rgba(251,146,60,0.3)',
+    iconColor: 'text-orange-400',
   },
   {
     icon: ShieldCheck,

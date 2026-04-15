@@ -33,8 +33,8 @@ const METRICS = [
     value: 900,
     prefix: '$',
     suffix: 'K',
-    label: 'Recent Claim Result',
-    description: 'From an $80K offer — one recent case',
+    label: 'Recent Result',
+    description: '$80K offer → $900K settlement',
   },
 ]
 
@@ -67,7 +67,7 @@ export default function MetricsBand() {
           }}
         />
 
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-5">
           {METRICS.map((metric, i) => (
             <motion.div
               key={metric.label}
@@ -93,7 +93,7 @@ export default function MetricsBand() {
               />
 
               <div
-                className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-2 relative"
+                className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight mb-2 relative"
                 style={{
                   backgroundImage: 'linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%)',
                   WebkitBackgroundClip: 'text',

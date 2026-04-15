@@ -47,6 +47,16 @@ const CASES = [
     narrative:
       'Insurance company claimed the hail damage was cosmetic only and denied full replacement. We documented granule loss patterns, bruising, and compromised flashing that met replacement threshold.',
   },
+  {
+    id: 'commercial-storm',
+    tag: 'Commercial Property / Storm',
+    location: 'Nashville, TN',
+    initial: '$80,000',
+    final: '$900,000',
+    multiplier: '11.25×',
+    narrative:
+      'Insurer\'s initial offer covered only surface-level repairs. Our lead negotiator identified widespread structural damage, code compliance requirements, and business interruption losses that were entirely overlooked — resulting in a $900,000 settlement.',
+  },
 ]
 
 export default function CaseResults() {

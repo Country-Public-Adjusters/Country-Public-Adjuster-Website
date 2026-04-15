@@ -1,30 +1,28 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
-import { gsap } from 'gsap'
-import { Phone, Shield, Star, ChevronDown, ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Shield, Phone, ArrowRight, CheckCircle } from 'lucide-react'
 import { Analytics } from '@/lib/analytics'
 
 const PHONE = '18668069911'
 const PHONE_DISPLAY = '1-866-806-9911'
 
 const TRUST_CHIPS = [
-  { icon: Shield, text: 'No upfront cost' },
-  { icon: Star, text: '35+ years experience' },
-  { icon: null, text: '1,000s of claims negotiated' },
+  { icon: Shield, text: 'No Fee Until We Win' },
+  { icon: CheckCircle, text: '35+ Years Combined Expertise' },
+  { icon: CheckCircle, text: 'Residential & Commercial' },
 ]
 
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.11, delayChildren: 0.25 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
   },
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 36, filter: 'blur(6px)' },
+  hidden: { opacity: 0, y: 32, filter: 'blur(6px)' },
   visible: {
     opacity: 1,
     y: 0,
@@ -34,199 +32,103 @@ const itemVariants = {
 }
 
 export default function Hero() {
-  const heroRef = useRef<HTMLDivElement>(null)
-  const gradientRef = useRef<HTMLDivElement>(null)
-  const orbRef = useRef<HTMLDivElement>(null)
-
-  const { scrollY } = useScroll()
-  // Smoother parallax — content drifts up gently
-  const rawY = useTransform(scrollY, [0, 700], [0, 90])
-  const heroY = useSpring(rawY, { stiffness: 80, damping: 20, mass: 0.8 })
-  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0])
-
-  // Mouse-tracked ambient gradient orb
-  useEffect(() => {
-    const hero = heroRef.current
-    const gradient = gradientRef.current
-    if (!hero || !gradient) return
-
-    let rafId: number
-    let mouseX = 50
-    let mouseY = 45
-    let currentX = 50
-    let currentY = 45
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = hero.getBoundingClientRect()
-      mouseX = ((e.clientX - rect.left) / rect.width) * 100
-      mouseY = ((e.clientY - rect.top) / rect.height) * 100
-    }
-
-    const tick = () => {
-      currentX += (mouseX - currentX) * 0.05
-      currentY += (mouseY - currentY) * 0.05
-      gradient.style.background = `
-        radial-gradient(ellipse 55% 65% at ${currentX}% ${currentY}%, rgba(245,158,11,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 80% 55% at 25% 38%, rgba(203,213,225,0.38) 0%, transparent 65%),
-        radial-gradient(ellipse 55% 75% at 75% 65%, rgba(203,213,225,0.22) 0%, transparent 60%)
-      `
-      rafId = requestAnimationFrame(tick)
-    }
-
-    hero.addEventListener('mousemove', handleMouseMove)
-    rafId = requestAnimationFrame(tick)
-    return () => {
-      hero.removeEventListener('mousemove', handleMouseMove)
-      cancelAnimationFrame(rafId)
-    }
-  }, [])
-
-  // GSAP floating particles
-  useEffect(() => {
-    const dots = document.querySelectorAll('.hero-dot')
-    dots.forEach((dot, i) => {
-      gsap.to(dot, {
-        y: gsap.utils.random(-22, 22),
-        x: gsap.utils.random(-12, 12),
-        opacity: gsap.utils.random(0.25, 0.75),
-        duration: gsap.utils.random(3.5, 7),
-        repeat: -1,
-        yoyo: true,
-        delay: i * 0.35,
-        ease: 'sine.inOut',
-      })
-    })
-  }, [])
-
   return (
     <section
-      ref={heroRef}
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-6 pb-28 md:pb-36"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-8 pb-24 md:pb-32"
       style={{
-        backgroundImage:
-          'radial-gradient(ellipse 90% 70% at 50% -5%, rgba(245,158,11,0.11) 0%, transparent 58%), radial-gradient(ellipse 65% 45% at 82% 52%, rgba(203,213,225,0.28) 0%, transparent 60%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 55%, #FFFFFF 100%)',
+        background:
+          'radial-gradient(ellipse 90% 60% at 50% -10%, rgba(245,158,11,0.10) 0%, transparent 55%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
       }}
     >
-      {/* Ambient gradient layer — follows mouse */}
+      {/* Subtle radial gold glow top center */}
       <div
-        ref={gradientRef}
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-      />
-
-      {/* Fine grid */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
-          maskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%)',
-        }}
-      />
-
-      {/* Floating particle dots */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {[...Array(14)].map((_, i) => (
-          <div
-            key={i}
-            className="hero-dot absolute rounded-full"
-            style={{
-              width: `${Math.random() * 3.5 + 1.5}px`,
-              height: `${Math.random() * 3.5 + 1.5}px`,
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-              background:
-                i % 4 === 0
-                  ? 'rgba(245,158,11,0.55)'
-                  : i % 4 === 1
-                  ? 'rgba(245,158,11,0.2)'
-                  : 'rgba(0,0,0,0.08)',
-              opacity: Math.random() * 0.5 + 0.15,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Gold glow — top center */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[320px] pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[400px] pointer-events-none"
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(ellipse at center top, rgba(245,158,11,0.13) 0%, transparent 65%)',
+            'radial-gradient(ellipse at center top, rgba(245,158,11,0.10) 0%, transparent 60%)',
         }}
       />
 
-      {/* Subtle vignette bottom — helps curve blend */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-64 pointer-events-none"
-        aria-hidden="true"
-        style={{
-          background:
-            'linear-gradient(to bottom, transparent 0%, rgba(4,13,26,0.85) 100%)',
-        }}
-      />
-
-      {/* ── Main content with spring-parallax ── */}
-      <motion.div
-        style={{ opacity: heroOpacity, y: heroY }}
-        className="relative z-10 container-site"
-      >
+      {/* Main content */}
+      <div className="relative z-10 container-site">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="max-w-4xl mx-auto text-center"
         >
-          {/* Pre-headline badge */}
+          {/* Eyebrow badge */}
           <motion.div variants={itemVariants} className="flex justify-center mb-7">
-            <span className="badge-gold text-xs py-1.5 px-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse" />
-              Licensed Public Adjusters · Nashville &amp; South Florida
+            <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide uppercase bg-amber-50 border border-amber-200 text-amber-700">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-500 animate-pulse flex-shrink-0" />
+              OPPAGA Data — Florida Catastrophic Claims Study
             </span>
+          </motion.div>
+
+          {/* Main stat — the 747% */}
+          <motion.div variants={itemVariants} className="mb-5">
+            <div
+              className="text-[6rem] sm:text-[8rem] md:text-[10rem] font-black leading-none tracking-tight"
+              style={{
+                backgroundImage: 'linear-gradient(135deg, #D97706 0%, #F59E0B 40%, #FBBF24 70%, #FCD34D 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              747%
+            </div>
           </motion.div>
 
           {/* Main headline */}
           <motion.h1
             variants={itemVariants}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-black text-slate-900
-                       tracking-tight leading-[0.93] mb-7"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-6"
           >
-            Your insurance company{' '}
-            <br className="hidden sm:block" />
-            has adjusters.{' '}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage: 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #FCD34D 100%)',
-              }}
-            >
-              Now you do too.
-            </span>
+            Using a Public Adjuster Increases the Average Insurance Claim by 747%
           </motion.h1>
 
-          {/* Sub-headline */}
+          {/* Supporting copy */}
           <motion.p
             variants={itemVariants}
-            className="text-lg sm:text-xl text-slate-500 leading-relaxed max-w-[38rem] mx-auto mb-11"
+            className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-4"
           >
-            Storm damage to your property? We handle your entire insurance claim from
-            inspection to final settlement — so you get paid what you actually deserve.
+            According to OPPAGA data, policyholders represented by a public adjuster received
+            dramatically higher payments. That&apos;s the average in the referenced study. While
+            we can&apos;t promise the same result in every case, the potential upside can be
+            enormous.
+          </motion.p>
+
+          {/* Secondary supporting copy */}
+          <motion.p
+            variants={itemVariants}
+            className="text-base text-slate-500 leading-relaxed max-w-2xl mx-auto mb-4"
+          >
+            This is just the average. While every claim is different and outcomes are never
+            guaranteed, when a claim is properly documented, presented, and negotiated — the
+            difference can be extraordinary.
+          </motion.p>
+
+          {/* Disclaimer */}
+          <motion.p
+            variants={itemVariants}
+            className="text-xs text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
+          >
+            *Study references specific Florida catastrophic claim data. Results vary by claim,
+            policy, carrier, documentation, and damage type. No outcome is guaranteed.
           </motion.p>
 
           {/* CTA buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
           >
             <Link
               href="/intake"
-              onClick={() => Analytics.ctaClick('Get Free Inspection', 'hero')}
+              onClick={() => Analytics.ctaClick('Check Claim Value', 'hero')}
               className="btn-primary-lg w-full sm:w-auto gap-2 shadow-glow-gold"
             >
-              Get My Free Inspection
+              Check the True Value of Your Claim
               <ArrowRight size={18} />
             </Link>
             <a
@@ -235,107 +137,63 @@ export default function Hero() {
               className="btn-secondary-lg w-full sm:w-auto gap-2"
             >
               <Phone size={17} />
-              Call {PHONE_DISPLAY}
+              Speak With a Founder
             </a>
           </motion.div>
 
           {/* Trust chips */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-3"
+            className="flex flex-wrap items-center justify-center gap-3 mb-12"
           >
             {TRUST_CHIPS.map((chip, i) => (
               <div
                 key={i}
                 className="flex items-center gap-2 px-4 py-2 rounded-full
                            bg-slate-100 border border-slate-200
-                           text-sm text-slate-500 font-medium backdrop-blur-sm"
+                           text-sm text-slate-600 font-medium"
               >
-                {chip.icon && (
-                  <chip.icon size={13} className="text-gold-500 flex-shrink-0" />
-                )}
+                <chip.icon size={13} className="text-gold-500 flex-shrink-0" />
                 {chip.text}
               </div>
             ))}
-            <div className="flex items-center gap-1.5 px-4 py-2 rounded-full
-                            bg-slate-100 border border-slate-200 backdrop-blur-sm">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={11} className="fill-gold-500 text-gold-500" />
-              ))}
-              <span className="text-sm text-slate-500 font-medium ml-1.5">5-star rated</span>
+          </motion.div>
+
+          {/* Secondary callout strip */}
+          <motion.div
+            variants={itemVariants}
+            className="max-w-2xl mx-auto"
+          >
+            <div
+              className="rounded-2xl border border-gold-500/30 px-8 py-5 text-center"
+              style={{
+                background: 'linear-gradient(135deg, rgba(245,158,11,0.06) 0%, rgba(245,158,11,0.02) 100%)',
+              }}
+            >
+              <p className="text-base sm:text-lg font-semibold text-slate-800 leading-snug">
+                &ldquo;Your insurance company is strongly represented — and now, together with us,
+                you are too.&rdquo;
+              </p>
             </div>
           </motion.div>
         </motion.div>
+      </div>
 
-        {/* ── Floating stat cards ── */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-xl mx-auto"
-        >
-          {[
-            { value: '$127K', label: 'vs $12K offer', note: 'Hurricane claim' },
-            { value: '10.5×', label: 'average increase', note: 'Typical settlement' },
-            { value: '$0', label: 'upfront cost', note: 'Contingency only' },
-          ].map((stat, i) => (
-            <div
-              key={i}
-              className="rounded-2xl px-5 py-4 text-center border border-slate-200
-                         backdrop-blur-md"
-              style={{
-                background: 'rgba(0,0,0,0.02)',
-              }}
-            >
-              <div
-                className="text-2xl font-black tracking-tight"
-                style={{
-                  backgroundImage: 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                {stat.value}
-              </div>
-              <div className="text-sm font-semibold text-slate-700 mt-0.5">{stat.label}</div>
-              <div className="text-xs text-slate-400 mt-0.5">{stat.note}</div>
-            </div>
-          ))}
-        </motion.div>
-      </motion.div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.2, duration: 0.8 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        aria-hidden="true"
-      >
-        <span className="text-2xs text-slate-300 font-medium tracking-[0.2em] uppercase">
-          Scroll
-        </span>
-        <motion.div
-          animate={{ y: [0, 7, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <ChevronDown size={17} className="text-slate-300" />
-        </motion.div>
-      </motion.div>
-
-      {/* ── Section blend — deep sweep into metrics band ── */}
+      {/* Bottom blend */}
       <div
         className="absolute bottom-0 left-0 right-0 pointer-events-none"
         aria-hidden="true"
       >
         <svg
-          viewBox="0 0 1440 100"
+          viewBox="0 0 1440 60"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
           className="w-full block"
-          style={{ height: '80px' }}
+          style={{ height: '48px' }}
         >
           <path
-            d="M0,55 C280,100 760,20 1440,65 L1440,100 L0,100 Z"
-            fill="#FFFFFF"
+            d="M0,30 C360,60 1080,0 1440,40 L1440,60 L0,60 Z"
+            fill="#0F172A"
           />
         </svg>
       </div>

@@ -6,6 +6,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { Phone, Menu, X, ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Analytics } from '@/lib/analytics'
+import Logo from '@/components/layout/Logo'
 
 const PHONE = '18668069911'
 const PHONE_DISPLAY = '1-866-806-9911'
@@ -150,14 +151,7 @@ export default function Header() {
           >
             {/* Logo */}
             <Link href="/" className="flex items-center group">
-              <div>
-                <div className="text-base font-bold text-slate-900 tracking-tight leading-tight">
-                  Country Public Adjusters
-                </div>
-                <div className="text-xs text-gold-500 font-semibold tracking-wider uppercase">
-                  Licensed Public Adjusters
-                </div>
-              </div>
+              <Logo />
             </Link>
 
             {/* Desktop nav */}

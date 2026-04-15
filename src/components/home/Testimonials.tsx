@@ -150,7 +150,7 @@ export default function Testimonials() {
   const isInView = useInView(ref, { once: true, amount: 0.15 })
 
   return (
-    <section ref={ref} className="relative bg-navy-950 py-20 md:py-24 overflow-hidden">
+    <section ref={ref} className="relative bg-slate-50 py-20 md:py-24 overflow-hidden">
       {/* Ambient glow */}
       <div
         className="absolute inset-0 pointer-events-none"

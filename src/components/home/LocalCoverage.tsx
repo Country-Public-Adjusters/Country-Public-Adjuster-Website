@@ -113,7 +113,7 @@ export default function LocalCoverage() {
   return (
     <section
       ref={ref}
-      className="relative bg-navy-900 section-padding"
+      className="relative bg-amber-50 section-padding"
     >
       {/* Top curve from cream */}
       <div className="absolute top-0 left-0 right-0 pointer-events-none" aria-hidden="true">

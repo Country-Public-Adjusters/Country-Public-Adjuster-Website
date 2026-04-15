@@ -98,7 +98,7 @@ export default function ServicesGrid() {
   return (
     <section
       ref={ref}
-      className="relative bg-navy-900 section-padding"
+      className="relative bg-white section-padding"
     >
       {/* Faint ambient glow */}
       <div

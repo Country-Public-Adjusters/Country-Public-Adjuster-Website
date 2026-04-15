@@ -45,7 +45,7 @@ export default function MetricsBand() {
   return (
     <section
       ref={ref}
-      className="relative bg-navy-950 py-20 md:py-24"
+      className="relative bg-slate-50 py-20 md:py-24 border-y border-slate-100"
     >
       {/* Ambient gradient center glow */}
       <div

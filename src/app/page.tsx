@@ -59,6 +59,9 @@ export default function HomePage() {
       {/* A — Hero */}
       <Hero />
 
+      {/* Gold divider */}
+      <div style={{ height: '3px', background: 'linear-gradient(90deg, transparent 0%, #F59E0B 30%, #FBBF24 50%, #F59E0B 70%, transparent 100%)' }} />
+
       {/* B — Metrics band */}
       <MetricsBand />
 
@@ -67,6 +70,9 @@ export default function HomePage() {
 
       {/* D — How It Works */}
       <HowItWorks />
+
+      {/* Gold divider */}
+      <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent 0%, #F59E0B 20%, #FBBF24 50%, #F59E0B 80%, transparent 100%)' }} />
 
       {/* E — Smart Intake Preview */}
       <IntakePreview />
@@ -77,6 +83,9 @@ export default function HomePage() {
       {/* G — Testimonials (directly under Real Results) */}
       <Testimonials />
 
+      {/* Gold divider */}
+      <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent 0%, #F59E0B 20%, #FBBF24 50%, #F59E0B 80%, transparent 100%)' }} />
+
       {/* H — Services Grid */}
       <ServicesGrid />
 
@@ -85,6 +94,9 @@ export default function HomePage() {
 
       {/* J — Local Coverage */}
       <LocalCoverage />
+
+      {/* Gold divider */}
+      <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent 0%, #F59E0B 20%, #FBBF24 50%, #F59E0B 80%, transparent 100%)' }} />
 
       {/* K — FAQ */}
       <HomeFAQ />

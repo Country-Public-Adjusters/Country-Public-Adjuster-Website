@@ -39,7 +39,7 @@ export default function IntakePreview() {
   return (
     <section
       ref={ref}
-      className="relative bg-navy-900 section-padding overflow-hidden"
+      className="relative bg-amber-50 section-padding overflow-hidden"
     >
       {/* Background gradient */}
       <div

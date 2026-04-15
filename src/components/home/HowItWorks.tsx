@@ -40,7 +40,7 @@ export default function HowItWorks() {
   return (
     <section
       ref={ref}
-      className="relative bg-navy-900 section-padding overflow-hidden"
+      className="relative bg-slate-50 section-padding overflow-hidden"
       id="how-it-works"
     >
       {/* Top blend from white (RealitySection bottom) */}

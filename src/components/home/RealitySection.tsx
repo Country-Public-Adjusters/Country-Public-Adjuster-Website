@@ -29,7 +29,7 @@ const WITH = [
 
 export default function RealitySection() {
   return (
-    <section className="relative bg-navy-950 section-padding overflow-hidden">
+    <section className="relative bg-white section-padding overflow-hidden">
       {/* Subtle dot grid */}
       <div
         className="absolute inset-0 opacity-[0.012] pointer-events-none"

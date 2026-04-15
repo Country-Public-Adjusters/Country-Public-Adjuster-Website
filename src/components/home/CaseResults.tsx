@@ -66,7 +66,7 @@ export default function CaseResults() {
   return (
     <section
       ref={ref}
-      className="relative bg-navy-950 section-padding overflow-hidden"
+      className="relative bg-white section-padding overflow-hidden"
     >
       {/* Background glow */}
       <div

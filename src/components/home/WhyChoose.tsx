@@ -64,7 +64,7 @@ export default function WhyChoose() {
   return (
     <section
       ref={ref}
-      className="relative bg-navy-950 section-padding"
+      className="relative bg-slate-50 section-padding"
     >
       {/* Top ambient glow */}
       <div

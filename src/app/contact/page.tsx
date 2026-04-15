@@ -62,7 +62,7 @@ export default function ContactPage() {
                 className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
                 style={{ background: 'rgba(203,213,225,0.4)', border: '1px solid rgba(203,213,225,0.6)' }}
               >
-                <Phone size={22} className="text-navy-300" />
+                <Phone size={22} className="text-gold-600" />
               </div>
               <h2 className="text-xl font-bold text-slate-900 mb-3">Call us directly</h2>
               <p className="text-sm text-slate-500 leading-relaxed mb-5">
@@ -81,7 +81,7 @@ export default function ContactPage() {
                 className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
                 style={{ background: 'rgba(203,213,225,0.3)', border: '1px solid rgba(203,213,225,0.5)' }}
               >
-                <Mail size={22} className="text-navy-300" />
+                <Mail size={22} className="text-gold-600" />
               </div>
               <h2 className="text-xl font-bold text-slate-900 mb-3">Email us</h2>
               <p className="text-sm text-slate-500 leading-relaxed mb-5">
@@ -110,7 +110,7 @@ export default function ContactPage() {
                 Start the claim intake now. Our AI assistant captures your details and we respond
                 first thing in the morning. For emergencies, always call directly.
               </p>
-              <div className="flex items-center gap-2 text-xs text-slate-400">
+              <div className="flex items-center gap-2 text-xs text-slate-600">
                 <Clock size={12} />
                 <span>Office hours: Mon–Fri 8am–6pm · Sat 9am–1pm</span>
               </div>
@@ -125,7 +125,7 @@ export default function ContactPage() {
               <MapPin size={18} className="text-gold-500 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="text-sm font-bold text-slate-900 mb-1">Nashville, Tennessee</div>
-                <div className="text-xs text-slate-400">Davidson, Williamson, Rutherford, Sumner, Wilson, and surrounding counties</div>
+                <div className="text-xs text-slate-600">Davidson, Williamson, Rutherford, Sumner, Wilson, and surrounding counties</div>
               </div>
             </div>
             <div className="hidden sm:block w-px bg-slate-100 self-stretch" />
@@ -133,7 +133,7 @@ export default function ContactPage() {
               <MapPin size={18} className="text-gold-500 flex-shrink-0 mt-0.5" />
               <div>
                 <div className="text-sm font-bold text-slate-900 mb-1">South Florida</div>
-                <div className="text-xs text-slate-400">Miami-Dade, Broward, and Palm Beach counties</div>
+                <div className="text-xs text-slate-600">Miami-Dade, Broward, and Palm Beach counties</div>
               </div>
             </div>
           </div>

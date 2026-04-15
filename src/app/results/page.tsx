@@ -152,14 +152,14 @@ export default function ResultsPage() {
                     {/* Numbers */}
                     <div className="flex lg:flex-col items-center lg:items-end gap-4 lg:gap-2 flex-shrink-0">
                       <div className="text-center">
-                        <div className="text-xs text-slate-400 uppercase tracking-wide mb-0.5">Insurer offer</div>
+                        <div className="text-xs text-slate-600 uppercase tracking-wide mb-0.5">Insurer offer</div>
                         <div className="text-2xl font-black text-red-400/80">
                           ${c.insurerOffer.toLocaleString()}
                         </div>
                       </div>
                       <ArrowRight size={18} className="text-gold-500/50 rotate-90 lg:rotate-0" />
                       <div className="text-center">
-                        <div className="text-xs text-slate-400 uppercase tracking-wide mb-0.5">Final settlement</div>
+                        <div className="text-xs text-slate-600 uppercase tracking-wide mb-0.5">Final settlement</div>
                         <div
                           className="text-2xl font-black"
                           style={{
@@ -180,7 +180,7 @@ export default function ResultsPage() {
           </div>
 
           <FadeInView className="text-center mt-12">
-            <p className="text-sm text-slate-400 mb-6">
+            <p className="text-sm text-slate-600 mb-6">
               All results represent actual claim outcomes. Individual results vary by claim complexity, damage extent, and insurer.
             </p>
             <Link href="/intake" className="btn-primary-lg inline-flex">

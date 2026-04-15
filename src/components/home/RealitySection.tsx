@@ -106,7 +106,7 @@ export default function RealitySection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-start gap-3 text-sm text-slate-400"
+                    className="flex items-start gap-3 text-sm text-slate-700 font-medium"
                   >
                     <X size={14} className="text-red-400/60 flex-shrink-0 mt-0.5" />
                     {item}
@@ -115,7 +115,7 @@ export default function RealitySection() {
               </ul>
 
               <div className="mt-7 pt-6 border-t border-red-500/[0.12] relative">
-                <div className="text-xs text-red-400/55 font-medium leading-relaxed">
+                <div className="text-xs text-red-500 font-semibold leading-relaxed">
                   Result: Underpaid claims, missed damage, and months of stress handling
                   a process designed to work against you.
                 </div>
@@ -173,7 +173,7 @@ export default function RealitySection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.07 + 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex items-start gap-3 text-sm text-slate-700"
+                    className="flex items-start gap-3 text-sm text-slate-800 font-medium"
                   >
                     <Check size={14} className="text-gold-500 flex-shrink-0 mt-0.5" />
                     {item}
@@ -181,8 +181,8 @@ export default function RealitySection() {
                 ))}
               </ul>
 
-              <div className="mt-7 pt-6 border-t border-gold-500/[0.12] relative">
-                <div className="text-xs text-gold-400/75 font-semibold leading-relaxed">
+              <div className="mt-7 pt-6 border-t border-slate-400 relative">
+                <div className="text-xs text-slate-800 font-semibold leading-relaxed">
                   Result: Full damage documentation, professional negotiation, and an average
                   10× increase over the insurer's initial offer.
                 </div>

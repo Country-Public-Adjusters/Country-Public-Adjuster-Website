@@ -7,6 +7,7 @@ import MobileCTABar from '@/components/layout/MobileCTABar'
 import SmoothScrollProvider from '@/components/layout/SmoothScrollProvider'
 import ChatWidget from '@/components/layout/ChatWidget'
 import CustomCursor from '@/components/layout/CustomCursor'
+import TextUsTab from '@/components/layout/TextUsTab'
 import { BUSINESS_SCHEMA } from '@/lib/schema'
 import { baseMetadata } from '@/lib/seo'
 
@@ -96,6 +97,7 @@ export default function RootLayout({
           <Footer />
           <MobileCTABar />
           <ChatWidget />
+          <TextUsTab />
         </SmoothScrollProvider>
       </body>
     </html>

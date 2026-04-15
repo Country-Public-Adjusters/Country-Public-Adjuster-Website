@@ -81,7 +81,7 @@ export default function NashvillePage() {
         <div className="container-site">
           <div className="max-w-3xl">
             <FadeInView>
-              <div className="flex items-center gap-2 text-xs text-slate-400 mb-6">
+              <div className="flex items-center gap-2 text-xs text-slate-600 mb-6">
                 <MapPin size={13} className="text-gold-500/60" />
                 <span>Nashville, Tennessee · Middle Tennessee</span>
               </div>
@@ -141,7 +141,7 @@ export default function NashvillePage() {
                 <h3 className="font-bold text-slate-900 text-lg mb-4">
                   Nashville service area
                 </h3>
-                <p className="text-sm text-slate-400 mb-5">
+                <p className="text-sm text-slate-600 mb-5">
                   We serve all of Middle Tennessee including:
                 </p>
                 <div className="flex flex-wrap gap-2">

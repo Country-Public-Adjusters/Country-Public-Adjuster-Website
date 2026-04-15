@@ -45,7 +45,7 @@ export default function IntakePage() {
               <div
                 key={i}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-full
-                           bg-slate-100 border border-slate-200 text-xs text-slate-400 font-medium"
+                           bg-slate-100 border border-slate-200 text-xs text-slate-600 font-medium"
               >
                 <chip.icon size={11} className="text-gold-500/70" />
                 {chip.text}

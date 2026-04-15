@@ -79,7 +79,7 @@ export default function SouthFloridaPage() {
         <div className="container-site">
           <div className="max-w-3xl">
             <FadeInView>
-              <div className="flex items-center gap-2 text-xs text-slate-400 mb-6">
+              <div className="flex items-center gap-2 text-xs text-slate-600 mb-6">
                 <MapPin size={13} className="text-gold-500/60" />
                 <span>Miami-Dade · Broward · Palm Beach Counties</span>
               </div>
@@ -138,7 +138,7 @@ export default function SouthFloridaPage() {
             <FadeInView delay={0.2}>
               <div className="card-dark p-6">
                 <h3 className="font-bold text-slate-900 text-lg mb-4">South Florida service area</h3>
-                <p className="text-sm text-slate-400 mb-5">We serve all three tri-county markets:</p>
+                <p className="text-sm text-slate-600 mb-5">We serve all three tri-county markets:</p>
                 <div className="flex flex-wrap gap-2">
                   {FL_CITIES.map((city) => (
                     <Link

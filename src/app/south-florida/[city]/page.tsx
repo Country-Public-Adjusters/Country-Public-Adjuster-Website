@@ -60,17 +60,17 @@ export default async function FloridaCityPage({
         }}
       >
         <div className="container-site">
-          <nav className="flex items-center gap-2 text-xs text-white/35 mb-6" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-white/60">Home</Link>
+          <nav className="flex items-center gap-2 text-xs text-slate-500 mb-6" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-slate-600">Home</Link>
             <span>/</span>
-            <Link href="/south-florida" className="hover:text-white/60">South Florida</Link>
+            <Link href="/south-florida" className="hover:text-slate-600">South Florida</Link>
             <span>/</span>
-            <span className="text-white/60">{page.city}</span>
+            <span className="text-slate-600">{page.city}</span>
           </nav>
 
           <div className="max-w-3xl">
             <FadeInView>
-              <div className="flex items-center gap-2 text-xs text-white/35 mb-5">
+              <div className="flex items-center gap-2 text-xs text-slate-500 mb-5">
                 <MapPin size={13} className="text-gold-500/60" />
                 <span>{page.city}, {page.state}</span>
               </div>
@@ -79,10 +79,10 @@ export default async function FloridaCityPage({
                 {page.city} public adjuster —{' '}
                 <span className="text-gradient-gold">hurricane &amp; storm claims</span>
               </h1>
-              <p className="text-lg text-white/55 leading-relaxed mb-5 max-w-2xl">
+              <p className="text-lg text-slate-600 leading-relaxed mb-5 max-w-2xl">
                 {page.intro}
               </p>
-              <p className="text-base text-white/45 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-base text-slate-500 leading-relaxed mb-8 max-w-2xl">
                 {page.localContext}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -118,14 +118,14 @@ export default async function FloridaCityPage({
                 <span
                   key={area}
                   className="px-4 py-2 rounded-full text-sm font-medium
-                             bg-white/[0.05] border border-white/[0.07] text-white/55"
+                             bg-slate-100 border border-slate-200 text-slate-600"
                 >
                   {area}
                 </span>
               ))}
             </div>
 
-            <h3 className="text-sm font-bold text-white/60 mb-4 uppercase tracking-wide">
+            <h3 className="text-sm font-bold text-slate-600 mb-4 uppercase tracking-wide">
               Common {page.city} claim types
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -139,8 +139,8 @@ export default async function FloridaCityPage({
                   key={link.label}
                   href={link.href}
                   className="flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium
-                             bg-white/[0.04] border border-white/[0.06] text-white/60
-                             hover:text-white/80 hover:bg-white/[0.07] transition-all duration-200"
+                             bg-slate-100 border border-slate-200 text-slate-600
+                             hover:text-slate-700 hover:bg-slate-100 transition-all duration-200"
                 >
                   <ArrowRight size={13} className="text-gold-500/50" />
                   {link.label}

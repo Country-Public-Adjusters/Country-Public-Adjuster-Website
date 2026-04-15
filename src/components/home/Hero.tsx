@@ -194,17 +194,15 @@ export default function Hero() {
             className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-black text-slate-900
                        tracking-tight leading-[0.93] mb-7"
           >
-            Your insurance company{' '}
-            <br className="hidden sm:block" />
-            has adjusters.{' '}
             <span
               className="bg-clip-text text-transparent"
               style={{
                 backgroundImage: 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #FCD34D 100%)',
               }}
             >
-              Now you do too.
+              747% More,
             </span>
+            {' '}On Average.
           </motion.h1>
 
           {/* Sub-headline */}
@@ -212,8 +210,8 @@ export default function Hero() {
             variants={itemVariants}
             className="text-lg sm:text-xl text-slate-500 leading-relaxed max-w-[38rem] mx-auto mb-11"
           >
-            Storm damage to your property? We handle your entire insurance claim from
-            inspection to final settlement — so you get paid what you actually deserve.
+            Storm damage to your property? We handle the claim from inspection to settlement
+            so you can pursue what your policy may truly owe.
           </motion.p>
 
           {/* CTA buttons */}
@@ -274,7 +272,7 @@ export default function Hero() {
         >
           {[
             { value: '$127K', label: 'vs $12K offer', note: 'Hurricane claim' },
-            { value: '10.5×', label: 'average increase', note: 'Typical settlement' },
+            { value: '747%', label: 'avg. claim increase', note: 'Source: OPPAGA' },
             { value: '$0', label: 'upfront cost', note: 'Contingency only' },
           ].map((stat, i) => (
             <div

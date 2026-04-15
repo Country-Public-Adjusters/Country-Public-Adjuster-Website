@@ -74,12 +74,12 @@ export default async function DamageTypePage({
       >
         <div className="container-site">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs text-white/35 mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-white/60 transition-colors">Home</Link>
+          <nav className="flex items-center gap-2 text-xs text-slate-500 mb-8" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-slate-600 transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/services" className="hover:text-white/60 transition-colors">Services</Link>
+            <Link href="/services" className="hover:text-slate-600 transition-colors">Services</Link>
             <span>/</span>
-            <span className="text-white/60">{page.title}</span>
+            <span className="text-slate-600">{page.title}</span>
           </nav>
 
           <div className="max-w-3xl">
@@ -88,7 +88,7 @@ export default async function DamageTypePage({
               <h1 className="text-5xl lg:text-6xl font-black text-white tracking-tight mb-5 leading-[0.95]">
                 {page.heroHeadline}
               </h1>
-              <p className="text-lg text-white/55 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
                 {page.heroSub}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -116,7 +116,7 @@ export default async function DamageTypePage({
               </h2>
               <ul className="space-y-3">
                 {page.whatItLooks.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-white/65">
+                  <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
                     <Check size={15} className="text-gold-500 flex-shrink-0 mt-0.5" />
                     {item}
                   </li>
@@ -130,7 +130,7 @@ export default async function DamageTypePage({
               </h2>
               <ul className="space-y-3">
                 {page.whatInsurersUndervalue.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-white/65">
+                  <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
                     <X size={15} className="text-red-400/70 flex-shrink-0 mt-0.5" />
                     {item}
                   </li>
@@ -147,7 +147,7 @@ export default async function DamageTypePage({
           <FadeInView>
             <span className="section-label mb-4 block">Local Context</span>
             <h2 className="section-heading-dark mb-5">Nashville &amp; South Florida</h2>
-            <p className="text-white/55 text-base leading-relaxed">{page.localContext}</p>
+            <p className="text-slate-600 text-base leading-relaxed">{page.localContext}</p>
           </FadeInView>
         </div>
       </section>

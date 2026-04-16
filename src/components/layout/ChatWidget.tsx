@@ -231,12 +231,19 @@ export default function ChatWidget() {
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 12, scale: 0.95 }}
               transition={{ duration: 0.25 }}
-              className="flex items-center gap-2.5 px-5 py-2.5 rounded-full shadow-lg border border-gold-500/40
-                         text-sm font-semibold text-slate-800 hover:shadow-[0_4px_28px_rgba(245,158,11,0.25)]
-                         transition-shadow duration-300"
-              style={{ background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)' }}
+              className="flex items-center gap-2.5 px-4 py-2.5 rounded-full
+                         text-sm font-bold text-white
+                         transition-all duration-300 hover:scale-105"
+              style={{
+                background: 'linear-gradient(135deg, #D97706 0%, #F59E0B 60%, #FBBF24 100%)',
+                boxShadow: '0 4px 20px rgba(245,158,11,0.5), 0 2px 8px rgba(0,0,0,0.15)',
+              }}
             >
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+              {/* Green online indicator */}
+              <span className="relative flex-shrink-0">
+                <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75" />
+                <span className="relative w-2.5 h-2.5 rounded-full bg-green-400 block" />
+              </span>
               Chat with us — we're online
             </motion.button>
           )}
@@ -286,11 +293,16 @@ export default function ChatWidget() {
               initial={{ opacity: 0, x: 10, scale: 0.95 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 10, scale: 0.95 }}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold
-                         text-slate-800 shadow-md border border-gold-500/40"
-              style={{ background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%)' }}
+              className="flex items-center gap-2 px-3 py-2 rounded-full text-xs font-bold text-white"
+              style={{
+                background: 'linear-gradient(135deg, #D97706 0%, #F59E0B 60%, #FBBF24 100%)',
+                boxShadow: '0 4px 16px rgba(245,158,11,0.5)',
+              }}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+              <span className="relative flex-shrink-0">
+                <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75" />
+                <span className="relative w-2 h-2 rounded-full bg-green-400 block" />
+              </span>
               Chat with us
             </motion.button>
           )}

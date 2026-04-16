@@ -159,65 +159,68 @@ export default function HowItWorks() {
             ))}
           </div>
 
-          {/* ── Mobile timeline (vertical, left-rail) ── */}
-          <div className="md:hidden relative">
-            {/* Full-height animated gold rail */}
-            <motion.div
-              initial={{ scaleY: 0 }}
-              animate={isInView ? { scaleY: 1 } : {}}
-              transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute left-5 top-5 bottom-5 w-px origin-top"
-              style={{ background: 'linear-gradient(180deg, #F59E0B 0%, rgba(245,158,11,0.2) 100%)' }}
-            />
-            {/* Travelling dot on the rail */}
-            <motion.div
-              animate={isInView ? { y: ['0%', '92%', '0%'] } : { y: '0%' }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.8 }}
-              className="absolute left-[17px] top-5 w-2.5 h-2.5 rounded-full z-10"
-              style={{
-                background: 'radial-gradient(circle, #FBBF24 30%, rgba(245,158,11,0.4) 100%)',
-                boxShadow: '0 0 10px rgba(245,158,11,0.9)',
-              }}
-            />
-
-            <div className="space-y-5 pl-14">
-              {STEPS.map((step, i) => (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, x: 24 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.65, delay: 0.4 + i * 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative"
-                >
-                  {/* Step dot on the rail */}
+          {/* ── Mobile timeline — flex row per step: [dot+line col] + [card col] ── */}
+          <div className="md:hidden">
+            {STEPS.map((step, i) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, x: 20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.65, delay: 0.3 + i * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="flex gap-4"
+              >
+                {/* Left col: dot + line */}
+                <div className="flex flex-col items-center flex-shrink-0 w-6">
+                  {/* Dot */}
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={isInView ? { scale: 1 } : {}}
-                    transition={{ duration: 0.4, delay: 0.5 + i * 0.2, type: 'spring', stiffness: 300 }}
-                    className="absolute -left-[2.35rem] top-5 w-4 h-4 rounded-full border-2 border-gold-500 bg-white z-10 flex items-center justify-center"
+                    transition={{ duration: 0.4, delay: 0.4 + i * 0.2, type: 'spring', stiffness: 300 }}
+                    className="w-5 h-5 rounded-full border-2 border-gold-500 bg-white flex items-center justify-center flex-shrink-0 mt-5 z-10"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-gold-500" />
+                    <div className="w-2 h-2 rounded-full bg-gold-500" />
                   </motion.div>
 
-                  {/* Card */}
-                  <div className="relative p-5 rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                        style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.12) 0%, rgba(245,158,11,0.05) 100%)', border: '1px solid rgba(245,158,11,0.25)' }}>
-                        <step.icon size={18} className="text-gold-500" />
+                  {/* Line below dot (only between steps) */}
+                  {i < STEPS.length - 1 && (
+                    <motion.div
+                      initial={{ scaleY: 0 }}
+                      animate={isInView ? { scaleY: 1 } : {}}
+                      transition={{ duration: 0.8, delay: 0.7 + i * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                      className="w-px flex-1 origin-top mt-1"
+                      style={{
+                        background: 'linear-gradient(180deg, #F59E0B 0%, rgba(245,158,11,0.15) 100%)',
+                        minHeight: '24px',
+                      }}
+                    />
+                  )}
+                </div>
+
+                {/* Right col: card */}
+                <div className={`flex-1 ${i < STEPS.length - 1 ? 'pb-5' : ''}`}>
+                  <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div
+                        className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(245,158,11,0.12) 0%, rgba(245,158,11,0.05) 100%)',
+                          border: '1px solid rgba(245,158,11,0.25)',
+                        }}
+                      >
+                        <step.icon size={16} className="text-gold-500" />
                       </div>
                       <div>
                         <div className="text-[10px] font-bold tracking-widest uppercase text-gold-500/70">Step {step.number}</div>
-                        <h3 className="text-base font-bold text-slate-900 leading-tight">{step.title}</h3>
+                        <h3 className="text-sm font-bold text-slate-900 leading-tight">{step.title}</h3>
                       </div>
                     </div>
                     <p className="text-sm font-semibold text-slate-600 mb-2 leading-snug">{step.headline}</p>
-                    <p className="text-sm text-slate-500 leading-relaxed mb-4">{step.body}</p>
+                    <p className="text-sm text-slate-500 leading-relaxed mb-3">{step.body}</p>
                     <div className="text-xs font-semibold text-gold-500/70 pt-3 border-t border-slate-100">{step.detail}</div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
 

@@ -1,5 +1,8 @@
 import Anthropic from '@anthropic-ai/sdk'
 
+export const runtime = 'nodejs'
+export const maxDuration = 30
+
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
 const SYSTEM_PROMPT = `
@@ -195,31 +198,25 @@ export async function POST(req: Request) {
   try {
     const { messages } = await req.json()
 
-    const stream = await client.messages.create({
+    if (!process.env.ANTHROPIC_API_KEY) {
+      return Response.json({ error: 'API key not configured' }, { status: 500 })
+    }
+
+    const response = await client.messages.create({
       model: 'claude-haiku-4-5-20251001',
       max_tokens: 1024,
       system: SYSTEM_PROMPT,
       messages,
-      stream: true,
     })
 
-    const encoder = new TextEncoder()
-    const readable = new ReadableStream({
-      async start(controller) {
-        for await (const event of stream) {
-          if (event.type === 'content_block_delta' && event.delta.type === 'text_delta') {
-            controller.enqueue(encoder.encode(event.delta.text))
-          }
-        }
-        controller.close()
-      },
-    })
+    const text = response.content[0]?.type === 'text' ? response.content[0].text : ''
 
-    return new Response(readable, {
-      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-    })
-  } catch (err) {
-    console.error('Chat API error:', err)
-    return new Response('Sorry, something went wrong. Please call us at 1.866.806.9911.', { status: 500 })
+    return Response.json({ text })
+  } catch (err: any) {
+    console.error('Chat API error:', err?.message || err)
+    return Response.json(
+      { error: err?.message || 'Unknown error' },
+      { status: 500 }
+    )
   }
 }

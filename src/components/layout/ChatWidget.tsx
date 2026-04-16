@@ -52,28 +52,18 @@ export default function ChatWidget() {
         }),
       })
 
-      if (!res.ok || !res.body) throw new Error('Failed')
+      const data = await res.json()
 
-      const reader = res.body.getReader()
-      const decoder = new TextDecoder()
-      let assistantText = ''
-
-      setMessages(prev => [...prev, { role: 'assistant', content: '' }])
-
-      while (true) {
-        const { done, value } = await reader.read()
-        if (done) break
-        assistantText += decoder.decode(value, { stream: true })
-        setMessages(prev => {
-          const updated = [...prev]
-          updated[updated.length - 1] = { role: 'assistant', content: assistantText }
-          return updated
-        })
+      if (!res.ok || data.error) {
+        throw new Error(data.error || 'Request failed')
       }
-    } catch {
+
+      setMessages(prev => [...prev, { role: 'assistant', content: data.text }])
+    } catch (err: any) {
+      console.error('Chat error:', err?.message)
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: "Sorry, I ran into an issue. Please call us directly at 1.866.806.9911.",
+        content: "Sorry, I'm having trouble connecting right now. Please call us directly at 1.866.806.9911 and we'll be happy to help.",
       }])
     } finally {
       setLoading(false)

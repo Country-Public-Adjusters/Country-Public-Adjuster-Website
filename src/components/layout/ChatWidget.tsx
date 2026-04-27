@@ -1,18 +1,34 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, X, Send, Phone } from 'lucide-react'
 import { Analytics } from '@/lib/analytics'
 
 interface Message {
+  id: string
   role: 'user' | 'assistant'
   content: string
+  isTyping?: boolean
 }
 
+let msgCounter = 0
+const newId = () => String(++msgCounter)
+
 const OPENING_MESSAGE: Message = {
+  id: 'open',
   role: 'assistant',
   content: "Hi! I'm here to help with your property damage insurance claim. Whether you've just had damage, received a low offer, or want to understand your options — I can help.\n\nWhat's going on with your property?",
+}
+
+function TypingDots() {
+  return (
+    <span className="flex gap-1 items-center py-0.5">
+      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '0ms' }} />
+      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '150ms' }} />
+      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '300ms' }} />
+    </span>
+  )
 }
 
 export default function ChatWidget() {
@@ -24,22 +40,22 @@ export default function ChatWidget() {
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    if (open) {
-      setTimeout(() => inputRef.current?.focus(), 300)
-    }
+    if (open) setTimeout(() => inputRef.current?.focus(), 300)
   }, [open])
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, loading])
 
-  const sendMessage = async () => {
+  const sendMessage = useCallback(async () => {
     const text = input.trim()
     if (!text || loading) return
 
-    const userMsg: Message = { role: 'user', content: text }
-    const newMessages = [...messages, userMsg]
-    setMessages(newMessages)
+    const userMsg: Message = { id: newId(), role: 'user', content: text }
+    const history = messages.filter(m => m.content && !m.isTyping)
+    const apiMessages = [...history, userMsg].map(m => ({ role: m.role, content: m.content }))
+
+    setMessages(prev => [...prev.filter(m => !m.isTyping), userMsg])
     setInput('')
     setLoading(true)
 
@@ -47,28 +63,54 @@ export default function ChatWidget() {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: newMessages.map(m => ({ role: m.role, content: m.content })),
-        }),
+        body: JSON.stringify({ messages: apiMessages }),
       })
 
       const data = await res.json()
 
-      if (!res.ok || data.error) {
-        throw new Error(data.error || 'Request failed')
-      }
+      if (!res.ok || data.error) throw new Error(data.error || 'Request failed')
 
-      setMessages(prev => [...prev, { role: 'assistant', content: data.text }])
+      const paragraphs = (data.text as string)
+        .split(/\n\n+/)
+        .map(p => p.trim())
+        .filter(Boolean)
+
+      if (paragraphs.length === 0) return
+
+      // Keep typing dots visible a moment longer before first reply appears
+      const firstDelay = Math.min(1800 + paragraphs[0].length * 25, 4500)
+      await new Promise(r => setTimeout(r, firstDelay))
+
+      setLoading(false)
+
+      // Show first paragraph
+      setMessages(prev => [...prev, { id: newId(), role: 'assistant', content: paragraphs[0] }])
+
+      // Show each remaining paragraph with typing indicator delay
+      for (let i = 1; i < paragraphs.length; i++) {
+        await new Promise(r => setTimeout(r, 2000))
+        const typingId = newId()
+        setMessages(prev => [...prev, { id: typingId, role: 'assistant', content: '', isTyping: true }])
+
+        // Scale delay to paragraph length so longer paragraphs feel more "thought about"
+        const delay = Math.min(3500 + paragraphs[i].length * 40, 8000)
+        await new Promise(r => setTimeout(r, delay))
+
+        const para = paragraphs[i]
+        setMessages(prev =>
+          prev.map(m => m.id === typingId ? { ...m, content: para, isTyping: false } : m)
+        )
+      }
     } catch (err: any) {
       console.error('Chat error:', err?.message)
+      setLoading(false)
       setMessages(prev => [...prev, {
+        id: newId(),
         role: 'assistant',
         content: "Sorry, I'm having trouble connecting right now. Please call us directly at 1.866.806.9911 and we'll be happy to help.",
       }])
-    } finally {
-      setLoading(false)
     }
-  }
+  }, [input, loading, messages])
 
   const handleKey = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -133,50 +175,66 @@ export default function ChatWidget() {
 
             {/* Messages */}
             <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
-              {messages.map((msg, i) => (
-                <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  {msg.role === 'assistant' && (
-                    <div className="w-6 h-6 rounded-full flex-shrink-0 mr-2 mt-0.5 flex items-center justify-center"
-                      style={{ background: 'linear-gradient(135deg, #F59E0B, #FBBF24)' }}>
+              <AnimatePresence initial={false}>
+                {messages.map(msg => (
+                  <motion.div
+                    key={msg.id}
+                    initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                    className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                  >
+                    {msg.role === 'assistant' && (
+                      <div
+                        className="w-6 h-6 rounded-full flex-shrink-0 mr-2 mt-0.5 flex items-center justify-center"
+                        style={{ background: 'linear-gradient(135deg, #F59E0B, #FBBF24)' }}
+                      >
+                        <MessageCircle size={11} className="text-white" />
+                      </div>
+                    )}
+                    <div
+                      className={`max-w-[78%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap
+                        ${msg.role === 'user'
+                          ? 'text-white rounded-br-sm'
+                          : 'text-slate-800 rounded-bl-sm border border-slate-100'
+                        }`}
+                      style={msg.role === 'user'
+                        ? { background: 'linear-gradient(135deg, #D97706, #F59E0B)' }
+                        : { background: '#F8FAFC' }
+                      }
+                    >
+                      {msg.isTyping || (msg.role === 'assistant' && msg.content === '')
+                        ? <TypingDots />
+                        : msg.content
+                      }
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+
+              {/* Loading indicator while waiting for first response */}
+              <AnimatePresence>
+                {loading && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex justify-start"
+                  >
+                    <div
+                      className="w-6 h-6 rounded-full flex-shrink-0 mr-2 mt-0.5 flex items-center justify-center"
+                      style={{ background: 'linear-gradient(135deg, #F59E0B, #FBBF24)' }}
+                    >
                       <MessageCircle size={11} className="text-white" />
                     </div>
-                  )}
-                  <div
-                    className={`max-w-[78%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap
-                      ${msg.role === 'user'
-                        ? 'text-white rounded-br-sm'
-                        : 'text-slate-800 rounded-bl-sm border border-slate-100'
-                      }`}
-                    style={msg.role === 'user'
-                      ? { background: 'linear-gradient(135deg, #D97706, #F59E0B)' }
-                      : { background: '#F8FAFC' }
-                    }
-                  >
-                    {msg.content || (
-                      <span className="flex gap-1 items-center py-0.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '0ms' }} />
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '150ms' }} />
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '300ms' }} />
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-              {loading && messages[messages.length - 1]?.role !== 'assistant' && (
-                <div className="flex justify-start">
-                  <div className="w-6 h-6 rounded-full flex-shrink-0 mr-2 mt-0.5 flex items-center justify-center"
-                    style={{ background: 'linear-gradient(135deg, #F59E0B, #FBBF24)' }}>
-                    <MessageCircle size={11} className="text-white" />
-                  </div>
-                  <div className="px-3.5 py-2.5 rounded-2xl rounded-bl-sm border border-slate-100 bg-slate-50">
-                    <span className="flex gap-1 items-center">
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '150ms' }} />
-                      <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style={{ animationDelay: '300ms' }} />
-                    </span>
-                  </div>
-                </div>
-              )}
+                    <div className="px-3.5 py-2.5 rounded-2xl rounded-bl-sm border border-slate-100 bg-slate-50">
+                      <TypingDots />
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <div ref={bottomRef} />
             </div>
 
@@ -229,7 +287,6 @@ export default function ChatWidget() {
                 boxShadow: '0 4px 20px rgba(245,158,11,0.5), 0 2px 8px rgba(0,0,0,0.15)',
               }}
             >
-              {/* Green online indicator */}
               <span className="relative flex-shrink-0">
                 <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75" />
                 <span className="relative w-2.5 h-2.5 rounded-full bg-green-400 block" />

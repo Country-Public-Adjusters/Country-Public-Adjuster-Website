@@ -39,6 +39,82 @@ export default function ChatWidget() {
   const bottomRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
+  // ── GHL lead-fire bookkeeping ────────────────────────────────────────────
+  // Stable conversation ID so the close route can dedupe.
+  const sessionIdRef = useRef<string>('')
+  // Mirror of messages so the beforeunload handler always sees fresh state
+  // without re-binding the event listener.
+  const messagesRef = useRef<Message[]>(messages)
+  // Message count at the time of the last successful fire — prevents firing
+  // the same conversation twice if nothing has changed.
+  const lastFiredCountRef = useRef<number>(0)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    sessionIdRef.current =
+      typeof crypto !== 'undefined' && crypto.randomUUID
+        ? crypto.randomUUID()
+        : `s_${Date.now()}_${Math.random().toString(36).slice(2)}`
+  }, [])
+
+  useEffect(() => {
+    messagesRef.current = messages
+  }, [messages])
+
+  const fireLeadToGHL = useCallback((useBeacon: boolean) => {
+    if (typeof window === 'undefined') return
+
+    const current = messagesRef.current
+    const realMessages = current.filter(
+      (m) => m.content && !m.isTyping && m.id !== 'open'
+    )
+    const hasUser = realMessages.some((m) => m.role === 'user')
+    if (!hasUser) return
+    if (current.length <= lastFiredCountRef.current) return
+
+    lastFiredCountRef.current = current.length
+
+    const payload = {
+      sessionId: sessionIdRef.current,
+      messages: realMessages.map((m) => ({ role: m.role, content: m.content })),
+      pageUrl: window.location.href,
+      userAgent: navigator.userAgent,
+    }
+
+    const json = JSON.stringify(payload)
+
+    if (useBeacon && typeof navigator !== 'undefined' && navigator.sendBeacon) {
+      const blob = new Blob([json], { type: 'application/json' })
+      navigator.sendBeacon('/api/chat/close', blob)
+      return
+    }
+
+    fetch('/api/chat/close', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: json,
+      keepalive: true,
+    }).catch(() => {
+      /* fire-and-forget — GHL update is non-blocking */
+    })
+  }, [])
+
+  const closeChat = useCallback(() => {
+    fireLeadToGHL(false)
+    setOpen(false)
+  }, [fireLeadToGHL])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const onUnload = () => fireLeadToGHL(true)
+    window.addEventListener('beforeunload', onUnload)
+    window.addEventListener('pagehide', onUnload)
+    return () => {
+      window.removeEventListener('beforeunload', onUnload)
+      window.removeEventListener('pagehide', onUnload)
+    }
+  }, [fireLeadToGHL])
+
   useEffect(() => {
     if (open) setTimeout(() => inputRef.current?.focus(), 300)
   }, [open])
@@ -164,7 +240,7 @@ export default function ChatWidget() {
                   Call
                 </a>
                 <button
-                  onClick={() => setOpen(false)}
+                  onClick={closeChat}
                   className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center
                              transition-colors duration-200"
                 >
@@ -304,7 +380,14 @@ export default function ChatWidget() {
             </>
           )}
           <motion.button
-            onClick={() => { setOpen(o => !o); if (!open) Analytics.chatOpen() }}
+            onClick={() => {
+              if (open) {
+                closeChat()
+              } else {
+                setOpen(true)
+                Analytics.chatOpen()
+              }
+            }}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.93 }}
             transition={{ type: 'spring', stiffness: 400, damping: 20 }}
@@ -356,7 +439,14 @@ export default function ChatWidget() {
               style={{ background: 'rgba(245,158,11,0.4)', animationDuration: '2s' }} />
           )}
           <motion.button
-            onClick={() => { setOpen(o => !o); if (!open) Analytics.chatOpen() }}
+            onClick={() => {
+              if (open) {
+                closeChat()
+              } else {
+                setOpen(true)
+                Analytics.chatOpen()
+              }
+            }}
             whileTap={{ scale: 0.92 }}
             style={{
               width: '46px', height: '46px',

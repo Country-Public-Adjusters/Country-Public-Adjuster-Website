@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 const BASE_URL = 'https://countrypublicadjusters.com'
 const BRAND = 'Country Public Adjusters'
-const PHONE = '1-866-806-9911'
+const PHONE = '1-888-397-5420'
 
 // ─── BASE METADATA ────────────────────────────────────────────────────────────
 

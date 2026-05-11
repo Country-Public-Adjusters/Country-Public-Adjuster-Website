@@ -232,7 +232,7 @@ export default function HowItWorks() {
           className="text-center mt-14"
         >
           <Link
-            href="/intake"
+            href="/#free-inspection"
             onClick={() => Analytics.ctaClick('Start My Claim', 'how-it-works')}
             className="btn-primary-lg inline-flex"
           >

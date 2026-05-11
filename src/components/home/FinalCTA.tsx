@@ -6,8 +6,8 @@ import Link from 'next/link'
 import { Phone, ArrowRight, Bot, Shield, Clock } from 'lucide-react'
 import { Analytics } from '@/lib/analytics'
 
-const PHONE = '18668069911'
-const PHONE_DISPLAY = '1-866-806-9911'
+const PHONE = '18883975420'
+const PHONE_DISPLAY = '1-888-397-5420'
 
 export default function FinalCTA() {
   const ref = useRef<HTMLElement>(null)
@@ -129,7 +129,7 @@ export default function FinalCTA() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
           >
             <Link
-              href="/intake"
+              href="/#free-inspection"
               onClick={() => Analytics.ctaClick('Get Free Inspection', 'final-cta')}
               className="btn-primary-lg w-full sm:w-auto shadow-glow-gold hover:shadow-glow-gold-lg"
             >
@@ -157,7 +157,7 @@ export default function FinalCTA() {
             <span>
               After hours?{' '}
               <Link
-                href="/intake"
+                href="/#free-inspection"
                 className="text-gold-400/60 hover:text-gold-400 underline underline-offset-2
                            transition-colors duration-300"
                 onClick={() => Analytics.voiceIntakeClick()}

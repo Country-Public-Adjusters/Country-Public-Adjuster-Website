@@ -1,14 +1,13 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { Check, X, ArrowRight, Phone } from 'lucide-react'
+import { ArrowRight, Phone } from 'lucide-react'
 import FadeInView from '@/components/motion/FadeInView'
+import DamageInfoSection from '@/components/damage/DamageInfoSection'
 import FAQAccordion from '@/components/ui/FAQAccordion'
-import FinalCTA from '@/components/home/FinalCTA'
 import { DAMAGE_PAGES } from '@/data/damagePages'
 import { SERVICE_SCHEMA, BREADCRUMB_SCHEMA, FAQ_SCHEMA } from '@/lib/schema'
 
-// Static generation
 export function generateStaticParams() {
   return Object.keys(DAMAGE_PAGES).map((slug) => ({ type: slug }))
 }
@@ -64,41 +63,47 @@ export default async function DamageTypePage({
         />
       ))}
 
-      {/* Hero */}
+      {/* ── Hero ── */}
       <section
-        className="relative section-padding min-h-[50vh] flex items-center"
-        style={{
-          background:
-            'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(245,158,11,0.1) 0%, transparent 60%), linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
-        }}
+        className="relative section-padding overflow-hidden"
+        style={{ background: 'linear-gradient(160deg, #071220 0%, #0D2545 50%, #0A1E3C 100%)' }}
       >
-        <div className="container-site">
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+        }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse, rgba(245,158,11,0.1) 0%, transparent 70%)' }} />
+
+        <div className="container-site relative z-10">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs text-slate-500 mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-slate-600 transition-colors">Home</Link>
+          <nav className="flex items-center gap-2 text-xs text-white/40 mb-8" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-white/70 transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/services" className="hover:text-slate-600 transition-colors">Services</Link>
+            <Link href="/damage/storm" className="hover:text-white/70 transition-colors">Services</Link>
             <span>/</span>
-            <span className="text-slate-600">{page.title}</span>
+            <span className="text-white/60">{page.title}</span>
           </nav>
 
           <div className="max-w-3xl">
             <FadeInView>
               <span className="badge-gold mb-5">{page.title}</span>
-              <h1 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-5 leading-[0.95]">
+              <h1 className="text-5xl lg:text-6xl font-black text-white tracking-tight mb-5 leading-[0.95]">
                 {page.heroHeadline}
               </h1>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-lg text-white/60 leading-relaxed mb-8 max-w-2xl">
                 {page.heroSub}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/intake" className="btn-primary-lg">
+                <Link href="/#free-inspection" className="btn-primary-lg">
                   Get Free Inspection
                   <ArrowRight size={17} />
                 </Link>
-                <a href="tel:18668069911" className="btn-secondary-lg">
+                <a href="tel:18883975420"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all hover:scale-105"
+                  style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.2)' }}>
                   <Phone size={17} />
-                  1-866-806-9911
+                  1-888-397-5420
                 </a>
               </div>
             </FadeInView>
@@ -106,58 +111,36 @@ export default async function DamageTypePage({
         </div>
       </section>
 
-      {/* What damage looks like */}
-      <section className="bg-navy-900 section-padding">
-        <div className="container-site">
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-16 max-w-5xl mx-auto">
-            <FadeInView>
-              <h2 className="text-2xl font-bold text-slate-900 mb-5">
-                What {page.title.toLowerCase()} looks like
-              </h2>
-              <ul className="space-y-3">
-                {page.whatItLooks.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
-                    <Check size={15} className="text-gold-500 flex-shrink-0 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </FadeInView>
 
-            <FadeInView delay={0.15}>
-              <h2 className="text-2xl font-bold text-slate-900 mb-5">
-                What insurers routinely undervalue
-              </h2>
-              <ul className="space-y-3">
-                {page.whatInsurersUndervalue.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
-                    <X size={15} className="text-red-400/70 flex-shrink-0 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </FadeInView>
-          </div>
-        </div>
-      </section>
+      <DamageInfoSection
+        title={page.title}
+        whatItLooks={page.whatItLooks}
+        whatInsurersUndervalue={page.whatInsurersUndervalue}
+      />
 
-      {/* Local context */}
-      <section className="bg-navy-950 section-padding">
+      
+
+      {/* ── Local context ── */}
+      <section className="bg-white pt-8 pb-20">
         <div className="container-narrow text-center">
           <FadeInView>
-            <span className="section-label mb-4 block">Local Context</span>
-            <h2 className="section-heading-dark mb-5">Nashville &amp; South Florida</h2>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold mb-5"
+              style={{ background: 'rgba(245,158,11,0.1)', color: '#D97706' }}>
+              LOCAL CONTEXT
+            </div>
+            <h2 className="text-4xl font-black text-slate-900 mb-5">Nashville &amp; South Florida</h2>
             <p className="text-slate-600 text-base leading-relaxed">{page.localContext}</p>
           </FadeInView>
         </div>
       </section>
 
-      {/* FAQ */}
+
+      {/* ── FAQ ── */}
       {faqItems.length > 0 && (
-        <section className="bg-navy-900 section-padding">
+        <section className="section-padding" style={{ background: '#0A1E3C' }}>
           <div className="container-site max-w-3xl">
             <FadeInView className="mb-8">
-              <h2 className="section-heading-dark">{page.title} — FAQ</h2>
+              <h2 className="text-3xl font-black text-white">{page.title} — FAQ</h2>
             </FadeInView>
             <FadeInView delay={0.1}>
               <FAQAccordion items={faqItems} theme="dark" />
@@ -166,7 +149,7 @@ export default async function DamageTypePage({
         </section>
       )}
 
-      <FinalCTA />
+      
     </>
   )
 }

@@ -294,6 +294,55 @@ export const DAMAGE_PAGES: Record<string, DamagePageData> = {
     ],
   },
 
+  fire: {
+    slug: 'fire',
+    title: 'Fire & Smoke Damage Claims',
+    metaTitle: 'Fire & Smoke Damage Insurance Claims | Public Adjuster Help',
+    metaDescription:
+      'Fire and smoke damage to your property? Country Public Adjusters handle the full insurance claim — visible fire damage, hidden smoke contamination, contents, and temporary housing. Nashville & South Florida.',
+    heroHeadline: 'Fire damage claims are almost always undervalued.',
+    heroSub:
+      'Smoke travels further than fire. Insurers focus on what burned — we document everything that smoke, soot, and suppression water touched throughout your entire property.',
+    whatItLooks: [
+      'Direct fire damage to structure, roof, and interior finishes',
+      'Smoke and soot contamination throughout HVAC system and all rooms',
+      'Water damage from fire suppression and sprinkler systems',
+      'Odor penetration into walls, flooring, insulation, and contents',
+      'Electrical system damage from heat and suppression water',
+      'Structural weakening from fire exposure',
+      'Contents damage across all rooms affected by smoke',
+      'Temporary housing costs while property is uninhabitable',
+    ],
+    whatInsurersUndervalue: [
+      'Limiting the smoke damage scope to rooms with visible soot',
+      'Missing HVAC contamination that spreads smoke throughout the structure',
+      'Undervaluing contents replacement costs',
+      'Ignoring attic insulation replacement requirements',
+      'Applying cosmetic repair costs where full replacement is warranted',
+      'Omitting odor remediation costs for affected materials',
+      'Underestimating temporary housing and living expense recovery',
+    ],
+    localContext:
+      'Fire and smoke damage claims in Nashville and South Florida regularly result in underpaid settlements when insurers focus only on visible burn damage. Our inspections consistently identify smoke spread through HVAC systems, soot in attic insulation, and water damage from suppression — all items commonly missing from initial insurer assessments.',
+    faqs: [
+      {
+        question: 'Does my insurance cover smoke damage that spread beyond the fire area?',
+        answer:
+          'In most cases, yes. Standard homeowners and commercial property policies cover smoke and soot damage that spreads throughout the structure — not just the room where the fire occurred. Smoke travels through HVAC systems and can affect every room. We document the full extent of smoke contamination to ensure the entire scope is covered.',
+      },
+      {
+        question: 'Can I stay in my home after a fire?',
+        answer:
+          'If your home is uninhabitable due to fire or smoke damage, your policy\'s Additional Living Expenses (ALE) or Loss of Use coverage typically pays for temporary housing, meals, and related costs. We document and claim these losses in full as part of the claim.',
+      },
+      {
+        question: 'The fire was small — why is my claim so complicated?',
+        answer:
+          'Even small fires can create large claims because smoke and soot spread throughout the entire structure via the HVAC system. Odor remediation, insulation replacement, ductwork cleaning, and contents cleaning can add up to tens of thousands of dollars beyond what the visible burn area suggests.',
+      },
+    ],
+  },
+
   residential: {
     slug: 'residential',
     title: 'Residential Property Claims',

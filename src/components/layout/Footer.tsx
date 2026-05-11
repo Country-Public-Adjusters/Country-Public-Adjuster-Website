@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { Phone, Mail, MapPin, ArrowUpRight } from 'lucide-react'
 
-const PHONE = '18668069911'
-const PHONE_DISPLAY = '1-866-806-9911'
+const PHONE = '18883975420'
+const PHONE_DISPLAY = '1-888-397-5420'
 const EMAIL = 'claims@countrypublicadjusters.com'
 
 const FOOTER_LINKS = {
@@ -36,54 +36,29 @@ const FOOTER_LINKS = {
     { label: 'Case Results', href: '/results' },
     { label: 'Client Reviews', href: '/reviews' },
     { label: 'FAQ', href: '/faq' },
-    { label: 'Start Claim Intake', href: '/intake' },
+    { label: 'Start Claim Intake', href: '/#free-inspection' },
     { label: 'Contact Us', href: '/contact' },
   ],
 }
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-950 border-t border-slate-200">
-      {/* ── Emergency CTA strip ── */}
-      <div className="border-b border-slate-200">
-        <div className="container-site py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
-            <p className="text-slate-900 font-semibold text-lg">Storm damage? Don't wait.</p>
-            <p className="text-slate-400 text-sm mt-0.5">
-              Every day delayed can reduce your claim value. Get a free inspection today.
-            </p>
-          </div>
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <a
-              href={`tel:${PHONE}`}
-              className="btn-outline-gold px-6 py-3 text-sm font-semibold flex items-center gap-2"
-            >
-              <Phone size={15} />
-              Call Now
-            </a>
-            <Link
-              href="/intake"
-              className="btn-primary-sm"
-            >
-              Free Inspection
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Main footer grid ── */}
+    <footer className="bg-navy-950">
+{/* ── Main footer grid ── */}
       <div className="container-site py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8">
 
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex mb-6 group">
-              <img
-                src="/logo.svg"
-                alt="Country Public Adjusters"
-                style={{ height: '52px', width: 'auto' }}
-                className="transition-opacity duration-200 group-hover:opacity-85"
-              />
+              <div className="transition-all duration-200 group-hover:opacity-90"
+                style={{ background: 'white', borderRadius: '10px', padding: '4px 10px', display: 'inline-flex', alignItems: 'center' }}>
+                <img
+                  src="/logo-new.png"
+                  alt="Country Public Adjusters"
+                  style={{ height: '48px', width: 'auto', display: 'block' }}
+                />
+              </div>
             </Link>
 
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">

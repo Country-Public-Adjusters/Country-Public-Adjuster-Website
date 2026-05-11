@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import FadeInView from '@/components/motion/FadeInView'
 import FAQAccordion from '@/components/ui/FAQAccordion'
-import FinalCTA from '@/components/home/FinalCTA'
 import { pageMetadata } from '@/lib/seo'
 import { FAQ_SCHEMA } from '@/lib/schema'
 import type { FAQItem } from '@/types'
@@ -14,7 +13,6 @@ export const metadata: Metadata = pageMetadata(
 )
 
 const ALL_FAQS: FAQItem[] = [
-  // General
   {
     id: 'what-is-pa',
     question: 'What exactly does a public adjuster do?',
@@ -29,7 +27,6 @@ const ALL_FAQS: FAQItem[] = [
     category: 'general',
     schema: true,
   },
-  // Fees
   {
     id: 'cost',
     question: 'How much does a public adjuster cost?',
@@ -44,7 +41,6 @@ const ALL_FAQS: FAQItem[] = [
     category: 'fees',
     schema: true,
   },
-  // Process
   {
     id: 'too-late',
     question: 'My insurance company already sent their adjuster. Is it too late?',
@@ -66,7 +62,6 @@ const ALL_FAQS: FAQItem[] = [
     category: 'process',
     schema: true,
   },
-  // Timeline
   {
     id: 'timeline',
     question: 'How long does the process take?',
@@ -74,7 +69,6 @@ const ALL_FAQS: FAQItem[] = [
     category: 'timeline',
     schema: true,
   },
-  // Legal
   {
     id: 'insurer-angry',
     question: 'Will my insurance company get angry or cancel my policy?',
@@ -89,7 +83,6 @@ const ALL_FAQS: FAQItem[] = [
     category: 'legal',
     schema: true,
   },
-  // Claims
   {
     id: 'damage-types',
     question: 'What types of damage do you handle?',
@@ -137,21 +130,29 @@ export default function FAQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA_DATA) }}
       />
 
-      {/* Hero */}
+      {/* ── Hero ── */}
       <section
-        className="relative section-padding"
-        style={{
-          background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
-        }}
+        className="relative section-padding overflow-hidden"
+        style={{ background: 'linear-gradient(160deg, #030D1A 0%, #0D2545 50%, #0A1E3C 100%)' }}
       >
-        <div className="container-site text-center">
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+        }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse, rgba(245,158,11,0.1) 0%, transparent 70%)' }} />
+
+        <div className="container-site text-center relative z-10">
           <FadeInView>
-            <span className="section-label mb-4 block">FAQ</span>
-            <h1 className="text-5xl lg:text-6xl font-black text-slate-900 tracking-tight mb-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold mb-5"
+              style={{ background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.3)', color: '#F59E0B' }}>
+              FAQ
+            </div>
+            <h1 className="text-5xl lg:text-6xl font-black text-white tracking-tight mb-5">
               Questions{' '}
-              <span className="text-gradient-gold">honestly answered</span>
+              <span style={{ color: '#F59E0B' }}>honestly answered</span>
             </h1>
-            <p className="text-lg text-slate-500 max-w-xl mx-auto">
+            <p className="text-lg text-white/60 max-w-xl mx-auto">
               Everything you need to know before you call — clear, direct answers
               about how this works, what it costs, and what your rights are.
             </p>
@@ -159,15 +160,16 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* FAQ by category */}
-      <section className="bg-navy-950 section-padding">
+
+      {/* ── FAQ by category ── */}
+      <section className="section-padding" style={{ background: '#0A1E3C' }}>
         <div className="container-site max-w-3xl">
           {CATEGORIES.map((cat) => {
             const items = ALL_FAQS.filter((f) => f.category === cat.id)
             if (!items.length) return null
             return (
               <FadeInView key={cat.id} className="mb-12">
-                <h2 className="text-sm font-bold tracking-widest uppercase text-gold-500 mb-4">
+                <h2 className="text-sm font-bold tracking-widest uppercase mb-4" style={{ color: '#F59E0B' }}>
                   {cat.label}
                 </h2>
                 <FAQAccordion items={items} theme="dark" />
@@ -177,7 +179,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <FinalCTA />
+      
     </>
   )
 }

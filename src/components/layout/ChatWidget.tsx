@@ -18,7 +18,7 @@ const newId = () => String(++msgCounter)
 const OPENING_MESSAGE: Message = {
   id: 'open',
   role: 'assistant',
-  content: "Hi! I'm here to help with your property damage insurance claim. Whether you've just had damage, received a low offer, or want to understand your options — I can help.\n\nWhat's going on with your property?",
+  content: "Hi! I'm Sarah, the AI assistant for the founders of Country Public Adjusters. I'm very knowledgeable and can help with general information and next steps — though any claim-specific or coverage questions in Tennessee or Florida should be confirmed with one of our licensed adjusters.\n\nWhat's going on with your property?",
 }
 
 function TypingDots() {
@@ -107,7 +107,7 @@ export default function ChatWidget() {
       setMessages(prev => [...prev, {
         id: newId(),
         role: 'assistant',
-        content: "Sorry, I'm having trouble connecting right now. Please call us directly at 1.866.806.9911 and we'll be happy to help.",
+        content: "Sorry, I'm having trouble connecting right now. Please call us directly at 1.888.397.5420 and we'll be happy to help.",
       }])
     }
   }, [input, loading, messages])
@@ -129,7 +129,7 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-24 right-4 md:right-6 z-[9998] w-[calc(100vw-2rem)] max-w-sm
+            className="fixed bottom-24 left-4 md:left-6 z-[9998] w-[calc(100vw-2rem)] max-w-sm
                        rounded-2xl shadow-2xl overflow-hidden flex flex-col"
             style={{
               height: '520px',
@@ -156,7 +156,7 @@ export default function ChatWidget() {
               </div>
               <div className="flex items-center gap-2">
                 <a
-                  href="tel:18668069911"
+                  href="tel:18883975420"
                   className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/20 hover:bg-white/30
                              text-white text-[11px] font-semibold transition-colors duration-200"
                 >
@@ -262,7 +262,7 @@ export default function ChatWidget() {
                 </button>
               </div>
               <p className="text-[10px] text-slate-400 text-center mt-2">
-                Or call us directly: <a href="tel:18668069911" className="text-gold-500 font-semibold">1.866.806.9911</a>
+                Or call us directly: <a href="tel:18883975420" className="text-gold-500 font-semibold">1.888.397.5420</a>
               </p>
             </div>
           </motion.div>
@@ -270,18 +270,16 @@ export default function ChatWidget() {
       </AnimatePresence>
 
       {/* ── Desktop trigger ── */}
-      <div id="cpa-chat-btn" className="fixed bottom-6 right-6 z-[9999] hidden md:flex flex-col items-end gap-3">
+      <div id="cpa-chat-btn" className="fixed bottom-6 left-6 z-[9999] hidden md:flex flex-col items-start gap-3">
         <AnimatePresence>
           {!open && (
             <motion.button
               onClick={() => { setOpen(true); Analytics.chatOpen() }}
-              initial={{ opacity: 0, x: 12, scale: 0.95 }}
+              initial={{ opacity: 0, x: -12, scale: 0.95 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: 12, scale: 0.95 }}
+              exit={{ opacity: 0, x: -12, scale: 0.95 }}
               transition={{ duration: 0.25 }}
-              className="flex items-center gap-2.5 px-4 py-2.5 rounded-full
-                         text-sm font-bold text-white
-                         transition-all duration-300 hover:scale-105"
+              className="flex items-center gap-2.5 px-4 py-2.5 rounded-full text-sm font-bold text-white transition-all duration-300 hover:scale-105"
               style={{
                 background: 'linear-gradient(135deg, #D97706 0%, #F59E0B 60%, #FBBF24 100%)',
                 boxShadow: '0 4px 20px rgba(245,158,11,0.5), 0 2px 8px rgba(0,0,0,0.15)',
@@ -291,7 +289,7 @@ export default function ChatWidget() {
                 <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75" />
                 <span className="relative w-2.5 h-2.5 rounded-full bg-green-400 block" />
               </span>
-              Chat with us — we're online
+              Online now
             </motion.button>
           )}
         </AnimatePresence>
@@ -332,25 +330,23 @@ export default function ChatWidget() {
       </div>
 
       {/* ── Mobile trigger ── */}
-      <div id="cpa-chat-btn-mobile" className="fixed bottom-20 right-4 z-[9999] md:hidden flex flex-col items-end gap-2">
+      <div id="cpa-chat-btn-mobile" className="fixed bottom-20 left-3 z-[9999] md:hidden flex flex-col items-start gap-1.5">
         <AnimatePresence>
           {!open && (
             <motion.button
               onClick={() => { setOpen(true); Analytics.chatOpen() }}
-              initial={{ opacity: 0, x: 10, scale: 0.95 }}
+              initial={{ opacity: 0, x: -8, scale: 0.95 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: 10, scale: 0.95 }}
-              className="flex items-center gap-2 px-3 py-2 rounded-full text-xs font-bold text-white"
+              exit={{ opacity: 0, x: -8, scale: 0.95 }}
+              className="flex items-center gap-1 px-2 py-1 rounded-full font-semibold text-white"
               style={{
                 background: 'linear-gradient(135deg, #D97706 0%, #F59E0B 60%, #FBBF24 100%)',
-                boxShadow: '0 4px 16px rgba(245,158,11,0.5)',
+                boxShadow: '0 2px 10px rgba(245,158,11,0.5)',
+                fontSize: '10px',
               }}
             >
-              <span className="relative flex-shrink-0">
-                <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75" />
-                <span className="relative w-2 h-2 rounded-full bg-green-400 block" />
-              </span>
-              Chat with us
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
+              Online now
             </motion.button>
           )}
         </AnimatePresence>
@@ -363,9 +359,9 @@ export default function ChatWidget() {
             onClick={() => { setOpen(o => !o); if (!open) Analytics.chatOpen() }}
             whileTap={{ scale: 0.92 }}
             style={{
-              width: '54px', height: '54px',
+              width: '46px', height: '46px',
               backgroundImage: 'linear-gradient(135deg, #D97706 0%, #F59E0B 100%)',
-              boxShadow: '0 0 24px rgba(245,158,11,0.5), 0 4px 16px rgba(0,0,0,0.2)',
+              boxShadow: '0 0 20px rgba(245,158,11,0.5), 0 4px 12px rgba(0,0,0,0.2)',
             }}
             className="relative rounded-full flex items-center justify-center focus:outline-none"
           >

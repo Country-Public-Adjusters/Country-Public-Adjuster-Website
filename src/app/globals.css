@@ -6,11 +6,11 @@
 /* ─── CUSTOM PROPERTIES / DESIGN TOKENS ─────────────────────────────────────── */
 :root {
   /* Brand colors */
-  --color-navy-950: #FFFFFF;
-  --color-navy-900: #F8FAFC;
-  --color-navy-800: #F1F5F9;
-  --color-navy-700: #CBD5E1;
-  --color-navy-600: #94A3B8;
+  --color-navy-950: #081628;
+  --color-navy-900: #0A1E3C;
+  --color-navy-800: #0D2545;
+  --color-navy-750: #122D52;
+  --color-navy-700: #122245;
   --color-gold-500: #F59E0B;
   --color-gold-400: #FBBF24;
   --color-gold-300: #FCD34D;
@@ -64,7 +64,8 @@
   }
 
   body {
-    @apply bg-navy-900 text-slate-900 font-sans;
+    background-color: #0A1E3C;
+    @apply text-white font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -222,8 +223,7 @@
 
   /* ── Cards ── */
   .card-dark {
-    @apply bg-navy-800/55 border border-slate-200 rounded-3xl backdrop-blur-sm
-           shadow-card-dark;
+    @apply bg-white border border-slate-200 rounded-3xl shadow-card-light;
   }
 
   .card-dark-hover {
@@ -268,7 +268,7 @@
   }
 
   .section-heading-dark {
-    @apply text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-slate-900 leading-[1.05] tracking-tight;
+    @apply text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white leading-[1.05] tracking-tight;
   }
 
   .section-heading-light {
@@ -368,9 +368,10 @@
 
   /* ── Mobile CTA bar ── */
   .mobile-cta-bar {
-    @apply fixed bottom-0 left-0 right-0 z-50 flex gap-2 p-3
-           bg-navy-950/95 backdrop-blur-xl border-t border-slate-200
+    @apply fixed bottom-0 left-0 right-0 z-50 flex gap-2 px-3 pt-3
+           bg-navy-950/95 backdrop-blur-xl border-t border-slate-800
            md:hidden;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
   }
 }
 

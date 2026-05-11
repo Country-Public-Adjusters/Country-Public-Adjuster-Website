@@ -6,7 +6,7 @@ export const BUSINESS_SCHEMA = {
   '@id': 'https://countrypublicadjusters.com/#organization',
   name: 'Country Public Adjusters',
   url: 'https://countrypublicadjusters.com',
-  telephone: '+18668069911',
+  telephone: '+18883975420',
   email: 'claims@countrypublicadjusters.com',
   description:
     'Country Public Adjusters are licensed public insurance adjusters serving Nashville, Tennessee and South Florida. We handle storm damage, hail damage, wind damage, and water damage insurance claims on a contingency basis — no upfront cost.',
@@ -112,7 +112,7 @@ export const LOCAL_BUSINESS_SCHEMA = (
   ...BUSINESS_SCHEMA,
   name: `Country Public Adjusters — ${city}, ${state}`,
   url: `https://countrypublicadjusters.com/${slug}`,
-  telephone: '+18668069911',
+  telephone: '+18883975420',
   areaServed: {
     '@type': 'City',
     name: city,

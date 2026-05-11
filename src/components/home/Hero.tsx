@@ -7,8 +7,8 @@ import { gsap } from 'gsap'
 import { Phone, Shield, Star, ChevronDown, ArrowRight } from 'lucide-react'
 import { Analytics } from '@/lib/analytics'
 
-const PHONE = '18668069911'
-const PHONE_DISPLAY = '1-866-806-9911'
+const PHONE = '18883975420'
+const PHONE_DISPLAY = '1-888-397-5420'
 
 const TRUST_CHIPS = [
   { icon: Shield, text: 'No upfront cost' },
@@ -234,7 +234,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
           >
             <Link
-              href="/intake"
+              href="/#free-inspection"
               onClick={() => Analytics.ctaClick('Get Free Inspection', 'hero')}
               className="btn-primary-lg w-full sm:w-auto gap-2 shadow-glow-gold"
             >

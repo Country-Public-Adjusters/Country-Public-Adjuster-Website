@@ -261,7 +261,7 @@ export default function IntakePreview() {
               className="flex flex-col sm:flex-row gap-3"
             >
               <Link
-                href="/intake"
+                href="/#free-inspection"
                 onClick={() => Analytics.ctaClick('Start Intake', 'intake-preview')}
                 className="btn-primary-lg flex-1 sm:flex-none"
               >
@@ -269,7 +269,7 @@ export default function IntakePreview() {
                 <ArrowRight size={18} />
               </Link>
               <a
-                href="tel:18668069911"
+                href="tel:18883975420"
                 onClick={() => Analytics.phoneClick('intake-preview')}
                 className="btn-secondary-lg flex-1 sm:flex-none"
               >

@@ -195,7 +195,7 @@ export default function RealitySection() {
         {/* Bottom CTA */}
         <FadeInView className="text-center mt-14" delay={0.3}>
           <Link
-            href="/intake"
+            href="/#free-inspection"
             onClick={() => Analytics.ctaClick('Start Free Inspection', 'reality-section')}
             className="btn-primary-lg inline-flex"
           >

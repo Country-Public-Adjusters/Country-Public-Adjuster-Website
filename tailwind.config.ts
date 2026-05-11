@@ -11,15 +11,15 @@ const config: Config = {
       // ─── BRAND COLORS ────────────────────────────────────────────────────────
       colors: {
         navy: {
-          950: '#FFFFFF',
-          900: '#F8FAFC',
-          800: '#F1F5F9',
-          750: '#E2E8F0',
-          700: '#CBD5E1',
-          600: '#94A3B8',
-          500: '#475569',
-          400: '#334155',
-          300: '#1E293B',
+          950: '#030D1A',
+          900: '#071220',
+          800: '#0B1826',
+          750: '#0E1F3A',
+          700: '#122245',
+          600: '#1A3258',
+          500: '#205080',
+          400: '#2B68A8',
+          300: '#3B82C0',
         },
         gold: {
           700: '#B45309',
@@ -38,11 +38,11 @@ const config: Config = {
         },
         // Semantic surface system
         surface: {
-          dark:    '#F8FAFC', // primary light bg
-          darker:  '#FFFFFF', // pure white
-          mid:     '#E2E8F0', // mid-light section
-          light:   '#FFFFFF', // light section
-          cream:   '#FFFBEB', // warm cream section
+          dark:    '#0B1826', // primary dark bg
+          darker:  '#071220', // deepest dark
+          mid:     '#0E1F3A', // mid-dark section
+          light:   '#122245', // lighter dark section
+          cream:   '#FFFBEB', // warm cream (for gold accents)
         },
       },
 

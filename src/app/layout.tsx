@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import MobileCTABar from '@/components/layout/MobileCTABar'
 import SmoothScrollProvider from '@/components/layout/SmoothScrollProvider'
 import ChatWidget from '@/components/layout/ChatWidget'
 import CustomCursor from '@/components/layout/CustomCursor'
@@ -95,7 +94,6 @@ export default function RootLayout({
           </main>
 
           <Footer />
-          <MobileCTABar />
           <ChatWidget />
           <TextUsTab />
         </SmoothScrollProvider>

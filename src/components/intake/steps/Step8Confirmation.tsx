@@ -6,8 +6,8 @@ import { CheckCircle, Phone, MessageCircle, Clock } from 'lucide-react'
 import { isAfterHours } from '@/lib/utils'
 import { Analytics } from '@/lib/analytics'
 
-const PHONE = '18668069911'
-const PHONE_DISPLAY = '1-866-806-9911'
+const PHONE = '18883975420'
+const PHONE_DISPLAY = '1-888-397-5420'
 
 interface StepProps {
   onNext: () => void

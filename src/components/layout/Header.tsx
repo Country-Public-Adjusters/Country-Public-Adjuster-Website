@@ -2,27 +2,29 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { motion, AnimatePresence, useScroll } from 'framer-motion'
 import { Phone, Menu, X, ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Analytics } from '@/lib/analytics'
 
-const PHONE = '18668069911'
-const PHONE_DISPLAY = '1-866-806-9911'
+const PHONE = '18883975420'
+const PHONE_DISPLAY = '1-888-397-5420'
 
 const NAV_LINKS = [
-  { label: 'About', href: '/about' },
+  { label: 'Meet the Founders', href: '/about' },
+  { label: 'Our Results', href: '/results' },
+  { label: 'Partners', href: '/partners' },
   {
-    label: 'Services',
-    href: '/services',
+    label: 'Damage Types',
+    href: '/damage/storm',
     children: [
-      { label: 'Hail Damage Claims', href: '/damage/hail' },
-      { label: 'Wind Damage Claims', href: '/damage/wind' },
-      { label: 'Water Damage Claims', href: '/damage/water' },
-      { label: 'Roof Damage Claims', href: '/damage/roof' },
-      { label: 'Storm Damage Claims', href: '/damage/storm' },
+      { label: 'Storm Damage', href: '/damage/storm' },
       { label: 'Hurricane Claims', href: '/damage/hurricane' },
-      { label: 'Commercial Property', href: '/damage/commercial' },
+      { label: 'Wind Damage', href: '/damage/wind' },
+      { label: 'Hail Damage', href: '/damage/hail' },
+      { label: 'Water Damage', href: '/damage/water' },
+      { label: 'Roof Damage', href: '/damage/roof' },
+      { label: 'Fire & Smoke Damage', href: '/damage/fire' },
     ],
   },
   {
@@ -30,24 +32,47 @@ const NAV_LINKS = [
     href: '/nashville',
     children: [
       { label: 'Nashville, TN', href: '/nashville' },
-      { label: 'Brentwood, TN', href: '/nashville/brentwood' },
-      { label: 'Franklin, TN', href: '/nashville/franklin' },
+      { label: 'Brentwood', href: '/nashville/brentwood' },
+      { label: 'Franklin', href: '/nashville/franklin' },
+      { label: 'Murfreesboro', href: '/nashville/murfreesboro' },
+      { label: 'Hendersonville', href: '/nashville/hendersonville' },
+      { label: 'Smyrna', href: '/nashville/smyrna' },
+      { label: 'Gallatin', href: '/nashville/gallatin' },
+      { label: 'Lebanon', href: '/nashville/lebanon' },
+      { label: 'Columbia', href: '/nashville/columbia' },
+      { label: 'La Vergne', href: '/nashville/la-vergne' },
+      { label: 'Mount Juliet', href: '/nashville/mount-juliet' },
       { label: 'South Florida', href: '/south-florida' },
       { label: 'Miami-Dade', href: '/south-florida/miami-dade' },
       { label: 'Broward County', href: '/south-florida/broward' },
-      { label: 'Palm Beach', href: '/south-florida/palm-beach' },
+      { label: 'Palm Beach County', href: '/south-florida/palm-beach' },
+      { label: 'Fort Lauderdale', href: '/south-florida/fort-lauderdale' },
+      { label: 'Hollywood', href: '/south-florida/hollywood' },
+      { label: 'Pompano Beach', href: '/south-florida/pompano-beach' },
+      { label: 'Boca Raton', href: '/south-florida/boca-raton' },
+      { label: 'Coral Springs', href: '/south-florida/coral-springs' },
     ],
   },
-  { label: 'Results', href: '/results' },
-  { label: 'FAQ', href: '/faq' },
+  { label: 'Property Types', href: '/#property-types' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 interface DropdownProps {
   items: { label: string; href: string }[]
   isOpen: boolean
+  wide?: boolean
 }
 
-function Dropdown({ items, isOpen }: DropdownProps) {
+// Split items into two columns at the "South Florida" hub entry
+function splitLocationItems(items: { label: string; href: string }[]) {
+  const splitIdx = items.findIndex(i => i.href === '/south-florida')
+  if (splitIdx === -1) return { tn: items, fl: [] }
+  return { tn: items.slice(0, splitIdx), fl: items.slice(splitIdx) }
+}
+
+function Dropdown({ items, isOpen, wide }: DropdownProps) {
+  const { tn, fl } = wide ? splitLocationItems(items) : { tn: items, fl: [] }
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -56,22 +81,44 @@ function Dropdown({ items, isOpen }: DropdownProps) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 6, scale: 0.97 }}
           transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56
-                     rounded-2xl bg-navy-900/95 backdrop-blur-xl
-                     border border-slate-200 shadow-nav overflow-hidden z-50"
+          className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 rounded-2xl backdrop-blur-xl overflow-hidden z-50 ${wide ? 'w-[440px]' : 'w-56'}`}
+          style={{ background: 'rgba(11,24,38,0.97)', border: '1px solid rgba(245,158,11,0.2)', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}
         >
+          {wide ? (
+            <div className="p-3 grid grid-cols-2 gap-1">
+              <div>
+                <div className="px-3 py-1.5 text-[10px] font-black tracking-widest uppercase" style={{ color: '#F59E0B' }}>Tennessee</div>
+                {tn.map((item) => (
+                  <Link key={item.href} href={item.href}
+                    className="block px-3 py-2 rounded-xl text-sm text-white/70 font-medium hover:text-gold-400 hover:bg-white/5 transition-all duration-150">
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+              <div>
+                <div className="px-3 py-1.5 text-[10px] font-black tracking-widest uppercase" style={{ color: '#F59E0B' }}>Florida</div>
+                {fl.map((item) => (
+                  <Link key={item.href} href={item.href}
+                    className="block px-3 py-2 rounded-xl text-sm text-white/70 font-medium hover:text-gold-400 hover:bg-white/5 transition-all duration-150">
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ) : (
           <div className="p-2">
             {items.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-4 py-2.5 rounded-xl text-sm text-slate-600 font-medium
-                           hover:text-slate-700 hover:bg-slate-100 transition-all duration-150"
+                className="block px-4 py-2.5 rounded-xl text-sm text-white/70 font-medium
+                           hover:text-gold-400 hover:bg-white/5 transition-all duration-150"
               >
                 {item.label}
               </Link>
             ))}
           </div>
+          )}
         </motion.div>
       )}
     </AnimatePresence>
@@ -83,25 +130,18 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-
   const { scrollY } = useScroll()
 
   useEffect(() => {
-    return scrollY.on('change', (y) => {
-      setScrolled(y > 40)
-    })
+    return scrollY.on('change', (y) => setScrolled(y > 40))
   }, [scrollY])
 
-  // Close mobile menu on resize
   useEffect(() => {
-    const onResize = () => {
-      if (window.innerWidth >= 1024) setMobileOpen(false)
-    }
+    const onResize = () => { if (window.innerWidth >= 1024) setMobileOpen(false) }
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
-  // Prevent body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -111,31 +151,25 @@ export default function Header() {
     if (dropdownTimer.current) clearTimeout(dropdownTimer.current)
     setOpenDropdown(label)
   }
-
   const handleMouseLeave = () => {
     dropdownTimer.current = setTimeout(() => setOpenDropdown(null), 150)
   }
 
   return (
     <>
-      {/* ── Top credibility bar ── */}
-      <div className="hidden sm:block py-2 text-center text-2xs font-bold tracking-wide text-slate-900"
-           style={{ background: 'linear-gradient(90deg, #F59E0B 0%, #FBBF24 50%, #F59E0B 100%)' }}>
+      {/* Top bar */}
+      <div className="hidden sm:block py-2 text-center text-2xs font-bold tracking-wide text-navy-900"
+           style={{ background: 'linear-gradient(90deg, #D97706 0%, #F59E0B 50%, #D97706 100%)' }}>
         <span className="mr-4">35+ Years Combined Experience</span>
         <span className="mr-4 opacity-40">|</span>
-        <span className="mr-4">No Upfront Cost · Contingency Only</span>
+        <span className="mr-4">Zero Cost Until We Win · Contingency Only</span>
         <span className="mr-4 opacity-40">|</span>
-        <span>Nashville, TN &amp; South Florida</span>
+        <span>Tennessee &amp; Florida</span>
       </div>
 
-      {/* ── Main header ── */}
+      {/* Main header */}
       <motion.header
-        className={cn(
-          'sticky top-0 z-40 transition-all duration-500',
-          scrolled
-            ? 'py-3'
-            : 'py-5'
-        )}
+        className={cn('sticky top-0 z-40 transition-all duration-500', scrolled ? 'py-2' : 'py-4')}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -145,19 +179,21 @@ export default function Header() {
             className={cn(
               'flex items-center justify-between rounded-2xl px-4 sm:px-6 transition-all duration-500',
               scrolled
-                ? 'bg-navy-950/90 backdrop-blur-xl border border-slate-200 shadow-nav py-3'
+                ? 'py-3 backdrop-blur-xl'
                 : 'bg-transparent py-2'
             )}
+            style={scrolled ? { background: 'rgba(7,18,32,0.95)', border: '1px solid rgba(245,158,11,0.15)', boxShadow: '0 4px 40px rgba(0,0,0,0.4)' } : {}}
           >
             {/* Logo */}
             <Link href="/" className="flex items-center group">
-              <img
-                src="/logo.svg"
-                alt="Country Public Adjusters"
-                height={44}
-                style={{ height: '44px', width: 'auto' }}
-                className="transition-opacity duration-200 group-hover:opacity-85"
-              />
+              <div className="transition-all duration-200 group-hover:opacity-90 group-hover:scale-[1.02]"
+                style={{ background: 'white', borderRadius: '10px', padding: '4px 10px', display: 'inline-flex', alignItems: 'center' }}>
+                <img
+                  src="/logo-new.png"
+                  alt="Country Public Adjusters"
+                  style={{ height: '48px', width: 'auto', display: 'block' }}
+                />
+              </div>
             </Link>
 
             {/* Desktop nav */}
@@ -170,32 +206,19 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter(link.label)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <button
-                      className="flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-medium
-                                 text-slate-600 hover:text-slate-700 hover:bg-slate-100
-                                 transition-all duration-200"
-                    >
+                    <button className="flex items-center gap-1 px-3 py-2 rounded-xl text-sm font-medium whitespace-nowrap
+                                       text-white/80 hover:text-gold-400 hover:bg-white/5 transition-all duration-200">
                       {link.label}
-                      <ChevronDown
-                        size={14}
-                        className={cn(
-                          'transition-transform duration-200',
-                          openDropdown === link.label ? 'rotate-180' : ''
-                        )}
-                      />
+                      <ChevronDown size={13} className={cn('transition-transform duration-200', openDropdown === link.label ? 'rotate-180' : '')} />
                     </button>
-                    <Dropdown
-                      items={link.children}
-                      isOpen={openDropdown === link.label}
-                    />
+                    <Dropdown items={link.children} isOpen={openDropdown === link.label} wide={link.label === 'Locations'} />
                   </div>
                 ) : (
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="px-4 py-2 rounded-xl text-sm font-medium
-                               text-slate-600 hover:text-slate-700 hover:bg-slate-100
-                               transition-all duration-200"
+                    className="px-3 py-2 rounded-xl text-sm font-medium whitespace-nowrap text-white/80
+                               hover:text-gold-400 hover:bg-white/5 transition-all duration-200"
                   >
                     {link.label}
                   </Link>
@@ -203,33 +226,31 @@ export default function Header() {
               )}
             </nav>
 
-            {/* Desktop CTAs */}
+            {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3">
               <a
                 href={`tel:${PHONE}`}
                 onClick={() => Analytics.phoneClick('header')}
-                className="flex items-center gap-2 text-sm font-semibold text-slate-500
-                           hover:text-gold-400 transition-all duration-300 group"
+                className="flex items-center gap-2 text-sm font-bold text-gold-400 hover:text-gold-300 transition-colors duration-200 whitespace-nowrap"
               >
-                <Phone size={14} className="group-hover:scale-110 transition-transform duration-300" />
+                <Phone size={14} />
                 <span>{PHONE_DISPLAY}</span>
               </a>
-              <Link
-                href="/intake"
+              <a
+                href="/#free-inspection"
                 onClick={() => Analytics.ctaClick('Free Inspection', 'header')}
-                className="btn-primary-sm relative overflow-hidden"
+                className="px-4 py-2 rounded-xl text-sm font-bold text-navy-900 transition-all duration-200 hover:scale-105"
+                style={{ background: 'linear-gradient(135deg, #D97706, #F59E0B)' }}
               >
-                <span className="relative z-10">Free Inspection</span>
-              </Link>
+                Free Inspection
+              </a>
             </div>
 
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-xl text-slate-600 hover:text-slate-700
-                         hover:bg-slate-100 transition-all duration-200"
+              className="lg:hidden p-2 rounded-xl text-white/70 hover:text-gold-400 hover:bg-white/5 transition-all duration-200"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -237,7 +258,7 @@ export default function Header() {
         </div>
       </motion.header>
 
-      {/* ── Mobile menu overlay ── */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -245,14 +266,14 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-30 bg-navy-950/98 backdrop-blur-xl lg:hidden overflow-y-auto"
-            style={{ paddingTop: '80px' }}
+            className="fixed inset-0 z-30 lg:hidden overflow-y-auto"
+            style={{ background: 'rgba(7,18,32,0.99)', backdropFilter: 'blur(20px)', paddingTop: '80px' }}
           >
             <motion.nav
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.3, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.3, delay: 0.05 }}
               className="container-site py-8 space-y-1"
             >
               {NAV_LINKS.map((link, i) => (
@@ -260,9 +281,8 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block px-4 py-3 rounded-xl text-lg font-semibold text-slate-900
-                               hover:text-slate-900 hover:bg-slate-100 transition-all duration-200"
-                    style={{ animationDelay: `${i * 50}ms` }}
+                    className="block px-4 py-3 rounded-xl text-lg font-semibold text-white
+                               hover:text-gold-400 hover:bg-white/5 transition-all duration-200"
                   >
                     {link.label}
                   </Link>
@@ -273,8 +293,8 @@ export default function Header() {
                           key={child.href}
                           href={child.href}
                           onClick={() => setMobileOpen(false)}
-                          className="block px-4 py-2.5 rounded-xl text-sm text-slate-600 font-medium
-                                     hover:text-slate-900 hover:bg-slate-100 transition-all duration-150"
+                          className="block px-4 py-2.5 rounded-xl text-sm text-white/60 font-medium
+                                     hover:text-gold-400 hover:bg-white/5 transition-all duration-150"
                         >
                           {child.label}
                         </Link>
@@ -283,31 +303,24 @@ export default function Header() {
                   )}
                 </div>
               ))}
-
-              {/* Mobile CTAs */}
-              <div className="pt-6 space-y-3 border-t border-slate-200 mt-4">
+              <div className="pt-6 space-y-3 mt-4" style={{ borderTop: '1px solid rgba(245,158,11,0.2)' }}>
                 <a
                   href={`tel:${PHONE}`}
-                  onClick={() => {
-                    Analytics.phoneClick('mobile-menu')
-                    setMobileOpen(false)
-                  }}
-                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl
-                             bg-slate-100 border border-slate-200 text-slate-900 font-semibold"
+                  onClick={() => { Analytics.phoneClick('mobile-menu'); setMobileOpen(false) }}
+                  className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl font-bold text-white"
+                  style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(245,158,11,0.3)' }}
                 >
-                  <Phone size={18} />
+                  <Phone size={18} className="text-gold-400" />
                   <span>{PHONE_DISPLAY}</span>
                 </a>
-                <Link
-                  href="/intake"
-                  onClick={() => {
-                    Analytics.ctaClick('Free Inspection', 'mobile-menu')
-                    setMobileOpen(false)
-                  }}
-                  className="btn-primary-lg w-full"
+                <a
+                  href="/#free-inspection"
+                  onClick={() => { Analytics.ctaClick('Free Inspection', 'mobile-menu'); setMobileOpen(false) }}
+                  className="flex items-center justify-center w-full py-4 rounded-2xl font-bold text-navy-900"
+                  style={{ background: 'linear-gradient(135deg, #D97706, #F59E0B)' }}
                 >
                   Get Free Inspection
-                </Link>
+                </a>
               </div>
             </motion.nav>
           </motion.div>

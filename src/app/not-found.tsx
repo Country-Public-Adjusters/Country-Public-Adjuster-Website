@@ -30,7 +30,7 @@ export default function NotFound() {
             <Home size={16} />
             Back to Home
           </Link>
-          <Link href="/intake" className="btn-primary-lg">
+          <Link href="/#free-inspection" className="btn-primary-lg">
             Start Free Inspection
             <ArrowRight size={16} />
           </Link>

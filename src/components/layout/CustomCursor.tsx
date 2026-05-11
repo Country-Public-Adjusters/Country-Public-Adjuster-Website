@@ -1,125 +1,113 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 
-/**
- * Premium custom cursor with dot + spring-delayed ring.
- * - Dot tracks exactly; ring follows with physics delay (luxury feel)
- * - Ring scales + turns gold on interactive elements
- * - Disabled on touch devices and prefers-reduced-motion
- * - Adds `has-custom-cursor` class to <html> for CSS cursor:none
- */
 export default function CustomCursor() {
-  const [visible, setVisible] = useState(false)
-  const [hovering, setHovering] = useState(false)
-
-  // Dot tracks mouse 1:1
-  const mx = useMotionValue(-200)
-  const my = useMotionValue(-200)
-
-  // Ring follows with spring physics — the slight lag is the "premium" feel
-  const rx = useSpring(mx, { stiffness: 320, damping: 28, mass: 0.45 })
-  const ry = useSpring(my, { stiffness: 320, damping: 28, mass: 0.45 })
+  const dotRef = useRef<HTMLDivElement>(null)
+  const ringRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const isTouch = navigator.maxTouchPoints > 0
-    // Graceful degradation: do nothing on touch or reduced-motion
-    if (isTouch || prefersReduced) return
+    const dot = dotRef.current
+    const ring = ringRef.current
+    if (!dot || !ring) return
+
+    // Skip touch-only devices
+    if (window.matchMedia('(pointer: coarse)').matches) return
 
     document.documentElement.classList.add('has-custom-cursor')
 
+    let mouseX = -200, mouseY = -200
+    let ringX = -200, ringY = -200
+    let raf: number
+
+    const lerp = (a: number, b: number, t: number) => a + (b - a) * t
+
+    // Dot: follows instantly via left/top
     const onMove = (e: MouseEvent) => {
-      mx.set(e.clientX)
-      my.set(e.clientY)
-      setVisible(true)
+      mouseX = e.clientX
+      mouseY = e.clientY
+      dot.style.left = mouseX + 'px'
+      dot.style.top = mouseY + 'px'
     }
 
-    const onLeave = () => setVisible(false)
-    const onEnter = () => setVisible(true)
+    // Ring: smooth lerp via requestAnimationFrame
+    const loop = () => {
+      ringX = lerp(ringX, mouseX, 0.14)
+      ringY = lerp(ringY, mouseY, 0.14)
+      ring.style.left = ringX + 'px'
+      ring.style.top = ringY + 'px'
+      raf = requestAnimationFrame(loop)
+    }
 
-    const checkHover = (e: MouseEvent) => {
-      const t = e.target as Element
-      const interactive = t.closest(
-        'a, button, [role="button"], input, select, textarea, label, summary, [tabindex]:not([tabindex="-1"])'
-      )
-      setHovering(!!interactive)
+    // Scale ring on interactive elements
+    const onOver = (e: MouseEvent) => {
+      const el = e.target as Element
+      if (el.closest('a, button, [role="button"], input, select, textarea, label')) {
+        ring.style.width = '52px'
+        ring.style.height = '52px'
+        ring.style.borderColor = '#F59E0B'
+        ring.style.backgroundColor = 'rgba(245,158,11,0.1)'
+        dot.style.opacity = '0'
+      } else {
+        ring.style.width = '36px'
+        ring.style.height = '36px'
+        ring.style.borderColor = 'rgba(245,158,11,0.75)'
+        ring.style.backgroundColor = 'transparent'
+        dot.style.opacity = '1'
+      }
     }
 
     document.addEventListener('mousemove', onMove, { passive: true })
-    document.addEventListener('mousemove', checkHover, { passive: true })
-    document.documentElement.addEventListener('mouseleave', onLeave)
-    document.documentElement.addEventListener('mouseenter', onEnter)
+    document.addEventListener('mouseover', onOver, { passive: true })
+    raf = requestAnimationFrame(loop)
 
     return () => {
       document.documentElement.classList.remove('has-custom-cursor')
       document.removeEventListener('mousemove', onMove)
-      document.removeEventListener('mousemove', checkHover)
-      document.documentElement.removeEventListener('mouseleave', onLeave)
-      document.documentElement.removeEventListener('mouseenter', onEnter)
+      document.removeEventListener('mouseover', onOver)
+      cancelAnimationFrame(raf)
     }
-  }, [mx, my])
+  }, [])
 
   return (
     <>
-      {/* Precise dot — follows mouse exactly, disappears when hovering interactive elements */}
-      <motion.span
-        id="cpa-cursor-dot"
+      {/* Dot — left/top updated directly, no React state, no re-renders */}
+      <div
+        ref={dotRef}
         aria-hidden="true"
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          x: mx,
-          y: my,
-          translateX: '-50%',
-          translateY: '-50%',
-          zIndex: 9999,
-          pointerEvents: 'none',
-          width: '6px',
-          height: '6px',
+          width: 10,
+          height: 10,
           borderRadius: '50%',
+          background: '#F59E0B',
+          boxShadow: '0 0 10px rgba(245,158,11,0.9)',
+          pointerEvents: 'none',
+          zIndex: 99999,
+          left: -200,
+          top: -200,
+          translate: '-50% -50%',
+          transition: 'opacity 0.15s ease',
         }}
-        animate={{
-          opacity: visible ? 1 : 0,
-          scale: hovering ? 0 : 1,
-          backgroundColor: hovering ? '#F59E0B' : 'rgba(15,23,42,0.08)',
-        }}
-        transition={{ duration: 0.12, ease: 'easeOut' }}
       />
-
-      {/* Spring ring — slightly delayed, reacts on hover */}
-      <motion.span
-        id="cpa-cursor-ring"
+      {/* Ring */}
+      <div
+        ref={ringRef}
         aria-hidden="true"
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          x: rx,
-          y: ry,
-          translateX: '-50%',
-          translateY: '-50%',
-          zIndex: 9998,
-          pointerEvents: 'none',
-          width: '32px',
-          height: '32px',
+          width: 36,
+          height: 36,
           borderRadius: '50%',
+          border: '2px solid rgba(245,158,11,0.75)',
+          backgroundColor: 'transparent',
+          pointerEvents: 'none',
+          zIndex: 99998,
+          left: -200,
+          top: -200,
+          translate: '-50% -50%',
+          transition: 'width 0.18s ease, height 0.18s ease, border-color 0.18s ease, background-color 0.18s ease',
         }}
-        animate={{
-          opacity: visible ? 1 : 0,
-          scale: hovering ? 1.45 : 1,
-          borderColor: hovering
-            ? 'rgba(245,158,11,0.55)'
-            : 'rgba(15,23,42,0.08)',
-          backgroundColor: hovering
-            ? 'rgba(245,158,11,0.07)'
-            : 'transparent',
-          borderWidth: '1px',
-          borderStyle: 'solid',
-        }}
-        transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
       />
     </>
   )

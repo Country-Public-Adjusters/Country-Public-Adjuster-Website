@@ -93,8 +93,11 @@ In GTM, create triggers for each event name and connect to GA4, Meta Pixel, etc.
 ## Deploying
 
 The site is deployed on **Vercel** under `ainanus-projects/country-public-adjusters-website`.
-The GitHub repo (`AINANU7/Country-Public-Adjuster-Website`) is connected — every push to
-`main` triggers an automatic production deployment.
+The GitHub repo (`AINANU7/Country-Public-Adjuster-Website`) is connected to Vercel — every
+push to `main` triggers an automatic production deployment.
+
+Contributors who push must be members of the `AINANU's projects` Vercel team; Vercel
+verifies the commit author / GitHub user against team membership before building.
 
 ### Local build sanity check
 

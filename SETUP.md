@@ -92,15 +92,37 @@ In GTM, create triggers for each event name and connect to GA4, Meta Pixel, etc.
 
 ## Deploying
 
+The site is deployed on **Vercel** under `ainanus-projects/country-public-adjusters-website`.
+The GitHub repo (`AINANU7/Country-Public-Adjuster-Website`) is connected — every push to
+`main` triggers an automatic production deployment.
+
+### Local build sanity check
+
 ```bash
 npm run build
 npm run start
 ```
 
-For production, deploy to:
-- **Vercel** (recommended for Next.js — zero config)
-- **Cloudflare Pages** (fastest global edge)
-- Any Node.js hosting with `npm start`
+### Manual deploy via Vercel CLI (optional)
+
+```bash
+npm i -g vercel
+vercel login
+vercel link --project country-public-adjusters-website
+vercel --prod
+```
+
+### Required Vercel environment variables (Production)
+
+These must be set in the Vercel dashboard → Project → Settings → Environment Variables:
+
+- `ANTHROPIC_API_KEY` — Sarah chatbot (server-only)
+- `GHL_WEBHOOK_URL` — GoHighLevel lead webhook (server-only)
+- `NEXT_PUBLIC_SITE_URL` — `https://countrypublicadjusters.com`
+- `NEXT_PUBLIC_GTM_ID`, `NEXT_PUBLIC_META_PIXEL_ID` — analytics (optional)
+
+Without `ANTHROPIC_API_KEY` and `GHL_WEBHOOK_URL` the chatbot will not respond
+and leads will not reach the CRM.
 
 ---
 

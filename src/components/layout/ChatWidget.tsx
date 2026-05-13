@@ -18,7 +18,7 @@ const newId = () => String(++msgCounter)
 const OPENING_MESSAGE: Message = {
   id: 'open',
   role: 'assistant',
-  content: "Hi! I'm Sarah, the AI assistant for the founders of Country Public Adjusters. I'm very knowledgeable and can help with general information and next steps — though any claim-specific or coverage questions in Tennessee or Florida should be confirmed with one of our licensed adjusters.\n\nWhat's going on with your property?",
+  content: "Hi! Thank you so much for reaching out to us. My name is Sara. Who am I chatting with today?",
 }
 
 function TypingDots() {

@@ -19,7 +19,7 @@ export default function SMSConsentPage() {
             LEGAL
           </div>
           <h1 className="text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">SMS Verbal Consent Policy</h1>
-          <p className="text-white/60 text-lg">Effective Date: May 1, 2025 &nbsp;·&nbsp; Last Updated: May 2025</p>
+          <p className="text-white/60 text-lg">Effective Date: May 1, 2026 &nbsp;·&nbsp; Last Updated: May 2026</p>
         </div>
       </section>
 

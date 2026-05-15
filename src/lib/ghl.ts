@@ -2,7 +2,7 @@
 // Source-aware so the same endpoint can receive chatbot AND voice agent leads.
 // The webhook URL lives in GHL_WEBHOOK_URL (server-only, never NEXT_PUBLIC_).
 
-export type LeadSource = 'chatbot' | 'voice_agent' | 'intake_form'
+export type LeadSource = 'chatbot' | 'voice_agent' | 'intake_form' | 'website_form'
 
 export interface GHLLeadPayload {
   source: LeadSource
@@ -25,6 +25,7 @@ export interface GHLLeadPayload {
   is_urgent?: boolean
 
   // Attribution / debugging
+  form_location?: string
   session_id?: string
   page_url?: string
   user_agent?: string

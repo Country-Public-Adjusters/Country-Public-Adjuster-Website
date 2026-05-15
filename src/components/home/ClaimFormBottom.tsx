@@ -3,6 +3,8 @@
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, Phone } from 'lucide-react'
+import { Analytics } from '@/lib/analytics'
+import { submitHomepageForm } from '@/lib/homepage-form'
 
 const CLAIM_TYPES = ['Storm Damage', 'Hurricane', 'Wind Damage', 'Hail Damage', 'Water Damage', 'Roof Damage', 'Fire Damage', 'Smoke / Soot', 'Other']
 const PROPERTY_TYPES = ['Residential Home', 'Commercial Building', 'Multi-Unit / Apartment', 'Rental / Investment Property']
@@ -17,13 +19,30 @@ export default function ClaimFormBottom() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
   const [step, setStep] = useState<1 | 2 | 'done'>(1)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const [form, setForm] = useState({
     claimType: '', propertyType: '', phone: '', email: '',
     dateOfDamage: '', zipCode: '', affectsLife: '' as 'yes' | 'no' | '',
   })
 
-  const handleNext = (e: React.FormEvent) => { e.preventDefault(); setStep(2) }
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setStep('done') }
+  const handleNext = (e: React.FormEvent) => { e.preventDefault(); setSubmitError(''); setStep(2) }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitError('')
+    setSubmitting(true)
+    Analytics.ctaClick('Claim Form Submit', 'footer')
+
+    const result = await submitHomepageForm(form, 'footer')
+    setSubmitting(false)
+
+    if (result.ok) {
+      Analytics.formSubmit(form.zipCode || 'unknown', form.claimType)
+      setStep('done')
+    } else {
+      setSubmitError(result.error || 'Submission failed. Please call 1-888-397-5420.')
+    }
+  }
 
   return (
     <section id="free-inspection" ref={ref} style={{ background: '#FFFFFF' }} className="py-20 relative overflow-hidden">
@@ -138,10 +157,13 @@ export default function ClaimFormBottom() {
                       ))}
                     </div>
                   </div>
-                  <button type="submit"
-                    className="w-full py-4 rounded-xl font-black text-slate-900 flex items-center justify-center gap-2 transition-all hover:scale-[1.02] text-lg"
+                  {submitError && (
+                    <p className="text-sm text-red-400 text-center">{submitError}</p>
+                  )}
+                  <button type="submit" disabled={submitting}
+                    className="w-full py-4 rounded-xl font-black text-slate-900 flex items-center justify-center gap-2 transition-all hover:scale-[1.02] text-lg disabled:opacity-60 disabled:hover:scale-100"
                     style={{ background: 'linear-gradient(135deg, #D97706, #F59E0B)' }}>
-                    Submit Claim Details! <ArrowRight size={18} />
+                    {submitting ? 'Submitting...' : 'Submit Claim Details!'} <ArrowRight size={18} />
                   </button>
                 </form>
               )}

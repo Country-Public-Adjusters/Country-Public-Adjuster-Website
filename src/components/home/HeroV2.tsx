@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { Phone, ArrowRight } from 'lucide-react'
 import { Analytics } from '@/lib/analytics'
+import { submitHomepageForm } from '@/lib/homepage-form'
 
 const PHONE = '18883975420'
 
@@ -28,6 +29,8 @@ export default function HeroV2() {
   const heroRef = useRef<HTMLElement>(null)
   const orbRef = useRef<HTMLDivElement>(null)
   const [step, setStep] = useState<1 | 2 | 'done'>(1)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const [form, setForm] = useState({ claimType: '', propertyType: '', phone: '', email: '', dateOfDamage: '', zipCode: '', affectsLife: '' as 'yes' | 'no' | '' })
 
   // Scroll parallax
@@ -79,8 +82,23 @@ export default function HeroV2() {
     })
   }, [])
 
-  const handleNext = (e: React.FormEvent) => { e.preventDefault(); setStep(2) }
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); Analytics.ctaClick('Claim Form Submit', 'hero'); setStep('done') }
+  const handleNext = (e: React.FormEvent) => { e.preventDefault(); setSubmitError(''); setStep(2) }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitError('')
+    setSubmitting(true)
+    Analytics.ctaClick('Claim Form Submit', 'hero')
+
+    const result = await submitHomepageForm(form, 'hero')
+    setSubmitting(false)
+
+    if (result.ok) {
+      Analytics.formSubmit(form.zipCode || 'unknown', form.claimType)
+      setStep('done')
+    } else {
+      setSubmitError(result.error || 'Submission failed. Please call 1-888-397-5420.')
+    }
+  }
 
   return (
     <section ref={heroRef} className="relative overflow-hidden pt-8 pb-0" style={{ background: '#0D2545', minHeight: '90vh' }}>
@@ -265,12 +283,15 @@ export default function HeroV2() {
                         ))}
                       </div>
                     </div>
-                    <button type="submit"
-                      className="w-full py-3.5 rounded-xl font-bold text-navy-900 flex items-center justify-center gap-2 transition-all hover:scale-[1.02] group relative overflow-hidden"
+                    {submitError && (
+                      <p className="text-sm text-red-400 text-center">{submitError}</p>
+                    )}
+                    <button type="submit" disabled={submitting}
+                      className="w-full py-3.5 rounded-xl font-bold text-navy-900 flex items-center justify-center gap-2 transition-all hover:scale-[1.02] group relative overflow-hidden disabled:opacity-60 disabled:hover:scale-100"
                       style={{ background: 'linear-gradient(135deg, #D97706, #F59E0B)' }}>
                       <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"
                         style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)' }} />
-                      Submit Claim Details! <ArrowRight size={16} />
+                      {submitting ? 'Submitting...' : 'Submit Claim Details!'} <ArrowRight size={16} />
                     </button>
                   </motion.form>
                 )}

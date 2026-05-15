@@ -187,6 +187,12 @@ export default function Footer() {
             >
               Terms of Service
             </Link>
+            <Link
+              href="/sms-consent"
+              className="text-xs text-slate-400 hover:text-slate-500 transition-colors duration-200"
+            >
+              SMS Consent
+            </Link>
           </div>
         </div>
       </div>

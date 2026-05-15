@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Phone, Mail, Clock, MessageCircle, Bot, ArrowRight } from 'lucide-react'
+import { Phone, Mail, Clock, MessageCircle, Bot, ArrowRight, MapPin } from 'lucide-react'
 import FadeInView from '@/components/motion/FadeInView'
 import Link from 'next/link'
 
@@ -166,6 +166,21 @@ export default function ContactPage() {
             {CONTACT_CARDS.map((card, i) => (
               <ContactCard key={card.title} card={card} index={i} />
             ))}
+          </div>
+
+          {/* Office address */}
+          <div
+            className="flex items-start gap-4 px-6 py-5 rounded-2xl"
+            style={{ background: '#F8FAFC', border: '1.5px solid #E8EDF2' }}
+          >
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+              style={{ background: 'linear-gradient(135deg, rgba(245,158,11,0.12), rgba(245,158,11,0.06))', border: '1px solid rgba(245,158,11,0.2)' }}>
+              <MapPin size={18} style={{ color: '#D97706' }} strokeWidth={1.8} />
+            </div>
+            <div>
+              <p className="text-sm font-bold text-slate-800 mb-0.5">Office Address</p>
+              <p className="text-sm text-slate-500">7051 W Commercial Blvd Suite 3A, Tamarac, FL 33319</p>
+            </div>
           </div>
 
         </div>

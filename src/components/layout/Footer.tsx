@@ -83,7 +83,7 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-3 text-sm text-slate-400">
                 <MapPin size={15} className="text-gold-500 flex-shrink-0 mt-0.5" />
-                <span>Nashville, TN &amp; South Florida</span>
+                <span>7051 W Commercial Blvd Suite 3A<br />Tamarac, FL 33319</span>
               </div>
             </div>
           </div>

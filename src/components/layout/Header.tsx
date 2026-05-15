@@ -31,26 +31,10 @@ const NAV_LINKS = [
     label: 'Locations',
     href: '/nashville',
     children: [
-      { label: 'Nashville, TN', href: '/nashville' },
-      { label: 'Brentwood', href: '/nashville/brentwood' },
-      { label: 'Franklin', href: '/nashville/franklin' },
-      { label: 'Murfreesboro', href: '/nashville/murfreesboro' },
-      { label: 'Hendersonville', href: '/nashville/hendersonville' },
-      { label: 'Smyrna', href: '/nashville/smyrna' },
-      { label: 'Gallatin', href: '/nashville/gallatin' },
-      { label: 'Lebanon', href: '/nashville/lebanon' },
-      { label: 'Columbia', href: '/nashville/columbia' },
-      { label: 'La Vergne', href: '/nashville/la-vergne' },
-      { label: 'Mount Juliet', href: '/nashville/mount-juliet' },
-      { label: 'South Florida', href: '/south-florida' },
-      { label: 'Miami-Dade', href: '/south-florida/miami-dade' },
-      { label: 'Broward County', href: '/south-florida/broward' },
-      { label: 'Palm Beach County', href: '/south-florida/palm-beach' },
-      { label: 'Fort Lauderdale', href: '/south-florida/fort-lauderdale' },
-      { label: 'Hollywood', href: '/south-florida/hollywood' },
-      { label: 'Pompano Beach', href: '/south-florida/pompano-beach' },
-      { label: 'Boca Raton', href: '/south-florida/boca-raton' },
-      { label: 'Coral Springs', href: '/south-florida/coral-springs' },
+      { label: 'Tennessee', href: '/nashville' },
+      { label: 'Florida', href: '/south-florida' },
+      { label: 'Georgia', href: '/georgia' },
+      { label: 'New Jersey', href: '/new-jersey' },
     ],
   },
   { label: 'Property Types', href: '/#property-types' },
@@ -63,16 +47,7 @@ interface DropdownProps {
   wide?: boolean
 }
 
-// Split items into two columns at the "South Florida" hub entry
-function splitLocationItems(items: { label: string; href: string }[]) {
-  const splitIdx = items.findIndex(i => i.href === '/south-florida')
-  if (splitIdx === -1) return { tn: items, fl: [] }
-  return { tn: items.slice(0, splitIdx), fl: items.slice(splitIdx) }
-}
-
 function Dropdown({ items, isOpen, wide }: DropdownProps) {
-  const { tn, fl } = wide ? splitLocationItems(items) : { tn: items, fl: [] }
-
   return (
     <AnimatePresence>
       {isOpen && (
@@ -81,31 +56,10 @@ function Dropdown({ items, isOpen, wide }: DropdownProps) {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 6, scale: 0.97 }}
           transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-          className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 rounded-2xl backdrop-blur-xl overflow-hidden z-50 ${wide ? 'w-[440px]' : 'w-56'}`}
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 rounded-2xl backdrop-blur-xl overflow-hidden z-50 w-56"
           style={{ background: 'rgba(11,24,38,0.97)', border: '1px solid rgba(245,158,11,0.2)', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}
         >
-          {wide ? (
-            <div className="p-3 grid grid-cols-2 gap-1">
-              <div>
-                <div className="px-3 py-1.5 text-[10px] font-black tracking-widest uppercase" style={{ color: '#F59E0B' }}>Tennessee</div>
-                {tn.map((item) => (
-                  <Link key={item.href} href={item.href}
-                    className="block px-3 py-2 rounded-xl text-sm text-white/70 font-medium hover:text-gold-400 hover:bg-white/5 transition-all duration-150">
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-              <div>
-                <div className="px-3 py-1.5 text-[10px] font-black tracking-widest uppercase" style={{ color: '#F59E0B' }}>Florida</div>
-                {fl.map((item) => (
-                  <Link key={item.href} href={item.href}
-                    className="block px-3 py-2 rounded-xl text-sm text-white/70 font-medium hover:text-gold-400 hover:bg-white/5 transition-all duration-150">
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ) : (
+          {(
           <div className="p-2">
             {items.map((item) => (
               <Link
@@ -164,7 +118,7 @@ export default function Header() {
         <span className="mr-4 opacity-40">|</span>
         <span className="mr-4">Zero Cost Until We Win · Contingency Only</span>
         <span className="mr-4 opacity-40">|</span>
-        <span>Tennessee &amp; Florida</span>
+        <span>TN · FL · GA · NJ</span>
       </div>
 
       {/* Main header */}
@@ -211,7 +165,7 @@ export default function Header() {
                       {link.label}
                       <ChevronDown size={13} className={cn('transition-transform duration-200', openDropdown === link.label ? 'rotate-180' : '')} />
                     </button>
-                    <Dropdown items={link.children} isOpen={openDropdown === link.label} wide={link.label === 'Locations'} />
+                    <Dropdown items={link.children} isOpen={openDropdown === link.label} />
                   </div>
                 ) : (
                   <Link

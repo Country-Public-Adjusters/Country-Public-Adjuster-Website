@@ -17,18 +17,32 @@ const FOOTER_LINKS = {
     { label: 'Residential Property', href: '/damage/residential' },
   ],
   nashville: [
-    { label: 'Nashville Public Adjuster', href: '/nashville' },
-    { label: 'Brentwood Public Adjuster', href: '/nashville/brentwood' },
-    { label: 'Franklin Public Adjuster', href: '/nashville/franklin' },
+    { label: 'Tennessee Public Adjuster', href: '/nashville' },
+    { label: 'Brentwood', href: '/nashville/brentwood' },
+    { label: 'Franklin', href: '/nashville/franklin' },
     { label: 'Murfreesboro', href: '/nashville/murfreesboro' },
     { label: 'Hendersonville', href: '/nashville/hendersonville' },
   ],
   florida: [
-    { label: 'South Florida Public Adjuster', href: '/south-florida' },
-    { label: 'Miami-Dade Public Adjuster', href: '/south-florida/miami-dade' },
+    { label: 'Florida Public Adjuster', href: '/south-florida' },
+    { label: 'Miami-Dade County', href: '/south-florida/miami-dade' },
     { label: 'Broward County', href: '/south-florida/broward' },
     { label: 'Palm Beach County', href: '/south-florida/palm-beach' },
     { label: 'Fort Lauderdale', href: '/south-florida/fort-lauderdale' },
+  ],
+  georgia: [
+    { label: 'Georgia Public Adjuster', href: '/georgia' },
+    { label: 'Atlanta Metro', href: '/georgia' },
+    { label: 'Savannah & Coastal GA', href: '/georgia' },
+    { label: 'Augusta Area', href: '/georgia' },
+    { label: 'North Georgia', href: '/georgia' },
+  ],
+  newjersey: [
+    { label: 'New Jersey Public Adjuster', href: '/new-jersey' },
+    { label: 'Northern NJ / Bergen County', href: '/new-jersey' },
+    { label: 'Jersey Shore / Monmouth', href: '/new-jersey' },
+    { label: 'South Jersey / Camden', href: '/new-jersey' },
+    { label: 'Atlantic City Area', href: '/new-jersey' },
   ],
   company: [
     { label: 'About Country', href: '/about' },
@@ -46,7 +60,7 @@ export default function Footer() {
     <footer className="bg-navy-950">
 {/* ── Main footer grid ── */}
       <div className="container-site py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-10 lg:gap-6">
 
           {/* Brand column */}
           <div className="lg:col-span-2">
@@ -108,14 +122,14 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Nashville */}
+          {/* Tennessee */}
           <div>
             <h3 className="text-xs font-bold tracking-[0.12em] uppercase text-gold-500 mb-4">
-              Nashville Region
+              Tennessee
             </h3>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.nashville.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-sm text-slate-400 hover:text-slate-700 transition-colors duration-200"
@@ -130,11 +144,49 @@ export default function Footer() {
           {/* Florida */}
           <div>
             <h3 className="text-xs font-bold tracking-[0.12em] uppercase text-gold-500 mb-4">
-              South Florida
+              Florida
             </h3>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.florida.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-400 hover:text-slate-700 transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Georgia */}
+          <div>
+            <h3 className="text-xs font-bold tracking-[0.12em] uppercase text-gold-500 mb-4">
+              Georgia
+            </h3>
+            <ul className="space-y-2.5">
+              {FOOTER_LINKS.georgia.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-400 hover:text-slate-700 transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* New Jersey */}
+          <div>
+            <h3 className="text-xs font-bold tracking-[0.12em] uppercase text-gold-500 mb-4">
+              New Jersey
+            </h3>
+            <ul className="space-y-2.5">
+              {FOOTER_LINKS.newjersey.map((link) => (
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-sm text-slate-400 hover:text-slate-700 transition-colors duration-200"
@@ -172,7 +224,7 @@ export default function Footer() {
         <div className="container-site py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-400 text-center sm:text-left">
             © {new Date().getFullYear()} Country Public Adjusters. All rights reserved.
-            Licensed in Tennessee &amp; Florida.
+            Licensed in Tennessee, Florida, Georgia &amp; New Jersey.
           </p>
           <div className="flex items-center gap-6">
             <Link

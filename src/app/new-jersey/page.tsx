@@ -11,15 +11,37 @@ export const metadata: Metadata = {
   description: 'Country Public Adjusters serve all of New Jersey — Northern NJ, Jersey Shore, South Jersey, and statewide. Licensed public adjusters handling storm, wind, flood, and property damage claims on contingency. Free inspection, no upfront cost.',
 }
 
-const NJ_REGIONS = [
-  { name: 'Bergen & Essex County', note: 'Primary Hub' },
-  { name: 'Hudson County' },
-  { name: 'Middlesex County' },
-  { name: 'Monmouth & Shore Area' },
-  { name: 'Morris & Sussex County' },
-  { name: 'South Jersey / Camden' },
-  { name: 'Atlantic City Area' },
-  { name: 'Cape May Area' },
+const NJ_CITIES = [
+  { name: 'Newark', primary: true },
+  { name: 'Jersey City', primary: true },
+  { name: 'Paterson', primary: true },
+  { name: 'Elizabeth', primary: true },
+  { name: 'Toms River', primary: true },
+  { name: 'Edison' },
+  { name: 'Woodbridge' },
+  { name: 'Lakewood' },
+  { name: 'Hamilton' },
+  { name: 'Trenton' },
+  { name: 'Clifton' },
+  { name: 'Camden' },
+  { name: 'Brick' },
+  { name: 'Cherry Hill' },
+  { name: 'Passaic' },
+  { name: 'Middletown' },
+  { name: 'Union City' },
+  { name: 'Old Bridge' },
+  { name: 'East Orange' },
+  { name: 'Bayonne' },
+  { name: 'Franklin Township' },
+  { name: 'North Bergen' },
+  { name: 'Vineland' },
+  { name: 'New Brunswick' },
+  { name: 'Perth Amboy' },
+  { name: 'Hoboken' },
+  { name: 'Atlantic City' },
+  { name: 'Parsippany' },
+  { name: 'Gloucester Township' },
+  { name: 'Hackensack' },
 ]
 
 const LOCAL_FAQS: FAQItem[] = [
@@ -135,20 +157,20 @@ export default function NewJerseyPage() {
                 <h3 className="font-bold text-slate-900 text-lg mb-1">New Jersey service area</h3>
                 <p className="text-sm text-slate-500 mb-4">Primary hub in Northern NJ — we serve the entire state.</p>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  {NJ_REGIONS.map((region) => (
+                  {NJ_CITIES.map((city) => (
                     <span
-                      key={region.name}
+                      key={city.name}
                       className="px-3 py-1.5 rounded-full text-xs font-medium"
-                      style={region.note
+                      style={city.primary
                         ? { background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.3)', color: '#D97706' }
                         : { background: '#FFFFFF', border: '1px solid #E2E8F0', color: '#64748B' }
                       }
                     >
-                      {region.name}
+                      {city.name}
                     </span>
                   ))}
                 </div>
-                <p className="text-xs text-slate-400">We handle claims across all of New Jersey — if your property is in the state, call us.</p>
+                <p className="text-xs text-slate-400">Also serving all surrounding areas across New Jersey — if your property is in the state, call us.</p>
               </div>
             </FadeInView>
           </div>

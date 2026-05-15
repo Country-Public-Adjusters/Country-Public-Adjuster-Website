@@ -11,15 +11,37 @@ export const metadata: Metadata = {
   description: 'Country Public Adjusters serve all of Georgia — Atlanta Metro, Savannah, Augusta, and statewide. Licensed public adjusters handling storm, hail, wind, and property damage claims on contingency. Free inspection, no upfront cost.',
 }
 
-const GA_REGIONS = [
-  { name: 'Atlanta Metro', note: 'Primary Hub' },
-  { name: 'Savannah & Coastal GA' },
-  { name: 'Augusta Area' },
-  { name: 'Macon Area' },
-  { name: 'Columbus Area' },
-  { name: 'North Georgia' },
-  { name: 'Albany Area' },
-  { name: 'Rome & NW Georgia' },
+const GA_CITIES = [
+  { name: 'Atlanta', primary: true },
+  { name: 'Augusta', primary: true },
+  { name: 'Savannah', primary: true },
+  { name: 'Columbus', primary: true },
+  { name: 'Macon', primary: true },
+  { name: 'Albany' },
+  { name: 'Athens' },
+  { name: 'Warner Robins' },
+  { name: 'Roswell' },
+  { name: 'Sandy Springs' },
+  { name: 'Marietta' },
+  { name: 'Valdosta' },
+  { name: 'Smyrna' },
+  { name: 'Dunwoody' },
+  { name: 'Alpharetta' },
+  { name: 'Rome' },
+  { name: 'Peachtree City' },
+  { name: 'Johns Creek' },
+  { name: 'Gainesville' },
+  { name: 'Dalton' },
+  { name: 'Kennesaw' },
+  { name: 'Newnan' },
+  { name: 'Douglasville' },
+  { name: 'LaGrange' },
+  { name: 'Statesboro' },
+  { name: 'Carrollton' },
+  { name: 'Hinesville' },
+  { name: 'Canton' },
+  { name: 'McDonough' },
+  { name: 'Stockbridge' },
 ]
 
 const LOCAL_FAQS: FAQItem[] = [
@@ -136,20 +158,20 @@ export default function GeorgiaPage() {
                 <h3 className="font-bold text-slate-900 text-lg mb-1">Georgia service area</h3>
                 <p className="text-sm text-slate-500 mb-4">Primary hub in Atlanta Metro — we serve the entire state.</p>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  {GA_REGIONS.map((region) => (
+                  {GA_CITIES.map((city) => (
                     <span
-                      key={region.name}
+                      key={city.name}
                       className="px-3 py-1.5 rounded-full text-xs font-medium"
-                      style={region.note
+                      style={city.primary
                         ? { background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.3)', color: '#D97706' }
                         : { background: '#FFFFFF', border: '1px solid #E2E8F0', color: '#64748B' }
                       }
                     >
-                      {region.name}
+                      {city.name}
                     </span>
                   ))}
                 </div>
-                <p className="text-xs text-slate-400">We handle claims across all of Georgia — if your property is in the state, call us.</p>
+                <p className="text-xs text-slate-400">Also serving all surrounding areas across Georgia — if your property is in the state, call us.</p>
               </div>
             </FadeInView>
           </div>

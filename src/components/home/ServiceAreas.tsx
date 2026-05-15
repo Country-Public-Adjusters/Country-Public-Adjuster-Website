@@ -116,8 +116,8 @@ export default function ServiceAreas() {
             Where We <span style={{ color: '#F59E0B' }}>Fight For You</span>
           </h2>
           <p className="text-white/55 max-w-2xl mx-auto leading-relaxed">
-            We operate across <strong className="text-white">Tennessee, Florida, Georgia, and New Jersey</strong> — but we handle claims
-            across the entire state in each region. If you're in any of these states, we can help.
+            We operate across <strong className="text-white">Tennessee, Florida, Georgia, and New Jersey</strong> — and we handle claims
+            across the entire state in every region we serve. If you're in any of these states, we can help.
           </p>
         </Reveal>
 

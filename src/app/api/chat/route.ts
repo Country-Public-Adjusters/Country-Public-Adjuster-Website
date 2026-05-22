@@ -1,5 +1,4 @@
 import Anthropic from '@anthropic-ai/sdk'
-import { getSystemPrompt } from '@/lib/chatbot-sheet'
 
 export const runtime = 'nodejs'
 export const maxDuration = 30
@@ -453,7 +452,7 @@ export async function POST(req: Request) {
     }
 
     // Fetch from Google Sheet (with 5-min cache). Falls back to hard-coded if unavailable.
-    const systemPrompt = await getSystemPrompt(SYSTEM_PROMPT)
+    const systemPrompt = SYSTEM_PROMPT
 
     const response = await client.messages.create({
       model: 'claude-sonnet-4-6',
